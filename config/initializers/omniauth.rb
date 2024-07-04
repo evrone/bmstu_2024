@@ -1,1 +1,1 @@
-OmniAuth.config.full_host = ENV['HOST']
+OmniAuth.config.full_host = ENV['PROXY_HOST']

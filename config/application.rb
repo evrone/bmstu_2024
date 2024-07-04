@@ -23,6 +23,8 @@ module ProstoSite
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.hosts << "https://vya.zalygin.fvds.ru/"
+    config.hosts << ENV['BASE_HOST']
+    config.hosts << ENV['PROXY_HOST']
+    config.web_console.permissions = ENV['PROXY_IP']
   end
 end

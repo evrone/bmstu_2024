@@ -5,6 +5,8 @@ ruby "3.2.4"
 gem 'devise'
 gem 'omniauth-instagram'
 
+gem 'dotenv', groups: [:development, :test]
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 

@@ -2,7 +2,7 @@ Devise.setup do |config|
 
   config.omniauth :instagram, ENV['INSTAGRAM_ID'], ENV['INSTAGRAM_SECRET'],
                     scope: 'user_profile',
-                    callback_path: "/users/auth/instagram/callback"
+                    callback_path: "/users/auth/instagram/callback/"
 
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
