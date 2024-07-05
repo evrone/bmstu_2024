@@ -3,7 +3,8 @@ source "https://rubygems.org"
 ruby "3.2.4"
 
 gem 'devise'
-gem 'omniauth-instagram'
+gem 'omniauth-instagram', '~> 1.3'
+gem "faraday", "~> 0.8.9"
 
 gem 'dotenv', groups: [:development, :test]
 

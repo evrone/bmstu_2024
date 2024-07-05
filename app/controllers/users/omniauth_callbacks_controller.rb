@@ -1,5 +1,6 @@
-class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def instagram
+    print request.env
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
     if @user.persisted?
