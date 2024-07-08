@@ -1,3 +1,6 @@
+body {
+    margin: 0px;
+  }
 .navbar{
     display: flex;
     flex-direction: row;
@@ -96,7 +99,7 @@ letter-spacing: 0px;
 text-align: center;
 }
 .footer{
-    height: 99px;
+    height: 138px;
     left: 0;
     right: 0;
     top: 987px;
