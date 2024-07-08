@@ -1,13 +1,31 @@
 <html>
   <head>
+     <meta name="viewport" content="width=device-width" />
      <%= stylesheet_link_tag "home.css" %>
   </head>
-<h3> Главная страница <h3>
-<body>
-  <nav>
-  </nav>
-<p><%= form_tag('/auth/instagram', method: 'post', data: {turbo: false}) do %>
-  <button type='submit'>Login with Instagram</button>
-<% end %></p>
-</body>
+  <body>
+    <header>
+      <div>
+        <nav class="navbar">
+          <h3 class="name"> WhereMyLikes <h3>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="about">
+         <p class="about_text" style="order:0">Получите точную статистику просмотров ваших постов.</p>
+         <p class="about_text" style="order:1">Узнайте, кто из ваших подписчиков регулярно не ставит лайки на ваши посты.</p>
+         <p class="about_text" style="order:2">Все данные собраны в одном месте, и вам не нужно вручную подсчитывать лайки и просмотры на каждом посте.</p>
+         <p class="about_text" style="order:3">Вход через Instagram обеспечивает безопасное подключение к вашему аккаунту, и ваши данные останутся конфиденциальными.</p>
+      </div>
+      <div class="login">
+        <%= form_tag('/auth/instagram', method: 'post', data: {turbo: false}) do %>
+          <button class="login_button">Login with Instagram</button>
+        <% end %>
+      </div>
+    </main>
+    <footer class="footer">
+
+    </footer>
+  </body>
 </html>

@@ -1,0 +1,109 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+background: linear-gradient(35.47deg, rgba(255, 220, 128, 0.78) 0.612%,rgba(252, 175, 69, 0.78) 9.55%,rgba(247, 119, 55, 0.78) 20.553%,rgba(253, 29, 29, 0.78) 40.267%,rgba(225, 48, 108, 0.78) 56.698%,rgba(193, 53, 132, 0.78) 67.893%,rgba(131, 58, 180, 0.78) 77.921%,rgba(91, 81, 216, 0.78) 88.97%,rgba(64, 93, 230, 0.78) 100.045%);
+}
+.name{
+    /* WhereMyLikes */
+position: static;
+width: 333px;
+height: 56px;
+/* Автолейаут */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 46px 61px 46px 61px;
+
+/* Inside Auto Layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 10px;
+    
+color: rgb(0, 0, 0);
+font-family: Kaisei Opti;
+font-size: 36px;
+font-weight: 400;
+line-height: 52px;
+letter-spacing: 0px;
+text-align: center;
+}
+.about{
+    /* фрейм 2 */
+    
+    width: 892px;
+    height: 450px;
+    left: 99px;
+    right: 929px;
+    top: 155px;
+    bottom: 426px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px 0px 0px 20px;
+}
+.about_text{
+/* Автолейаут */
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+padding: 0px 20px 0px 0px;
+    color: rgb(0, 0, 0);
+font-family: Libre Caslon Text;
+font-size: 26px;
+font-weight: 400;
+line-height: 32px;
+letter-spacing: 0px;
+text-align: justify;
+}
+.login{
+    position: relative;
+    width: 627px;
+    height: 200px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+    margin:auto;
+}
+.login_button{
+    position: static;
+    width: 500px;
+    height: 100px;
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
+border-radius: 20px;
+background: linear-gradient(35.47deg, rgba(255, 220, 128, 0.78) -1.116%,rgba(252, 175, 69, 0.78) 7.996%,rgba(247, 119, 55, 0.78) 19.212%,rgba(253, 29, 29, 0.78) 39.31%,rgba(225, 48, 108, 0.78) 56.06%,rgba(193, 53, 132, 0.78) 67.473%,rgba(131, 58, 180, 0.78) 77.696%,rgba(91, 81, 216, 0.78) 88.96%,rgba(64, 93, 230, 0.78) 100.25%);
+color: rgb(255, 255, 255);
+font-family: Inter;
+font-size: 28px;
+font-weight: 400;
+line-height: 34px;
+letter-spacing: 0px;
+text-align: center;
+}
+.footer{
+    height: 99px;
+    left: 0;
+    right: 0;
+    top: 987px;
+    bottom: -6px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: rgb(91, 81, 216);
+
+}
