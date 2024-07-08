@@ -1,6 +1,5 @@
-require 'httparty'
-require 'uri'
 require 'instagram_basic_display'
+require 'instagram_graph_api'
 
 class SessionsController < ApplicationController
     def new
@@ -10,23 +9,16 @@ class SessionsController < ApplicationController
     def create
         code = params[:code]
 
-        response = HTTParty.post("https://api.instagram.com/oauth/access_token", 
-            body: {
-                client_id: ENV['INSTAGRAM_CLIENT_ID'] ,
-                client_secret: ENV['INSTAGRAM_CLIENT_SECRET'],
-                grant_type: 'authorization_code',
-                redirect_uri: 'https://wheremylikes.com/auth/instagram/callback/',
-                code: code
-            }
-        )
+        client = InstagramBasicDisplay::Client.new
+        
+        short_token_response = client.short_lived_token(access_code: code)
+        access_token = short_token_response.payload.access_token
+        client = InstagramBasicDisplay::Client.new(auth_token: access_token)
 
-        parsed_json = JSON.parse(response.body)
-        short_lived_token = parsed_json['access_token']
-        @user_id = parsed_json['user_id']
-        user = User.first
+        @user_id = short_token_response.payload.user_id
 
-        client = InstagramBasicDisplay::Client.new(auth_token: short_lived_token )
-        graph_client = InstagramGraphApi.client(short_lived_token)
+        graph_client = InstagramGraphApi.client(access_token)
+        puts graph_client
 
         puts graph_client.ig_business_accounts("name,profile_picture_url")
         

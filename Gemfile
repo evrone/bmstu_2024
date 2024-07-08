@@ -1,19 +1,15 @@
 source "https://rubygems.org"
 
 ruby "3.2.4"
-#gem 'oauth2', '~> 1.4.9'
+
+# gem 'omniauth-instagram-graph'
+# gem 'omniauth-instagram_display'
+
 gem 'devise'
-gem 'httparty'
-# gem 'uri'
-# gem 'omniauth-instagram', '~> 1.3'
-# gem "faraday", "~> 0.17.3"
-# gem 'insta-api'
-gem 'omniauth'
 gem 'omniauth-instagram'
 gem 'instagram_basic_display'
 gem 'instagram_graph_api'
-gem 'omniauth-instagram-graph'
-#gem 'omniauth-instagram_display'
+
 gem 'dotenv', groups: [:development, :test]
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
