@@ -1,2 +1,5 @@
 <h3> Главная страница <h3>
-<p> <%= link_to "Sign in with Instagram", user_instagram_omniauth_authorize_path %> <p>
+
+<p><%= form_tag('/auth/instagram', method: 'post', data: {turbo: false}) do %>
+  <button type='submit'>Login with Instagram</button>
+<% end %></p>
