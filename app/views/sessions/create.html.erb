@@ -1,10 +1,7 @@
 <div>Your id is : <%= @user_id %>
-    </div>
-    <div> Your username is : <%= @instagram_username%>
-    </div>
-    <div> <%=@media_data %></div>
-    <div><%= image_tag @photos %>
-        </div>
-
-
-       
+<div> Your username is : <%= @instagram_username%>
+<% @photos.each do |photo| %>
+  <div class="photo">
+     <%= image_tag photo %>
+  </div>
+<% end %>
