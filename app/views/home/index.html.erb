@@ -1,5 +1,13 @@
+<html>
+  <head>
+     <%= stylesheet_link_tag "home.css" %>
+  </head>
 <h3> Главная страница <h3>
-
+<body>
+  <nav>
+  </nav>
 <p><%= form_tag('/auth/instagram', method: 'post', data: {turbo: false}) do %>
   <button type='submit'>Login with Instagram</button>
 <% end %></p>
+</body>
+</html>
