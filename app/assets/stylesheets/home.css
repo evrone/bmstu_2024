@@ -84,6 +84,7 @@ text-align: justify;
     order: 0;
     flex-grow: 0;
     margin: 0px 10px;
+    border: none;
 border-radius: 20px;
 background: linear-gradient(35.47deg, rgba(255, 220, 128, 0.78) -1.116%,rgba(252, 175, 69, 0.78) 7.996%,rgba(247, 119, 55, 0.78) 19.212%,rgba(253, 29, 29, 0.78) 39.31%,rgba(225, 48, 108, 0.78) 56.06%,rgba(193, 53, 132, 0.78) 67.473%,rgba(131, 58, 180, 0.78) 77.696%,rgba(91, 81, 216, 0.78) 88.96%,rgba(64, 93, 230, 0.78) 100.25%);
 color: rgb(255, 255, 255);
