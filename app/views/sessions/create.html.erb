@@ -1,7 +1,31 @@
-<div>Your id is : <%= @user_id %>
-<div> Your username is : <%= @instagram_username%>
-<% @photos.each do |photo| %>
-  <div class="photo">
-     <%= image_tag photo %>
-  </div>
-<% end %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram-like Photo Grid</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <header>
+    <div>
+        <nav class="navbar">
+          <h3 class="name"> WhereMyLikes <h3>
+        </nav>
+      </div>
+  </header>
+  <main>
+    <div>Your id is : <%= @user_id %>
+    <div> Your username is : <%= @instagram_username%>
+    <div class="photo-grid">
+    <% @photos.each do |photo| %>
+      <div class="photo">
+        <%= image_tag photo %>
+      </div>
+    <% end %>
+  </main>
+  <footer class="footer">
+  </footer>
+</body>
+</html>
