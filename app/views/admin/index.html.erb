@@ -1,2 +1,7 @@
-<h1>Admin#index</h1>
-<p>Find me in app/views/admin/index.html.erb</p>
+<h1>Admin Panel</h1>
+<div>Users count: <%= @users.length %></div>
+<div>
+  <% @users.each do |user| %>
+    <div><%= user.id %></div>
+  <% end %>
+</div>
