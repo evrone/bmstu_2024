@@ -1,7 +1,11 @@
 body {
-    margin: 0px;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 .navbar{
+    width: auto;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -9,9 +13,15 @@ body {
     
 background: linear-gradient(35.47deg, rgba(255, 220, 128, 0.78) 0.612%,rgba(252, 175, 69, 0.78) 9.55%,rgba(247, 119, 55, 0.78) 20.553%,rgba(253, 29, 29, 0.78) 40.267%,rgba(225, 48, 108, 0.78) 56.698%,rgba(193, 53, 132, 0.78) 67.893%,rgba(131, 58, 180, 0.78) 77.921%,rgba(91, 81, 216, 0.78) 88.97%,rgba(64, 93, 230, 0.78) 100.045%);
 }
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .name{
     /* WhereMyLikes */
-position: static;
+position: relative;
 width: 333px;
 height: 56px;
 /* Автолейаут */
@@ -38,8 +48,8 @@ text-align: center;
 .about{
     /* фрейм 2 */
     
-    width: 892px;
-    height: 450px;
+    width: auto;
+    height: auto;
     left: 99px;
     right: 929px;
     top: 155px;
@@ -68,47 +78,55 @@ text-align: justify;
 }
 .login{
     position: relative;
-    width: 627px;
-    height: 200px;
-    /* Автолейаут */
+    width: 100%;
+    height: 100px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
-    margin:auto;
+    margin: auto;
+    margin-bottom: 68px;
 }
 .login_button{
-    position: static;
-    width: 500px;
+    position: relative;
+    width: fit-content;
     height: 100px;
-    /* Inside Auto Layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex: none;
     order: 0;
     flex-grow: 0;
     margin: 0px 10px;
     border: none;
-border-radius: 20px;
-background: linear-gradient(35.47deg, rgba(255, 220, 128, 0.78) -1.116%,rgba(252, 175, 69, 0.78) 7.996%,rgba(247, 119, 55, 0.78) 19.212%,rgba(253, 29, 29, 0.78) 39.31%,rgba(225, 48, 108, 0.78) 56.06%,rgba(193, 53, 132, 0.78) 67.473%,rgba(131, 58, 180, 0.78) 77.696%,rgba(91, 81, 216, 0.78) 88.96%,rgba(64, 93, 230, 0.78) 100.25%);
-color: rgb(255, 255, 255);
-font-family: Inter;
-font-size: 28px;
-font-weight: 400;
-line-height: 34px;
-letter-spacing: 0px;
-text-align: center;
+    border-radius: 20px;
+    background: linear-gradient(35.47deg, rgba(255, 220, 128, 0.78) -1.116%, rgba(252, 175, 69, 0.78) 7.996%, rgba(247, 119, 55, 0.78) 19.212%, rgba(253, 29, 29, 0.78) 39.31%, rgba(225, 48, 108, 0.78) 56.06%, rgba(193, 53, 132, 0.78) 67.473%, rgba(131, 58, 180, 0.78) 77.696%, rgba(91, 81, 216, 0.78) 88.96%, rgba(64, 93, 230, 0.78) 100.25%);
+    color: rgb(255, 255, 255);
+    font-family: Inter;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 34px;
+    letter-spacing: 0px;
+    text-align: center;
+}
+.inst_logo{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+
 }
 .footer{
-    height: 138px;
-    left: 0;
-    right: 0;
-    top: 987px;
-    bottom: -6px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background: rgb(91, 81, 216);
+  
+        height: 138px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background: rgb(91, 81, 216);
+        width: 100%;
 
 }
 .photo-grid {

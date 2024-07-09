@@ -1,6 +1,6 @@
 <html>
   <head>
-     <meta name="viewport" content="width=device-width" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
      <%= stylesheet_link_tag "home.css" %>
   </head>
   <body>
@@ -20,7 +20,7 @@
       </div>
       <div class="login">
         <%= form_tag('/auth/instagram', method: 'post', data: {turbo: false}) do %>
-          <button class="login_button">Login with Instagram</button>
+          <button class="login_button"><%=image_tag "pngwing.com.png", :class=>"inst_logo" %>Continue with Instagram</button>
         <% end %>
       </div>
     </main>
