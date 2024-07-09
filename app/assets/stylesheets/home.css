@@ -121,16 +121,23 @@ main {
 
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 0.5fr);
     gap: 10px;
     padding: 10px;
     max-width: 1200px;
     margin: 0 auto;
+    flex-shrink: 0;
 }
 
 .photo {
-    position: relative;
-    overflow: hidden;
+    /* position: absolute; */
+    /* overflow: hidden; */
+    width:  400px;
+    height: 600px;
+    flex-shrink: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-color: #efe4f0; */
 }
 @media (max-width: 768px) {
     .about_text {
