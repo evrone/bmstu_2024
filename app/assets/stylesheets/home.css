@@ -109,6 +109,11 @@ text-align: justify;
     line-height: 34px;
     letter-spacing: 0px;
     text-align: center;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+.login_button:hover {
+    background: linear-gradient(35.47deg, rgba(255, 220, 128, 1) -1.116%, rgba(252, 175, 69, 1) 7.996%, rgba(247, 119, 55, 1) 19.212%, rgba(253, 29, 29, 1) 39.31%, rgba(225, 48, 108, 1) 56.06%, rgba(193, 53, 132, 1) 67.473%, rgba(131, 58, 180, 1) 77.696%, rgba(91, 81, 216, 1) 88.96%, rgba(64, 93, 230, 1) 100.25%);
+    transform: scale(1.05);
 }
 .inst_logo{
     position: relative;
