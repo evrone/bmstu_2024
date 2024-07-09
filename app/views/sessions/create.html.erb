@@ -20,10 +20,11 @@
     <div> Your username is : <%= @instagram_username%>
     <div class="photo-grid">
     <% @photos.each do |photo| %>
-      <div class="photo">
-        <%= image_tag photo %>
+      <div class="photo" style="background-image: url(<%= photo %>)">
+        <%# <%= image_tag photo %> 
       </div>
     <% end %>
+    </div>
   </main>
   <footer class="footer">
   </footer>

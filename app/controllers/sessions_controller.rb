@@ -10,18 +10,21 @@ class SessionsController < ApplicationController
         code = params[:code]
 
         client = InstagramBasicDisplay::Client.new
-        
+
         short_token_response = client.short_lived_token(access_code: code)
         access_token = short_token_response.payload.access_token
         client = InstagramBasicDisplay::Client.new(auth_token: access_token)
 
         @user_id = short_token_response.payload.user_id
 
+        long_token_request = client.long_lived_token(short_lived_token: access_token)
+        access_token = short_token_response.payload.access_token
+        client = InstagramBasicDisplay::Client.new(auth_token: access_token)
+
         graph_client = InstagramGraphApi.client(access_token)
         puts graph_client
-
         puts graph_client.ig_business_accounts("name,profile_picture_url")
-        
+
         response = client.profile(user_id: @user_id, fields: %i[username])
         @instagram_username = response.payload.username
 
