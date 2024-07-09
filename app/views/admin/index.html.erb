@@ -1,7 +1,7 @@
 <h1>Admin Panel</h1>
 <div>Users count: <%= @users.length %></div>
-<div>
+<div style="margin-top: 20px">
   <% @users.each do |user| %>
-    <div><%= user.id %></div>
+    <div>User: <%= link_to "#{user.username}", user %></div>
   <% end %>
 </div>
