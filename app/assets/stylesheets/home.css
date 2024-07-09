@@ -1,14 +1,16 @@
-body {
+html,body {
     margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; 
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 header {
     flex-shrink: 0;
-    width: 100%; /* Ensure header takes full width */
+    width: 100%; 
 }
 
 main {
@@ -16,12 +18,12 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%; /* Ensure main takes full width */
-    padding: 0 10px; /* Add padding to main content */
+    width: 100%; 
+    padding: 0 10px; 
 }
 
 .navbar {
-    width: 100%; /* Ensure navbar takes full width */
+    width: 100%; 
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -30,8 +32,8 @@ main {
 }
 
 .name {
-    flex: 1; /* Make sure .name takes available space */
-    padding: 46px 20px; /* Adjust padding */
+    flex: 1; 
+    padding: 46px 20px; 
     color: rgb(0, 0, 0);
     font-family: Kaisei Opti;
     font-size: 36px;
@@ -42,27 +44,29 @@ main {
 }
 
 .about {
-    width: 100%; /* Ensure about section takes full width */
+    width: 100%; 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     padding: 20px;
+    box-sizing: border-box; 
 }
-
 .about_text {
     color: rgb(0, 0, 0);
     font-family: Libre Caslon Text;
     font-size: 26px;
     font-weight: 400;
-    line-height: 32px;
+    line-height: 1.5; 
     letter-spacing: 0px;
     text-align: justify;
-    margin-bottom: 10px; /* Add spacing between paragraphs */
+    margin-bottom: 10px; 
+    width: 100%; 
+    box-sizing: border-box; 
 }
 
 .login {
-    width: 100%; /* Ensure login section takes full width */
+    width: 100%; 
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -73,8 +77,8 @@ main {
 }
 
 .login_button {
-    width: 90%; /* Make button responsive */
-    max-width: 400px; /* Set maximum width */
+    width: 90%; 
+    max-width: 400px; 
     height: 100px;
     display: flex;
     justify-content: center;
