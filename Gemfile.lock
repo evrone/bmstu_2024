@@ -106,7 +106,6 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    dotenv (3.1.2)
     drb (2.2.1)
     erubi (1.13.0)
     faraday (2.9.2)
@@ -303,7 +302,6 @@ DEPENDENCIES
   capybara
   debug
   devise
-  dotenv
   importmap-rails
   instagram_basic_display
   instagram_graph_api
