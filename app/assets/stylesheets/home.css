@@ -34,7 +34,7 @@ main {
 .name {
     flex: 1; 
     padding: 46px 20px; 
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-family: Kaisei Opti;
     font-size: 36px;
     font-weight: 400;
@@ -78,7 +78,7 @@ main {
 
 .login_button {
     width: 90%; 
-    max-width: 400px; 
+    max-width: 500px; 
     height: 100px;
     display: flex;
     justify-content: center;
@@ -94,6 +94,7 @@ main {
     letter-spacing: 0px;
     text-align: center;
     transition: background 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
 }
 
 .login_button:hover {
@@ -130,4 +131,24 @@ main {
 .photo {
     position: relative;
     overflow: hidden;
+}
+@media (max-width: 768px) {
+    .about_text {
+        font-size: 22px;
+    }
+    
+    .login_button {
+        width: 90%; 
+        max-width: 400px; 
+        font-size: 24px;
+        white-space: normal; 
+    }
+}
+
+@media (min-width: 769px) {
+    .login_button {
+        width: 100%; 
+        max-width: 600px; 
+        font-size: 28px; 
+    }
 }
