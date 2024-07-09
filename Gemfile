@@ -2,9 +2,13 @@ source "https://rubygems.org"
 
 ruby "3.2.4"
 
+# gem 'omniauth-instagram-graph'
+# gem 'omniauth-instagram_display'
+
 gem 'devise'
-gem 'omniauth-instagram', '~> 1.3'
-gem "faraday", "~> 0.8.9"
+gem 'omniauth-instagram'
+gem 'instagram_basic_display'
+gem 'instagram_graph_api'
 
 gem 'dotenv', groups: [:development, :test]
 
