@@ -29,7 +29,7 @@ main {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    background: linear-gradient(35.47deg, rgba(255, 220, 128, 0.78) 0.612%, rgba(252, 175, 69, 0.78) 9.55%, rgba(247, 119, 55, 0.78) 20.553%, rgba(253, 29, 29, 0.78) 40.267%, rgba(225, 48, 108, 0.78) 56.698%, rgba(193, 53, 132, 0.78) 67.893%, rgba(131, 58, 180, 0.78) 77.921%, rgba(91, 81, 216, 0.78) 88.97%, rgba(64, 93, 230, 0.78) 100.045%);
+    /* background: linear-gradient(35.47deg, rgba(255, 220, 128, 0.78) 0.612%, rgba(252, 175, 69, 0.78) 9.55%, rgba(247, 119, 55, 0.78) 20.553%, rgba(253, 29, 29, 0.78) 40.267%, rgba(225, 48, 108, 0.78) 56.698%, rgba(193, 53, 132, 0.78) 67.893%, rgba(131, 58, 180, 0.78) 77.921%, rgba(91, 81, 216, 0.78) 88.97%, rgba(64, 93, 230, 0.78) 100.045%); */
 }
 
 .name {
@@ -149,6 +149,7 @@ main {
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   }
+
 
 @media (max-width: 768px) {
     .about_text {
