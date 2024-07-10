@@ -3,3 +3,9 @@ class UsersController < ApplicationController
       
     end
   end
+
+  def show
+    user = User.find(params[:id])
+    @profile = user.get_profile_info
+  end
+end

@@ -10,6 +10,8 @@ gem 'omniauth-instagram'
 gem 'instagram_basic_display'
 gem 'instagram_graph_api'
 
+gem 'open-uri'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 
