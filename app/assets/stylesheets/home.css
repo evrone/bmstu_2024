@@ -20,6 +20,7 @@ main {
     justify-content: center;
     width: 100%; 
     padding: 0 10px; 
+    font-size: 22px;
 }
 
 .navbar {
