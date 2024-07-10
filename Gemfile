@@ -2,8 +2,13 @@ source "https://rubygems.org"
 
 ruby "3.2.4"
 
+# gem 'omniauth-instagram-graph'
+# gem 'omniauth-instagram_display'
+
 gem 'devise'
 gem 'omniauth-instagram'
+gem 'instagram_basic_display'
+gem 'instagram_graph_api'
 
 gem 'open-uri'
 

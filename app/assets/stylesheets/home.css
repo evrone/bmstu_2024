@@ -1,0 +1,164 @@
+html,body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    flex-shrink: 0;
+    width: 100%; 
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%; 
+    padding: 0 10px; 
+    font-family: Book Antiqua;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar {
+    width: 100%; 
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: linear-gradient(35.47deg, rgba(255, 220, 128, 0.78) 0.612%, rgba(252, 175, 69, 0.78) 9.55%, rgba(247, 119, 55, 0.78) 20.553%, rgba(253, 29, 29, 0.78) 40.267%, rgba(225, 48, 108, 0.78) 56.698%, rgba(193, 53, 132, 0.78) 67.893%, rgba(131, 58, 180, 0.78) 77.921%, rgba(91, 81, 216, 0.78) 88.97%, rgba(64, 93, 230, 0.78) 100.045%);
+}
+
+.name {
+    flex: 1; 
+    padding: 46px 20px; 
+    color: rgb(255, 255, 255);
+    font-family: Kaisei Opti;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 52px;
+    letter-spacing: 0px;
+    text-align: center;
+}
+
+.about {
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    box-sizing: border-box; 
+}
+.about_text {
+    color: rgb(0, 0, 0);
+    font-family: Libre Caslon Text;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.5; 
+    letter-spacing: 0px;
+    text-align: justify;
+    margin-bottom: 10px; 
+    width: 90%; 
+    box-sizing: border-box; 
+}
+
+.login {
+    width: 100%; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 68px;
+}
+
+.login_button {
+    width: 90%; 
+    max-width: 500px; 
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(35.47deg, rgba(255, 220, 128, 0.78) -1.116%, rgba(252, 175, 69, 0.78) 7.996%, rgba(247, 119, 55, 0.78) 19.212%, rgba(253, 29, 29, 0.78) 39.31%, rgba(225, 48, 108, 0.78) 56.06%, rgba(193, 53, 132, 0.78) 67.473%, rgba(131, 58, 180, 0.78) 77.696%, rgba(91, 81, 216, 0.78) 88.96%, rgba(64, 93, 230, 0.78) 100.25%);
+    color: rgb(255, 255, 255);
+    font-family: Inter;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 34px;
+    letter-spacing: 0px;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+}
+
+.login_button:hover {
+    background: linear-gradient(35.47deg, rgba(255, 220, 128, 1) -1.116%, rgba(252, 175, 69, 1) 7.996%, rgba(247, 119, 55, 1) 19.212%, rgba(253, 29, 29, 1) 39.31%, rgba(225, 48, 108, 1) 56.06%, rgba(193, 53, 132, 1) 67.473%, rgba(131, 58, 180, 1) 77.696%, rgba(91, 81, 216, 1) 88.96%, rgba(64, 93, 230, 1) 100.25%);
+    transform: scale(1.05);
+}
+
+.inst_logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.footer {
+    height: 138px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: rgb(91, 81, 216);
+    width: 100%;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 0.5fr);
+    gap: 10px;
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-shrink: 0;
+}
+
+.photo {
+    /* position: absolute; */
+    /* overflow: hidden; */
+    width:  400px;
+    height: 600px;
+    flex-shrink: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-color: #efe4f0; */
+}
+@media (max-width: 768px) {
+    .about_text {
+        font-size: 22px;
+    }
+    
+    .login_button {
+        width: 90%; 
+        max-width: 400px; 
+        font-size: 24px;
+        white-space: normal; 
+    }
+}
+
+@media (min-width: 769px) {
+    .login_button {
+        width: 100%; 
+        max-width: 600px; 
+        font-size: 28px; 
+    }
+}

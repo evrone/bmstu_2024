@@ -108,18 +108,24 @@ GEM
       warden (~> 1.2.3)
     drb (2.2.1)
     erubi (1.13.0)
-    faraday (0.17.6)
-      multipart-post (>= 1.2, < 3)
+    faraday (2.9.2)
+      faraday-net_http (>= 2.0, < 3.2)
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
+    faraday-net_http (3.1.0)
+      net-http
     globalid (1.2.1)
       activesupport (>= 6.1)
-    hashie (2.1.2)
-    httpauth (0.2.1)
+    hashie (5.0.0)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
+    instagram_basic_display (0.2.0)
+    instagram_graph_api (0.0.13)
+      koala
     io-console (0.7.2)
     irb (1.13.2)
       rdoc (>= 4.0.0)
@@ -127,6 +133,16 @@ GEM
     jbuilder (2.12.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json (2.7.2)
+    jwt (2.8.2)
+      base64
+    koala (3.6.0)
+      addressable
+      base64
+      faraday
+      faraday-multipart
+      json (>= 1.8)
+      rexml
     logger (1.6.0)
     loofah (2.22.0)
       crass (~> 1.0.2)
@@ -141,9 +157,12 @@ GEM
     mini_mime (1.1.5)
     minitest (5.24.1)
     msgpack (1.7.2)
-    multi_json (1.15.0)
+    multi_xml (0.7.1)
+      bigdecimal (~> 3.1)
     multipart-post (2.4.1)
     mutex_m (0.2.0)
+    net-http (0.4.1)
+      uri
     net-imap (0.4.14)
       date
       net-protocol
@@ -156,19 +175,22 @@ GEM
     nio4r (2.7.3)
     nokogiri (1.16.6-x86_64-linux)
       racc (~> 1.4)
-    oauth2 (0.6.1)
-      faraday (~> 0.7)
-      httpauth (~> 0.1)
-      multi_json (~> 1.3)
-    omniauth (1.1.4)
-      hashie (>= 1.2, < 3)
-      rack
+    oauth2 (2.0.9)
+      faraday (>= 0.17.3, < 3.0)
+      jwt (>= 1.0, < 3.0)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 4)
+      snaky_hash (~> 2.0)
+      version_gem (~> 1.1)
+    omniauth (1.9.2)
+      hashie (>= 3.4.6)
+      rack (>= 1.6.2, < 3)
     omniauth-instagram (1.3.0)
       omniauth (~> 1)
       omniauth-oauth2 (~> 1)
-    omniauth-oauth2 (1.0.2)
-      oauth2 (~> 0.6.0)
-      omniauth (~> 1.0)
+    omniauth-oauth2 (1.7.3)
+      oauth2 (>= 1.4, < 3)
+      omniauth (>= 1.9, < 3)
     orm_adapter (0.5.0)
     psych (5.1.2)
       stringio
@@ -176,14 +198,14 @@ GEM
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.8.0)
-    rack (3.1.6)
-    rack-session (2.0.0)
-      rack (>= 3.0.0)
+    rack (2.2.9)
+    rack-session (1.0.2)
+      rack (< 3)
     rack-test (2.1.0)
       rack (>= 1.3)
-    rackup (2.1.0)
-      rack (>= 3)
-      webrick (~> 1.8)
+    rackup (1.0.0)
+      rack (< 3)
+      webrick
     rails (7.1.3.4)
       actioncable (= 7.1.3.4)
       actionmailbox (= 7.1.3.4)
@@ -231,6 +253,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    snaky_hash (2.0.1)
+      hashie
+      version_gem (~> 1.1, >= 1.1.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -251,6 +276,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    uri (0.13.0)
+    version_gem (1.1.4)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -276,6 +303,8 @@ DEPENDENCIES
   debug
   devise
   importmap-rails
+  instagram_basic_display
+  instagram_graph_api
   jbuilder
   omniauth-instagram
   puma (>= 5.0)
