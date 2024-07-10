@@ -38,14 +38,19 @@
           </div>
         </div>
         <section id="ffc-calculator" class="container mobile-adjusted">
-          <div id="ffc-form">
-            <input type="string" required="required" placeholder="Enter Instagram @username">
-            <button type="submit">
-              <span>Check stats</span>
-            </button>
-          </div><!----> 
+          <div id="ffc-form" class="form-group">
+            <input type="string" class="form-control" required="required" placeholder="Enter Instagram @username">
+            <div class="d-flex justify-content-center mt-2">
+              <button type="submit" class="btn btn-dark mt-2">
+                <span>Check stats</span>
+              </button>
+            </div>
+          </div>
           <div id="ffc-result" class="card row section">
-            <div class="col-xs-12 col-md-6 profile-info">
+            <div class="container">
+              <div class="row row-cols-2">
+                <div class="col">
+            <div class="col-md-12 profile-info text-center">
               <img src="https://d3aqwrzdsjcw3e.cloudfront.net/Fkxjvj7qICrK-_rv7sgjaX7Y9_rR5B3nPsPjRj9ZyNs/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yODg1LTE5LzM1NjIxNTMyOF82NzE4MzQ4MzQ3NjM2MDdfMTA3MjQxMzExMTM0ODY1MDg4M19uLmpwZz9zdHA9ZHN0LWpwZ19lMF9zMTUweDE1MCZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMDcmX25jX29oYz1SeW1lNjVxeHJ2TVE3a052Z0dlcE9lcSZlZG09QUVGOHRZWUJBQUFBJmNjYj03LTUmb2g9MDBfQVlEYkVsb0dpYlF5YWI3NzhGVk90N2lWbHV2azVIWDZ3Qm1rNk1IQWNpWFk2dyZvZT02NjkyMzIyMyZfbmNfc2lkPTFlMjBkMg" alt="amoureuxdumonde"> 
               <p class="username">@amoureuxdumonde</p>
               <span class="tag tag--exceptional">
@@ -110,7 +115,9 @@
                 </div>
               </div>
             </div> 
-            <div class="col-xs-12 col-md-6 data-info">
+            </div>
+            <div class="col">
+            <div class="col-md-12 data-info text-center">
               <div class="row">
                 <div class="col-xs-12">
                   <div class="card ratio-followers">
@@ -176,7 +183,8 @@
             </div>
           </div> 
           <div class="col-xs-12 col-md-12 posts-info">
-            <div class="row"><div class="col-xs-12 col-md-12 posts">
+            <div class="row">
+              <div class="col-xs-12 col-md-12 posts">
               <div class="card">
                 <p class="card-title">Latest Audience Engagement</p> 
                 <div class="row">
@@ -317,11 +325,12 @@
                   </div>
                 </div>
               </div>
+              </div>
             </div>
           </div>
-          <div class="col-lg-12">
+          <%# <div class="col-lg-12">
             <p class="subtext col-md-6">We use the avg. likes &amp; comments then compare them to industry standards by following size. This calculator does not analyse followers, so the audience score is an estimation.</p>
-          </div>
+          </div> %>
         </section>
       </div>
     </main>

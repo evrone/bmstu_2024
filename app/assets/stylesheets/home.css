@@ -140,6 +140,16 @@ main {
     background-repeat: no-repeat;
     /* background-color: #efe4f0; */
 }
+
+#ffc-form {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
 @media (max-width: 768px) {
     .about_text {
         font-size: 22px;
