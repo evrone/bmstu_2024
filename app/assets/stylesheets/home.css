@@ -140,6 +140,18 @@ main {
     background-repeat: no-repeat;
     /* background-color: #efe4f0; */
 }
+.img{
+    width: 180px;
+    height: 180px;
+    flex-shrink: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover
+    ;
+}
+.post{
+    font-size: 16px;
+}
 
 #ffc-form {
     max-width: 600px;
@@ -149,6 +161,7 @@ main {
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   }
+
 
 @media (max-width: 768px) {
     .about_text {
