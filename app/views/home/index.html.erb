@@ -7,26 +7,49 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   </head>
   <body>
-   <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-        <span class="fs-4">Simple header</span>
-      </a>
 
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary py-4">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
       </ul>
-    </header>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
     <main>
       <div id="ffc-calculator__wrap">
         <section id="ffc-header" class="container mobile-adjusted page-top">
-          <h1 style="text-align: center; font-weight: bold;">Instagram Fake Follower checker</h1> 
+          <h1 style="text-align: center; font-weight: bold;">Instagram Fake Follower checker</h1>
           <p>Get an influencer’s audience audit &amp; identify fake, dormant or suspect followers to evaluate an influencer’s audience quality.</p>
-        </section> 
+        </section>
         <div id="unlockCalculator" class="unlock-calculator-popup popupOverlay">
           <div>
             <div class="content">
@@ -59,27 +82,27 @@
               <div class="audience-score row shadow p-3 m-auto">
                 <div class="gauge-wrapper card col-xs-12">
                   <div>
-                    <p class="score">10.0<br> 
+                    <p class="score">10.0<br>
                       <span>Audience Score</span>
                     </p>
-                  </div> 
+                  </div>
                   <svg viewBox="-100 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                    <path id="gauge_back" stroke="#F0F0F0" stroke-width="11" stroke-linecap="round" d="M 275 159.99999999999997 A 125 125 0 0 0 25 160.00000000000003"></path> 
-                    <path id="gauge" fill="none" d="M 275 159.99999999999997 A 125 125 0 0 0 25 160.00000000000003" stroke="url(#paint0_linear_2410_5725)" stroke-width="11" stroke-linecap="round"></path> 
-                    <g filter="url(#filter0_d_2410_5728)"><circle cx="275" cy="159.99999999999997" r="8.5" fill="white" id="circle"></circle></g> 
+                    <path id="gauge_back" stroke="#F0F0F0" stroke-width="11" stroke-linecap="round" d="M 275 159.99999999999997 A 125 125 0 0 0 25 160.00000000000003"></path>
+                    <path id="gauge" fill="none" d="M 275 159.99999999999997 A 125 125 0 0 0 25 160.00000000000003" stroke="url(#paint0_linear_2410_5725)" stroke-width="11" stroke-linecap="round"></path>
+                    <g filter="url(#filter0_d_2410_5728)"><circle cx="275" cy="159.99999999999997" r="8.5" fill="white" id="circle"></circle></g>
                     <defs>
                       <linearGradient id="paint0_linear_2410_5725" x1="6" y1="123" x2="240" y2="123" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#FFE9F0"></stop> 
-                        <stop offset="0.510417" stop-color="#FAECDB"></stop> 
+                        <stop stop-color="#FFE9F0"></stop>
+                        <stop offset="0.510417" stop-color="#FAECDB"></stop>
                         <stop offset="1" stop-color="#D6EBE4"></stop>
-                      </linearGradient> 
+                      </linearGradient>
                       <filter id="filter0_d_2410_5728" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood> 
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix> 
-                        <feOffset dy="4"></feOffset> 
-                        <feGaussianBlur stdDeviation="4.5"></feGaussianBlur> 
-                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"></feColorMatrix> 
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2410_5728"></feBlend> 
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+                        <feOffset dy="4"></feOffset>
+                        <feGaussianBlur stdDeviation="4.5"></feGaussianBlur>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"></feColorMatrix>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2410_5728"></feBlend>
                         <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2410_5728" result="shape"></feBlend>
                       </filter>
                     </defs>
@@ -91,30 +114,30 @@
                   <div class="row">
                     <div class="followers col-xs-12 col-sm-4 col-md-4">
                       <svg width="15" height="19" viewBox="0 0 15 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="7.49995" cy="5.07143" r="4.28571" fill="#E7CAA7"></circle> 
+                        <circle cx="7.49995" cy="5.07143" r="4.28571" fill="#E7CAA7"></circle>
                         <path d="M0 17.9286C0 13.7864 3.35786 10.4286 7.5 10.4286C11.6421 10.4286 15 13.7864 15 17.9286V19H0V17.9286Z" fill="#E7CAA7"></path>
-                      </svg> 
-                      <p>169.7k</p> 
+                      </svg>
+                      <p>169.7k</p>
                       <span>Followers</span>
-                    </div> 
+                    </div>
                     <div class="engagement col-xs-12 col-sm-4 col-md-4">
                       <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7.555 20.8202V13.7113C7.555 13.5479 7.37868 13.4171 7.15828 13.4171H0.392096C0.08354 13.4171 -0.103797 13.172 0.0615003 12.9759L10.5524 0C11.0152 0.0980545 10.9711 0.0898833 11.434 0.179767V7.28872C11.434 7.45214 11.6103 7.58288 11.8307 7.58288H18.6079C18.9165 7.58288 19.1038 7.82802 18.9385 8.02412L8.43658 21C7.97375 20.9101 8.01783 20.9183 7.555 20.8202Z"></path>
-                      </svg> 
-                      <p>1.81%</p> 
+                      </svg>
+                      <p>1.81%</p>
                       <span>Engagement Rate</span>
-                    </div> 
+                    </div>
                     <div class="likes col-xs-12 col-sm-4 col-md-4">
                       <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.798 1.09275C13.4817 1.06171 11.448 2.10372 10.7676 4.11432C10.1414 2.0862 8.13634 0.990069 5.82002 0.959025C2.90977 0.920021 0.562401 3.2053 0.523397 6.11555C0.475637 9.67913 2.26349 13.6831 10.5694 18.9032C19.0717 13.9084 20.9068 9.95295 20.9546 6.38938C20.9936 3.47912 18.7083 1.13176 15.798 1.09275Z"></path>
-                      </svg> 
-                      <p>2.95k</p> 
+                      </svg>
+                      <p>2.95k</p>
                       <span>Avg. Likes</span>
                     </div>
                   </div>
                 </div>
               </div>
-            </div> 
+            </div>
             </div>
             <div class="col">
             <div class="col-md-12 data-info text-center p-3 shadow">
@@ -125,22 +148,22 @@
                       <div class="col-lg-4 col-xs-12 real-followers">
                         <p>170k</p>
                         <span>Real Followers ≈</span>
-                      </div> 
+                      </div>
                       <div class="col-lg-8 col-xs-12">
-                        <p class="percent">100%</p> 
+                        <p class="percent">100%</p>
                         <div class="data-progressbar">
                           <span id="followers-data-progress" class="data-progressbar--fill" style="background-color: rgb(231, 202, 167); width: 100%;"></span>
                         </div>
                       </div>
-                    </div> 
-                    <hr> 
+                    </div>
+                    <hr>
                     <div class="row">
                       <div class="col-lg-4 col-xs-12 inactive-foll">
                         <p>0</p>
                         <span>Inactive Foll. ≈</span>
-                      </div> 
+                      </div>
                       <div class="col-lg-8 col-xs-12">
-                        <p class="percent">0%</p> 
+                        <p class="percent">0%</p>
                         <div class="data-progressbar">
                           <span id="inactive-data-progress" class="data-progressbar--fill" style="background-color: rgb(0, 0, 0); width: 0%;"></span>
                         </div>
@@ -157,22 +180,22 @@
                       <div class="col-lg-4 col-xs-12 average-likes">
                         <p>2.95k</p>
                         <span>Average likes</span>
-                      </div> 
+                      </div>
                     <div class="col-lg-8 col-xs-12">
-                      <p class="percent">Target: 10.2k</p> 
+                      <p class="percent">Target: 10.2k</p>
                       <div class="data-progressbar">
                         <span id="likesTarget-data-progress" class="data-progressbar--fill" style="background-color: rgb(231, 174, 192); width: 28.9667%;"></span>
                       </div>
                     </div>
-                  </div> 
-                  <hr> 
+                  </div>
+                  <hr>
                   <div class="row">
                     <div class="col-lg-4 col-xs-12 average-comments">
                       <p>7.1%</p>
                       <span>Comments/Likes</span>
-                    </div> 
+                    </div>
                     <div class="col-lg-8 col-xs-12">
-                      <p class="percent">Target: 4%</p> 
+                      <p class="percent">Target: 4%</p>
                       <div class="data-progressbar">
                         <span id="followersTarget-data-progress" class="data-progressbar--fill" style="background-color: rgb(149, 190, 176); width: 100%;"></span>
                       </div>
@@ -193,16 +216,16 @@
                     <div class="post">
                       <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/mC9ffsBvKrrFBldu6lSHm8cwqeoiUH1uHeogU8gmjsM/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDk4MDU1MDZfMTM5NjIwODA5NDM3NzU5MF82ODE5NzI2NTIzNzI2NTMxMjZfbi5qcGc_c3RwPWRzdC1qcGdfZTM1JmVmZz1leUoyWlc1amIyUmxYM1JoWnlJNkltbHRZV2RsWDNWeWJHZGxiaTR4TkRRd2VERTRNREF1YzJSeUxtWXlPVE0xTUNKOSZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMTAmX25jX29oYz1JTWxVaG9uNHZEZ1E3a052Z0Vyc3htdSZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16UXdNemt6TlRVeU9URTNNek0wTkRZME1RJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZQWx4NGhscEhmcnRNN25sdkNna25mLWI5YXRlMmVvRTVxRjRtY2RCQnVKVHcmb2U9NjY5MjQ2RTkmX25jX3NpZD04ZjE1NDk&quot;);">
                         <!---->
-                      </div> 
+                      </div>
                       <p>
                         <span>
                           <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.798 1.09275C13.4817 1.06171 11.448 2.10372 10.7676 4.11432C10.1414 2.0862 8.13634 0.990069 5.82002 0.959025C2.90977 0.920021 0.562401 3.2053 0.523397 6.11555C0.475637 9.67913 2.26349 13.6831 10.5694 18.9032C19.0717 13.9084 20.9068 9.95295 20.9546 6.38938C20.9936 3.47912 18.7083 1.13176 15.798 1.09275Z"></path></svg>
                           2.13k
-                        </span> 
+                        </span>
                         <span>
                           <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M18.5727 15.1309C19.6233 13.3826 20.1564 11.2971 19.9604 9.10975C19.4665 3.59818 14.6056 -0.45513 9.10191 0.0387937C3.59818 0.540558 -0.455129 5.4014 0.038795 10.8973C0.532719 16.3932 5.4014 20.4543 10.8973 19.9604C12.528 19.8114 14.0255 19.2783 15.3191 18.4629L19.3018 19.6311C19.6233 19.7252 19.9134 19.4273 19.8193 19.1058L18.5727 15.1309Z"></path></svg>
                           58
-                        </span> 
+                        </span>
                         <span>
                           <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.555 20.8202V13.7113C7.555 13.5479 7.37868 13.4171 7.15828 13.4171H0.392096C0.08354 13.4171 -0.103797 13.172 0.0615003 12.9759L10.5524 0C11.0152 0.0980545 10.9711 0.0898833 11.434 0.179767V7.28872C11.434 7.45214 11.6103 7.58288 11.8307 7.58288H18.6079C18.9165 7.58288 19.1038 7.82802 18.9385 8.02412L8.43658 21C7.97375 20.9101 8.01783 20.9183 7.555 20.8202Z"></path></svg>
                           1.3%
@@ -216,16 +239,16 @@
                         <div class="views">
                           <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.25 3.56699C6.58333 3.75944 6.58333 4.24056 6.25 4.43301L1.75 7.03109C1.41667 7.22354 1 6.98298 1 6.59808L1 1.40192C1 1.01702 1.41667 0.776461 1.75 0.968911L6.25 3.56699Z" stroke="white"></path></svg>0
                         </div>
-                      </div> 
+                      </div>
                       <p>
                         <span>
                           <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.798 1.09275C13.4817 1.06171 11.448 2.10372 10.7676 4.11432C10.1414 2.0862 8.13634 0.990069 5.82002 0.959025C2.90977 0.920021 0.562401 3.2053 0.523397 6.11555C0.475637 9.67913 2.26349 13.6831 10.5694 18.9032C19.0717 13.9084 20.9068 9.95295 20.9546 6.38938C20.9936 3.47912 18.7083 1.13176 15.798 1.09275Z"></path></svg>
                           1.37k
-                        </span> 
+                        </span>
                         <span>
                           <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M18.5727 15.1309C19.6233 13.3826 20.1564 11.2971 19.9604 9.10975C19.4665 3.59818 14.6056 -0.45513 9.10191 0.0387937C3.59818 0.540558 -0.455129 5.4014 0.038795 10.8973C0.532719 16.3932 5.4014 20.4543 10.8973 19.9604C12.528 19.8114 14.0255 19.2783 15.3191 18.4629L19.3018 19.6311C19.6233 19.7252 19.9134 19.4273 19.8193 19.1058L18.5727 15.1309Z"></path></svg>
                           81
-                        </span> 
+                        </span>
                         <span>
                           <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.555 20.8202V13.7113C7.555 13.5479 7.37868 13.4171 7.15828 13.4171H0.392096C0.08354 13.4171 -0.103797 13.172 0.0615003 12.9759L10.5524 0C11.0152 0.0980545 10.9711 0.0898833 11.434 0.179767V7.28872C11.434 7.45214 11.6103 7.58288 11.8307 7.58288H18.6079C18.9165 7.58288 19.1038 7.82802 18.9385 8.02412L8.43658 21C7.97375 20.9101 8.01783 20.9183 7.555 20.8202Z"></path></svg>
                           0.9%
@@ -239,16 +262,16 @@
                         <div class="views">
                           <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.25 3.56699C6.58333 3.75944 6.58333 4.24056 6.25 4.43301L1.75 7.03109C1.41667 7.22354 1 6.98298 1 6.59808L1 1.40192C1 1.01702 1.41667 0.776461 1.75 0.968911L6.25 3.56699Z" stroke="white"></path></svg>0
                         </div>
-                      </div> 
+                      </div>
                       <p>
                         <span>
                           <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.798 1.09275C13.4817 1.06171 11.448 2.10372 10.7676 4.11432C10.1414 2.0862 8.13634 0.990069 5.82002 0.959025C2.90977 0.920021 0.562401 3.2053 0.523397 6.11555C0.475637 9.67913 2.26349 13.6831 10.5694 18.9032C19.0717 13.9084 20.9068 9.95295 20.9546 6.38938C20.9936 3.47912 18.7083 1.13176 15.798 1.09275Z"></path></svg>
                           2.54k
-                        </span> 
+                        </span>
                         <span>
                           <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M18.5727 15.1309C19.6233 13.3826 20.1564 11.2971 19.9604 9.10975C19.4665 3.59818 14.6056 -0.45513 9.10191 0.0387937C3.59818 0.540558 -0.455129 5.4014 0.038795 10.8973C0.532719 16.3932 5.4014 20.4543 10.8973 19.9604C12.528 19.8114 14.0255 19.2783 15.3191 18.4629L19.3018 19.6311C19.6233 19.7252 19.9134 19.4273 19.8193 19.1058L18.5727 15.1309Z"></path></svg>
                           88
-                        </span> 
+                        </span>
                         <span>
                           <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.555 20.8202V13.7113C7.555 13.5479 7.37868 13.4171 7.15828 13.4171H0.392096C0.08354 13.4171 -0.103797 13.172 0.0615003 12.9759L10.5524 0C11.0152 0.0980545 10.9711 0.0898833 11.434 0.179767V7.28872C11.434 7.45214 11.6103 7.58288 11.8307 7.58288H18.6079C18.9165 7.58288 19.1038 7.82802 18.9385 8.02412L8.43658 21C7.97375 20.9101 8.01783 20.9183 7.555 20.8202Z"></path></svg>
                           1.5%
@@ -262,16 +285,16 @@
                       <div class="views">
                         <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.25 3.56699C6.58333 3.75944 6.58333 4.24056 6.25 4.43301L1.75 7.03109C1.41667 7.22354 1 6.98298 1 6.59808L1 1.40192C1 1.01702 1.41667 0.776461 1.75 0.968911L6.25 3.56699Z" stroke="white"></path></svg>0
                       </div>
-                    </div> 
+                    </div>
                     <p>
                       <span>
                         <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.798 1.09275C13.4817 1.06171 11.448 2.10372 10.7676 4.11432C10.1414 2.0862 8.13634 0.990069 5.82002 0.959025C2.90977 0.920021 0.562401 3.2053 0.523397 6.11555C0.475637 9.67913 2.26349 13.6831 10.5694 18.9032C19.0717 13.9084 20.9068 9.95295 20.9546 6.38938C20.9936 3.47912 18.7083 1.13176 15.798 1.09275Z"></path></svg>
                         752
-                      </span> 
+                      </span>
                       <span>
                         <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M18.5727 15.1309C19.6233 13.3826 20.1564 11.2971 19.9604 9.10975C19.4665 3.59818 14.6056 -0.45513 9.10191 0.0387937C3.59818 0.540558 -0.455129 5.4014 0.038795 10.8973C0.532719 16.3932 5.4014 20.4543 10.8973 19.9604C12.528 19.8114 14.0255 19.2783 15.3191 18.4629L19.3018 19.6311C19.6233 19.7252 19.9134 19.4273 19.8193 19.1058L18.5727 15.1309Z"></path></svg>
                         64
-                      </span> 
+                      </span>
                       <span>
                         <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.555 20.8202V13.7113C7.555 13.5479 7.37868 13.4171 7.15828 13.4171H0.392096C0.08354 13.4171 -0.103797 13.172 0.0615003 12.9759L10.5524 0C11.0152 0.0980545 10.9711 0.0898833 11.434 0.179767V7.28872C11.434 7.45214 11.6103 7.58288 11.8307 7.58288H18.6079C18.9165 7.58288 19.1038 7.82802 18.9385 8.02412L8.43658 21C7.97375 20.9101 8.01783 20.9183 7.555 20.8202Z"></path></svg>
                         0.5%
@@ -285,16 +308,16 @@
                       <div class="views">
                         <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.25 3.56699C6.58333 3.75944 6.58333 4.24056 6.25 4.43301L1.75 7.03109C1.41667 7.22354 1 6.98298 1 6.59808L1 1.40192C1 1.01702 1.41667 0.776461 1.75 0.968911L6.25 3.56699Z" stroke="white"></path></svg>0
                       </div>
-                    </div> 
+                    </div>
                     <p>
                       <span>
                         <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.798 1.09275C13.4817 1.06171 11.448 2.10372 10.7676 4.11432C10.1414 2.0862 8.13634 0.990069 5.82002 0.959025C2.90977 0.920021 0.562401 3.2053 0.523397 6.11555C0.475637 9.67913 2.26349 13.6831 10.5694 18.9032C19.0717 13.9084 20.9068 9.95295 20.9546 6.38938C20.9936 3.47912 18.7083 1.13176 15.798 1.09275Z"></path></svg>
                         1.07k
-                      </span> 
+                      </span>
                       <span>
                         <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M18.5727 15.1309C19.6233 13.3826 20.1564 11.2971 19.9604 9.10975C19.4665 3.59818 14.6056 -0.45513 9.10191 0.0387937C3.59818 0.540558 -0.455129 5.4014 0.038795 10.8973C0.532719 16.3932 5.4014 20.4543 10.8973 19.9604C12.528 19.8114 14.0255 19.2783 15.3191 18.4629L19.3018 19.6311C19.6233 19.7252 19.9134 19.4273 19.8193 19.1058L18.5727 15.1309Z"></path></svg>
                         46
-                      </span> 
+                      </span>
                       <span>
                         <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.555 20.8202V13.7113C7.555 13.5479 7.37868 13.4171 7.15828 13.4171H0.392096C0.08354 13.4171 -0.103797 13.172 0.0615003 12.9759L10.5524 0C11.0152 0.0980545 10.9711 0.0898833 11.434 0.179767V7.28872C11.434 7.45214 11.6103 7.58288 11.8307 7.58288H18.6079C18.9165 7.58288 19.1038 7.82802 18.9385 8.02412L8.43658 21C7.97375 20.9101 8.01783 20.9183 7.555 20.8202Z"></path></svg>
                         0.7%
@@ -308,16 +331,16 @@
                       <div class="views">
                         <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.25 3.56699C6.58333 3.75944 6.58333 4.24056 6.25 4.43301L1.75 7.03109C1.41667 7.22354 1 6.98298 1 6.59808L1 1.40192C1 1.01702 1.41667 0.776461 1.75 0.968911L6.25 3.56699Z" stroke="white"></path></svg>0
                       </div>
-                    </div> 
+                    </div>
                     <p>
                       <span>
                         <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.798 1.09275C13.4817 1.06171 11.448 2.10372 10.7676 4.11432C10.1414 2.0862 8.13634 0.990069 5.82002 0.959025C2.90977 0.920021 0.562401 3.2053 0.523397 6.11555C0.475637 9.67913 2.26349 13.6831 10.5694 18.9032C19.0717 13.9084 20.9068 9.95295 20.9546 6.38938C20.9936 3.47912 18.7083 1.13176 15.798 1.09275Z"></path></svg>
                         821
-                      </span> 
+                      </span>
                       <span>
                         <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M18.5727 15.1309C19.6233 13.3826 20.1564 11.2971 19.9604 9.10975C19.4665 3.59818 14.6056 -0.45513 9.10191 0.0387937C3.59818 0.540558 -0.455129 5.4014 0.038795 10.8973C0.532719 16.3932 5.4014 20.4543 10.8973 19.9604C12.528 19.8114 14.0255 19.2783 15.3191 18.4629L19.3018 19.6311C19.6233 19.7252 19.9134 19.4273 19.8193 19.1058L18.5727 15.1309Z"></path></svg>
                         24
-                      </span> 
+                      </span>
                       <span>
                         <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.555 20.8202V13.7113C7.555 13.5479 7.37868 13.4171 7.15828 13.4171H0.392096C0.08354 13.4171 -0.103797 13.172 0.0615003 12.9759L10.5524 0C11.0152 0.0980545 10.9711 0.0898833 11.434 0.179767V7.28872C11.434 7.45214 11.6103 7.58288 11.8307 7.58288H18.6079C18.9165 7.58288 19.1038 7.82802 18.9385 8.02412L8.43658 21C7.97375 20.9101 8.01783 20.9183 7.555 20.8202Z"></path></svg>
                         0.5%
