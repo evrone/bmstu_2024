@@ -28,6 +28,7 @@
 /tmp/storage/*
 !/tmp/storage/
 !/tmp/storage/.keep
+*.rdb
 
 /public/assets
 
@@ -35,3 +36,5 @@
 /config/master.key
 
 .env
+
+.DS_Store
