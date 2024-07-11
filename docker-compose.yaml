@@ -1,0 +1,33 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    env_file:
+      - .env.dev
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/rails
+      - bundle:/usr/local/bundle:cached
+    ports:
+      - 3000:3000
+      - 12345:12345
+    depends_on:
+      - db
+    command: ash -c "rm -f tmp/pids/server.pid && bin/dev"
+
+  db:
+    image: postgres
+    restart: always
+    env_file:
+      - .env.dev
+      - .env.private
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
+  bundle:

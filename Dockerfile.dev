@@ -1,0 +1,35 @@
+ARG RUBY_VERSION=3.2.4
+FROM registry.docker.com/library/ruby:$RUBY_VERSION-alpine
+
+WORKDIR /rails
+
+RUN apk add --update docker
+
+ENV RAILS_ENV="development" \
+    BUNDLE_DEPLOYMENT="1" \
+    BUNDLE_PATH="/usr/local/bundle"
+
+RUN apk add --no-cache --virtual .build-deps build-base git postgresql-dev vips-dev tzdata yarn nodejs-current
+
+# COPY Gemfile Gemfile.lock ./
+# RUN bundle config set frozen false && \
+#     bundle install && \
+#     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
+#     bundle exec bootsnap precompile --gemfile
+
+# RUN bundle exec bootsnap precompile app/ lib/
+
+# RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+
+RUN apk add --no-cache curl vips-dev postgresql-client tzdata && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+COPY . .
+
+RUN adduser -D rails --shell /bin/bash && \
+    mkdir -p /usr/local/bundle/ruby/3.2.0/cache && \
+    chown -R rails:rails db log storage tmp /usr/local/bundle/ruby/3.2.0/cache && \
+    chmod -R 777 /usr/local/bundle/ruby/3.2.0/cache
+USER rails:rails
+
+EXPOSE 3000
