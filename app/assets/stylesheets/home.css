@@ -152,7 +152,9 @@ main {
 .post{
     font-size: 16px;
 }
-
+.views{
+    font-size: medium;
+}
 #ffc-form {
     max-width: 600px;
     margin: 50px auto;
