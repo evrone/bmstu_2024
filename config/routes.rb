@@ -10,5 +10,9 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   get 'sessions/create'
 
+  constraints AdminConstraint.new do
+    mount RailsPerformance::Engine, at: 'performance'
+  end
+
   match '*path', to: 'errors#not_found', via: :all
 end
