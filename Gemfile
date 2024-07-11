@@ -4,7 +4,7 @@ ruby "3.2.4"
 
 # gem 'omniauth-instagram-graph'
 # gem 'omniauth-instagram_display'
-
+gem 'httparty'
 gem 'devise'
 gem 'omniauth-instagram'
 gem 'instagram_basic_display'

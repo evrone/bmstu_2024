@@ -9,7 +9,8 @@
   <body>
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary py-4">
-  <div class="container-fluid">
+  <div class="container-fluid" style="font-size: 24px;">
+    <a class="navbar-brand" href="#" style="font-size: 28px;">WhereMyLikes</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,36 +19,18 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form class="d-flex">
+        <button class="btn btn-dark btn-lg btn-custom my-2 my-sm-0" type="submit">Login</button>
       </form>
     </div>
   </div>
 </nav>
 
-    <main>
+    <main> <turbo-frame id="frame">
       <div id="ffc-calculator__wrap">
-        <section id="ffc-header" class="container mobile-adjusted page-top">
-          <h1 style="text-align: center; font-weight: bold;">Instagram Fake Follower checker</h1>
+        <section id="ffc-header" class="container mobile-adjusted page-top mt-3">
+          <h1 style="text-align: center; font-weight: bold;">VK Fake Follower checker</h1>
           <p>Get an influencer’s audience audit &amp; identify fake, dormant or suspect followers to evaluate an influencer’s audience quality.</p>
         </section>
         <div id="unlockCalculator" class="unlock-calculator-popup popupOverlay">
@@ -62,26 +45,15 @@
         </div>
         <section id="ffc-calculator" class="container mobile-adjusted">
           <div id="ffc-form" class="form-group">
-            <input type="string" class="form-control" required="required" placeholder="Enter Instagram @username">
+            <input type="string" class="form-control" required="required" placeholder="Enter VK @username">
             <div class="d-flex justify-content-center mt-2">
               <button type="submit" class="btn btn-dark mt-2">
                 <span>Check stats</span>
               </button>
             </div>
-             <div id="VkIdSdkOneTap">
-               <button id="VKIDSDKAuthButton" class="VkIdWebSdk__button VkIdWebSdk__button_reset">
-          <div class="VkIdWebSdk__button_container">
-            <div class="VkIdWebSdk__button_icon">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.54648 4.54648C3 6.09295 3 8.58197 3 13.56V14.44C3 19.418 3 21.907 4.54648 23.4535C6.09295 25 8.58197 25 13.56 25H14.44C19.418 25 21.907 25 23.4535 23.4535C25 21.907 25
-                19.418 25 14.44V13.56C25 8.58197 25 6.09295 23.4535 4.54648C21.907 3 19.418 3 14.44 3H13.56C8.58197 3 6.09295 3 4.54648 4.54648ZM6.79999 10.15C6.91798 15.8728 9.92951 19.31 14.8932 19.31H15.1812V16.05C16.989 16.2332 18.3371
-                17.5682 18.8875 19.31H21.4939C20.7869 16.7044 18.9535 15.2604 17.8141 14.71C18.9526 14.0293 20.5641 12.3893 20.9436 10.15H18.5722C18.0747 11.971 16.5945 13.6233 15.1803 13.78V10.15H12.7711V16.5C11.305 16.1337 9.39237 14.3538 9.314 10.15H6.79999Z" fill="white"/>
-              </svg>
-            </div>
-            <div class="VkIdWebSdk__button_text">
-              Войти с VK ID
-            </div>
-          </div>
+            <div data-controller='vkid' class="mt-3">
+             <div id="VkIdSdkOneTap"></div>
+             </div>
         </button>
              </div>
           </div>
@@ -90,11 +62,11 @@
               <div class="row row-cols-2 ">
                 <div class="col p-4">
             <div class="col-md-12 profile-info text-center p-2 m-auto">
-              <img src="https://d3aqwrzdsjcw3e.cloudfront.net/Fkxjvj7qICrK-_rv7sgjaX7Y9_rR5B3nPsPjRj9ZyNs/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yODg1LTE5LzM1NjIxNTMyOF82NzE4MzQ4MzQ3NjM2MDdfMTA3MjQxMzExMTM0ODY1MDg4M19uLmpwZz9zdHA9ZHN0LWpwZ19lMF9zMTUweDE1MCZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMDcmX25jX29oYz1SeW1lNjVxeHJ2TVE3a052Z0dlcE9lcSZlZG09QUVGOHRZWUJBQUFBJmNjYj03LTUmb2g9MDBfQVlEYkVsb0dpYlF5YWI3NzhGVk90N2lWbHV2azVIWDZ3Qm1rNk1IQWNpWFk2dyZvZT02NjkyMzIyMyZfbmNfc2lkPTFlMjBkMg" alt="amoureuxdumonde"> 
+              <img src="https://d3aqwrzdsjcw3e.cloudfront.net/Fkxjvj7qICrK-_rv7sgjaX7Y9_rR5B3nPsPjRj9ZyNs/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yODg1LTE5LzM1NjIxNTMyOF82NzE4MzQ4MzQ3NjM2MDdfMTA3MjQxMzExMTM0ODY1MDg4M19uLmpwZz9zdHA9ZHN0LWpwZ19lMF9zMTUweDE1MCZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMDcmX25jX29oYz1SeW1lNjVxeHJ2TVE3a052Z0dlcE9lcSZlZG09QUVGOHRZWUJBQUFBJmNjYj03LTUmb2g9MDBfQVlEYkVsb0dpYlF5YWI3NzhGVk90N2lWbHV2azVIWDZ3Qm1rNk1IQWNpWFk2dyZvZT02NjkyMzIyMyZfbmNfc2lkPTFlMjBkMg" alt="amoureuxdumonde">
               <p class="username">@amoureuxdumonde</p>
               <span class="tag tag--exceptional">
                 Score - Exceptional
-              </span> 
+              </span>
               <div class="audience-score row p-3 m-auto rounded">
                 <div class="gauge-wrapper card col-xs-12 shadow">
                   <div>
@@ -124,7 +96,7 @@
                     </defs>
                   </svg>
                 </div>
-              </div> 
+              </div>
               <div class="stats row m-auto p-3 text-nowrap">
                 <div class="card col-xs-12 p-tb-60 m-tb-40">
                   <div class="row shadow">
@@ -186,10 +158,10 @@
                       </div>
                     </div>
                   </div>
-                </div> 
+                </div>
                 <div class="col-xs-12 average-subtitle m-auto p-5">
                   <h5>Average VS Target</h5>
-                </div> 
+                </div>
                 <div class="col-xs-12 m-auto p-1">
                   <div class="card ratio-average shadow">
                     <div class="row">
@@ -220,13 +192,13 @@
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
           </div>
           <div class="col-xs-12 col-md-12 posts-info m-auto p-3">
             <div class="row">
               <div class="col-xs-12 col-md-12 posts">
               <div class="card shadow">
-                <p class="card-title m-auto p-1">Latest Audience Engagement</p> 
+                <p class="card-title m-auto p-1">Latest Audience Engagement</p>
                 <div class="row m-auto p-1">
                   <div class="col-xs-6 col-sm-4 col-md-2">
                     <div class="post text-center">
@@ -252,7 +224,7 @@
                   <div class="col-xs-6 col-sm-4 col-md-2">
                     <div class="post text-center">
                       <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/3Cb1ZaFN-99vIQyKh1r4C9qkD-zBDUwCowo4G1UV-Xg/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTEuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDg2MDAyODFfMTM3OTQ5Njk1OTQxMjQ3Nl8xOTI3OTc1MDQyMjQ1MTYxMTA1X24uanBnP3N0cD1kc3QtanBnX2UxNSZlZmc9ZXlKMlpXNWpiMlJsWDNSaFp5STZJbWx0WVdkbFgzVnliR2RsYmk0eE1EZ3dlREU1TWpBdWMyUnlMbVl5T1RNMU1DSjkmX25jX2h0PWluc3RhZ3JhbS5maWV2MjItMS5mbmEuZmJjZG4ubmV0Jl9uY19jYXQ9MTA4Jl9uY19vaGM9dzF4bHYyeUhhUFlRN2tOdmdIelFYRlImZWRtPUFFaHlYVWtCQUFBQSZjY2I9Ny01JmlnX2NhY2hlX2tleT1Nek01TWpNMU1EazJOREl3TnpBeE16VTJOZyUzRCUzRC4yLWNjYjctNSZvaD0wMF9BWURQcDZqMFpYWjdTc0RNQnNheFhuUl9KLThEbHRVTjN1V1hXQWRmWjBKRUVBJm9lPTY2OTI1NjU3Jl9uY19zaWQ9OGYxNTQ5&quot;);">
-                        
+
                       </div>
                       <p>
                         <span>
@@ -273,7 +245,7 @@
                   <div class="col-xs-6 col-sm-4 col-md-2">
                     <div class="post text-center">
                       <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/h2JfA140kwCVdonLQpTyB5--uWCH_t5gz4tAkkSjlZw/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDgxMzA1NTZfMzU0OTQ1MTAwOTQzODMxXzY3NDMxMTM4NzIwNTUyMjAwMjZfbi5qcGc_c3RwPWRzdC1qcGdfZTE1JmVmZz1leUoyWlc1amIyUmxYM1JoWnlJNkltbHRZV2RsWDNWeWJHZGxiaTR4TVRjNWVESXdPVFl1YzJSeUxtWXlPVE0xTUNKOSZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMTEmX25jX29oYz1xVE5MRjIwTmxVVVE3a052Z0haVWxlNCZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16TTRPREU1TURRNE1ERTBNVFkyTkRZMk9BJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZREtjQ0ZMSVdhbVVrS0tva0M5U2NhQ1BVQWxrTW9pS1hxd3VjeGx5ejZUbUEmb2U9NjY5MjUzQ0UmX25jX3NpZD04ZjE1NDk&quot;);">
-                        
+
                       </div>
                       <p>
                         <span>
@@ -294,7 +266,7 @@
                 <div class="col-xs-6 col-sm-4 col-md-2">
                   <div class="post text-center">
                     <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/HnVO613jn6UiUT-84vCIv62pPKFc6mSsQFzTWyBgItw/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTEuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDcyMjAyNzNfMzQ3NTM4OTY0NzQ1OTYxXzI5MTQwNzY5NDg5NjUxMjQ0NV9uLmpwZz9zdHA9ZHN0LWpwZ19lMTUmZWZnPWV5SjJaVzVqYjJSbFgzUmhaeUk2SW1sdFlXZGxYM1Z5YkdkbGJpNHlNalk0ZURRd016SXVjMlJ5TG1ZeU9UTTFNQ0o5Jl9uY19odD1pbnN0YWdyYW0uZmlldjIyLTEuZm5hLmZiY2RuLm5ldCZfbmNfY2F0PTEwOSZfbmNfb2hjPXMyRnNQaXZFV1BVUTdrTnZnRm5MUjluJmdpZD1lZmQ1YWY4NmZhMDA0OGUxODNlMmRkNTU4YzMxODg1OSZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16TTRNREExTmprMk1UQXlPRGM0T0RJM01nJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZRFJjMmd5NkNoVWRxY050Xy1TcHZzMmxBZWwtYV9tMWo4Uk1pRUFLRmtrYWcmb2U9NjY5MjUwQ0EmX25jX3NpZD04ZjE1NDk&quot;);">
-                     
+
                     </div>
                     <p>
                       <span>
@@ -315,7 +287,7 @@
                 <div class="col-xs-6 col-sm-4 col-md-2">
                   <div class="post text-center">
                     <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/HAfbjCdXscj1rUnvL-1wHNVRyFUaTsQTyz1d0EW7BHw/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDU1ODkxMDZfODIyOTk3MTg5NzE4ODQzXzUwMDQ4ODA0MTAyMjM5Nzk2MjZfbi5qcGc_c3RwPWRzdC1qcGdfZTE1JmVmZz1leUoyWlc1amIyUmxYM1JoWnlJNkltbHRZV2RsWDNWeWJHZGxiaTR6TVRNeWVEVTFOakl1YzJSeUxtWXlPVE0xTUNKOSZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMTEmX25jX29oYz1Hd2I1a1B3RmZaNFE3a052Z0hfUm5xWCZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16TTNOREkxTlRZNE1UQTNNekEyTURnd01BJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZQXBmbHBseXlZT3VWNTc0TFRQb3piVXZNNmRVZ2FpUm5zdU1rb2FDZ281ckEmb2U9NjY5MjVCMjAmX25jX3NpZD04ZjE1NDk&quot;);">
-                      
+
                     </div>
                     <p>
                       <span>
@@ -336,7 +308,7 @@
                 <div class="col-xs-6 col-sm-4 col-md-2">
                   <div class="post text-center">
                     <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/mDpuTAf1VkufYZXRQ61qzZPLlNadT-X_tNYnIiTTS1Y/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDI2ODYyNzRfMTk4NDA2NTA1ODY5MTQzNF80ODk5MjgyNDczNjQ5MTM4NzEwX24uanBnP3N0cD1kc3QtanBnX2UxNSZlZmc9ZXlKMlpXNWpiMlJsWDNSaFp5STZJbWx0WVdkbFgzVnliR2RsYmk0eE1EZ3dlREU1TWpBdWMyUnlMbVl5T1RNMU1DSjkmX25jX2h0PWluc3RhZ3JhbS5maWV2MjItMi5mbmEuZmJjZG4ubmV0Jl9uY19jYXQ9MTEwJl9uY19vaGM9ZGZucXYtTnZuemdRN2tOdmdFU3ZYb0YmZWRtPUFFaHlYVWtCQUFBQSZjY2I9Ny01JmlnX2NhY2hlX2tleT1Nek0yT0RRME16RTBPVFF5TmpZeU9USXpPUSUzRCUzRC4yLWNjYjctNSZvaD0wMF9BWUN2VjVhSnNKcUtMN0VQd1pRSWxXcERWUGROUUNCYWpKVG9rLUZpQmFqaVB3Jm9lPTY2OTIzNDkyJl9uY19zaWQ9OGYxNTQ5&quot;);">
-                      
+
                     </div>
                     <p>
                      <span>
@@ -363,7 +335,7 @@
             <p class="subtext col-md-6 m-auto p-2">We use the avg. likes &amp; comments then compare them to industry standards by following size. This calculator does not analyse followers, so the audience score is an estimation.</p>
           </div>
         </section>
-      </div>
+      </div></turbo-frame>
     </main>
     <footer class="py-3 my-4">
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
@@ -373,45 +345,8 @@
         <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
       </ul>
-      <p class="text-center text-body-secondary">© 2023 Company, Inc</p>
+      <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
     </footer>
-    <script>
-      import * as VKID from '@vkid/sdk';
-
-          // Создание экземпляра кнопки.
-          const oneTap = new VKID.OneTap();
-
-          // Получение контейнера из разметки.
-          const container = document.getElementById('VkIdSdkOneTap');
-
-          // Проверка наличия кнопки в разметке.
-          if (container) {
-            // Отрисовка кнопки в контейнере с именем приложения APP_NAME, светлой темой и на русском языке.
-            oneTap.render({ container: container, scheme: VKID.Scheme.LIGHT, lang: VKID.Languages.RUS })
-                  .on(VKID.WidgetEvents.ERROR, handleError); // handleError — какой-либо обработчик ошибки.
-                }
-                // Обработчик клика.
-            const handleClick = () => {
-              // Открытие авторизации.
-              VKID.Auth.login()
-            }
-
-            // Получение кнопки из разметки.
-            const button = document.getElementById('VKIDSDKAuthButton');
-            // Проверка наличия кнопки в разметке.
-            if (button) {
-              // Добавление обработчика клика по кнопке.
-              button.onclick = handleClick;
-            }
-
-            VKID.Config.init({
-            app: CLIENT_ID, // Идентификатор приложения.
-            redirectUrl: REDIRECT_URL, // Адрес для перехода после авторизации.
-            state: 'dj29fnsadjsd82', // Произвольная строка состояния приложения.
-            codeVerifier: 'FGH767Gd65', // Верификатор в виде случайной строки. Обеспечивает защиту передаваемых данных.
-            scope: 'email phone' // Список прав доступа, которые нужны приложению.
-          });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </body>
 </html>
