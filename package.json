@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@vkid/sdk": "^2.0.0",
+    "bootstrap-icons": "^1.11.3"
+  }
+}
