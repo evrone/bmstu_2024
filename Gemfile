@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.2.4"
+ruby "3.3.3"
 
 # gem 'omniauth-instagram-graph'
 # gem 'omniauth-instagram_display'
@@ -11,6 +11,8 @@ gem 'instagram_basic_display'
 gem 'instagram_graph_api'
 
 gem 'open-uri'
+
+gem 'rails_performance'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
