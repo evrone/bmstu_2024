@@ -3,6 +3,10 @@ SHELL=/bin/sh
 UID := $(shell id -u)
 GID := $(shell id -g)
 
+include .env.dev
+include .env.private
+export
+
 setup: build db-prepare
 
 build:
@@ -32,7 +36,7 @@ bundle:
 	docker-compose run --rm app bundle install
 
 db-psql:
-	docker compose run --rm app psql -d APPLICATION_NAME_development -U postgres -W -h db
+	docker compose run --rm app psql -d ${POSTGRES_DB} -U ${POSTGRES_USER} -W -h db
 
 db-prepare: db-drop db-create db-migrate db-seed
 
