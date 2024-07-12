@@ -140,15 +140,7 @@ main {
     background-repeat: no-repeat;
     /* background-color: #efe4f0; */
 }
-.img{
-    width: 180px;
-    height: 180px;
-    flex-shrink: 0;
-    background-size: cover;
-    background-repeat: no-repeat;
-    object-fit: cover
-    ;
-}
+
 .post{
     font-size: 16px;
 }
@@ -165,7 +157,7 @@ main {
   }
 
 
-@media (max-width: 768px) {
+@media (max-width: 999px) {
     .about_text {
         font-size: 22px;
     }
@@ -176,13 +168,32 @@ main {
         font-size: 24px;
         white-space: normal; 
     }
+    .img{
+        width: 110px;
+        height: 110px;
+        flex-shrink: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        object-fit: cover
+        ;
+    }
+    
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1000px) {
     .login_button {
         width: 100%; 
         max-width: 600px; 
         font-size: 28px; 
+    }
+    .img{
+        width: 180px;
+        height: 180px;
+        flex-shrink: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        object-fit: cover
+        ;
     }
 }
 .VkIdWebSdk__button_reset {
