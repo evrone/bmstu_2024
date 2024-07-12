@@ -9,3 +9,5 @@ fi
 export PORT="${PORT:-3000}"
 
 exec foreman start -f Procfile.dev "$@"
+
+exec foreman start -e .env.dev .env.private -f Procfile.dev "$@"

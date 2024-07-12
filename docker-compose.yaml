@@ -3,22 +3,24 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
+    image: ghcr.io/evrone/bmstu_2024_dev
     env_file:
       - .env.dev
+      - .env.private
     stdin_open: true
     tty: true
     volumes:
-      - ./:/rails
+      - .:/rails
       - bundle:/usr/local/bundle:cached
     ports:
       - 3000:3000
       - 12345:12345
     depends_on:
-      - db
+      - postgres
     command: ash -c "rm -f tmp/pids/server.pid && bin/dev"
 
-  db:
-    image: postgres
+  postgres:
+    image: postgres:16
     restart: always
     env_file:
       - .env.dev
