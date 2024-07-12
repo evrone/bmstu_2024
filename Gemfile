@@ -6,6 +6,7 @@ ruby "3.2.4"
 # gem 'omniauth-instagram_display'
 gem 'httparty'
 gem 'devise'
+gem 'digest'
 gem 'omniauth-instagram'
 gem 'instagram_basic_display'
 gem 'instagram_graph_api'
