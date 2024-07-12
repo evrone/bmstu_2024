@@ -10,6 +10,7 @@ gem 'digest'
 gem 'omniauth-instagram'
 gem 'instagram_basic_display'
 gem 'instagram_graph_api'
+gem 'rails-i18n'
 
 gem 'dotenv', groups: [:development, :test]
 
