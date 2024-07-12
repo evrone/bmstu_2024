@@ -1,15 +1,8 @@
 <!doctype html>
 <html lang="ru">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WhereMyLikes</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   </head>
   <body>
-
-  
-
     <main> <turbo-frame id="frame">
       <div id="ffc-calculator__wrap">
         <section id="ffc-header" class="container mobile-adjusted page-top mt-3">
@@ -78,63 +71,8 @@
                 <div class="col-xs-12">
                   <div class="card ratio-followers shadow">
                     <div class="row">
-                      <div class="col-lg-4 col-xs-12 real-followers">
-                        <p>170k</p>
-                        <span>Real Followers ≈</span>
-                      </div>
-                      <div class="col-lg-8 col-xs-12">
-                        <p class="percent">100%</p>
-                        <div class="data-progressbar">
-                          <span id="followers-data-progress" class="data-progressbar--fill" style="background-color: rgb(231, 202, 167); width: 100%;"></span>
-                        </div>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-lg-4 col-xs-12 inactive-foll">
-                        <p>0</p>
-                        <span>Inactive Foll. ≈</span>
-                      </div>
-                      <div class="col-lg-8 col-xs-12">
-                        <p class="percent">0%</p>
-                        <div class="data-progressbar">
-                          <span id="inactive-data-progress" class="data-progressbar--fill" style="background-color: rgb(0, 0, 0); width: 0%;"></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 average-subtitle m-auto p-5">
-                  <h5>Average VS Target</h5>
-                </div>
-                <div class="col-xs-12 m-auto p-1">
-                  <div class="card ratio-average shadow">
-                    <div class="row">
-                      <div class="col-lg-4 col-xs-12 average-likes">
-                        <p>2.95k</p>
-                        <span>Average likes</span>
-                      </div>
-                    <div class="col-lg-8 col-xs-12">
-                      <p class="percent">Target: 10.2k</p>
-                      <div class="data-progressbar">
-                        <span id="likesTarget-data-progress" class="data-progressbar--fill" style="background-color: rgb(231, 174, 192); width: 28.9667%;"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-lg-4 col-xs-12 average-comments">
-                      <p>7.1%</p>
-                      <span>Comments/Likes</span>
-                    </div>
-                    <div class="col-lg-8 col-xs-12">
-                      <p class="percent">Target: 4%</p>
-                      <div class="data-progressbar">
-                        <span id="followersTarget-data-progress" class="data-progressbar--fill" style="background-color: rgb(149, 190, 176); width: 100%;"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  <%= render partial: "partial_content/ratio-followers"%>    
+                  <%= render partial: "partial_content/ratio-average"%>
               </div>
             </div>
           </div>
@@ -148,19 +86,16 @@
                   <div class="col-xs-6 col-sm-4 col-md-2">
                     <div class="post text-center">
                       <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/mC9ffsBvKrrFBldu6lSHm8cwqeoiUH1uHeogU8gmjsM/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDk4MDU1MDZfMTM5NjIwODA5NDM3NzU5MF82ODE5NzI2NTIzNzI2NTMxMjZfbi5qcGc_c3RwPWRzdC1qcGdfZTM1JmVmZz1leUoyWlc1amIyUmxYM1JoWnlJNkltbHRZV2RsWDNWeWJHZGxiaTR4TkRRd2VERTRNREF1YzJSeUxtWXlPVE0xTUNKOSZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMTAmX25jX29oYz1JTWxVaG9uNHZEZ1E3a052Z0Vyc3htdSZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16UXdNemt6TlRVeU9URTNNek0wTkRZME1RJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZQWx4NGhscEhmcnRNN25sdkNna25mLWI5YXRlMmVvRTVxRjRtY2RCQnVKVHcmb2U9NjY5MjQ2RTkmX25jX3NpZD04ZjE1NDk&quot;);">
-                        <!---->
-                      <%= render partial: "partial_content/photo-stats"%>
+                       <%= render partial: "partial_content/photo-stats"%>
                   </div>
                   <div class="col-xs-6 col-sm-4 col-md-2">
                     <div class="post text-center">
                       <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/3Cb1ZaFN-99vIQyKh1r4C9qkD-zBDUwCowo4G1UV-Xg/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTEuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDg2MDAyODFfMTM3OTQ5Njk1OTQxMjQ3Nl8xOTI3OTc1MDQyMjQ1MTYxMTA1X24uanBnP3N0cD1kc3QtanBnX2UxNSZlZmc9ZXlKMlpXNWpiMlJsWDNSaFp5STZJbWx0WVdkbFgzVnliR2RsYmk0eE1EZ3dlREU1TWpBdWMyUnlMbVl5T1RNMU1DSjkmX25jX2h0PWluc3RhZ3JhbS5maWV2MjItMS5mbmEuZmJjZG4ubmV0Jl9uY19jYXQ9MTA4Jl9uY19vaGM9dzF4bHYyeUhhUFlRN2tOdmdIelFYRlImZWRtPUFFaHlYVWtCQUFBQSZjY2I9Ny01JmlnX2NhY2hlX2tleT1Nek01TWpNMU1EazJOREl3TnpBeE16VTJOZyUzRCUzRC4yLWNjYjctNSZvaD0wMF9BWURQcDZqMFpYWjdTc0RNQnNheFhuUl9KLThEbHRVTjN1V1hXQWRmWjBKRUVBJm9lPTY2OTI1NjU3Jl9uY19zaWQ9OGYxNTQ5&quot;);">
-
                      <%= render partial: "partial_content/photo-stats"%>
                   </div>
                   <div class="col-xs-6 col-sm-4 col-md-2">
                     <div class="post text-center">
                       <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/h2JfA140kwCVdonLQpTyB5--uWCH_t5gz4tAkkSjlZw/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDgxMzA1NTZfMzU0OTQ1MTAwOTQzODMxXzY3NDMxMTM4NzIwNTUyMjAwMjZfbi5qcGc_c3RwPWRzdC1qcGdfZTE1JmVmZz1leUoyWlc1amIyUmxYM1JoWnlJNkltbHRZV2RsWDNWeWJHZGxiaTR4TVRjNWVESXdPVFl1YzJSeUxtWXlPVE0xTUNKOSZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMTEmX25jX29oYz1xVE5MRjIwTmxVVVE3a052Z0haVWxlNCZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16TTRPREU1TURRNE1ERTBNVFkyTkRZMk9BJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZREtjQ0ZMSVdhbVVrS0tva0M5U2NhQ1BVQWxrTW9pS1hxd3VjeGx5ejZUbUEmb2U9NjY5MjUzQ0UmX25jX3NpZD04ZjE1NDk&quot;);">
-
                        <%= render partial: "partial_content/photo-stats"%>
                   </div>
                 <div class="col-xs-6 col-sm-4 col-md-2">
@@ -171,14 +106,11 @@
                 <div class="col-xs-6 col-sm-4 col-md-2">
                   <div class="post text-center">
                     <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/HAfbjCdXscj1rUnvL-1wHNVRyFUaTsQTyz1d0EW7BHw/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDU1ODkxMDZfODIyOTk3MTg5NzE4ODQzXzUwMDQ4ODA0MTAyMjM5Nzk2MjZfbi5qcGc_c3RwPWRzdC1qcGdfZTE1JmVmZz1leUoyWlc1amIyUmxYM1JoWnlJNkltbHRZV2RsWDNWeWJHZGxiaTR6TVRNeWVEVTFOakl1YzJSeUxtWXlPVE0xTUNKOSZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMTEmX25jX29oYz1Hd2I1a1B3RmZaNFE3a052Z0hfUm5xWCZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16TTNOREkxTlRZNE1UQTNNekEyTURnd01BJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZQXBmbHBseXlZT3VWNTc0TFRQb3piVXZNNmRVZ2FpUm5zdU1rb2FDZ281ckEmb2U9NjY5MjVCMjAmX25jX3NpZD04ZjE1NDk&quot;);">
-
                      <%= render partial: "partial_content/photo-stats"%>
                 </div>
                 <div class="col-xs-6 col-sm-4 col-md-2">
                   <div class="post text-center">
                     <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/mDpuTAf1VkufYZXRQ61qzZPLlNadT-X_tNYnIiTTS1Y/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDI2ODYyNzRfMTk4NDA2NTA1ODY5MTQzNF80ODk5MjgyNDczNjQ5MTM4NzEwX24uanBnP3N0cD1kc3QtanBnX2UxNSZlZmc9ZXlKMlpXNWpiMlJsWDNSaFp5STZJbWx0WVdkbFgzVnliR2RsYmk0eE1EZ3dlREU1TWpBdWMyUnlMbVl5T1RNMU1DSjkmX25jX2h0PWluc3RhZ3JhbS5maWV2MjItMi5mbmEuZmJjZG4ubmV0Jl9uY19jYXQ9MTEwJl9uY19vaGM9ZGZucXYtTnZuemdRN2tOdmdFU3ZYb0YmZWRtPUFFaHlYVWtCQUFBQSZjY2I9Ny01JmlnX2NhY2hlX2tleT1Nek0yT0RRME16RTBPVFF5TmpZeU9USXpPUSUzRCUzRC4yLWNjYjctNSZvaD0wMF9BWUN2VjVhSnNKcUtMN0VQd1pRSWxXcERWUGROUUNCYWpKVG9rLUZpQmFqaVB3Jm9lPTY2OTIzNDkyJl9uY19zaWQ9OGYxNTQ5&quot;);">
-
-                    
                     <%= render partial: "partial_content/photo-stats"%>
                 </div>
               </div>
@@ -192,7 +124,5 @@
         </section>
       </div></turbo-frame>
     </main>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-  </body>
+    </body>
 </html>
