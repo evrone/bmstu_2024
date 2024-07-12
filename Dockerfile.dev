@@ -11,16 +11,6 @@ ENV RAILS_ENV="development" \
 
 RUN apk add --no-cache --virtual .build-deps build-base git postgresql-dev vips-dev tzdata yarn nodejs-current
 
-# COPY Gemfile Gemfile.lock ./
-# RUN bundle config set frozen false && \
-#     bundle install && \
-#     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
-#     bundle exec bootsnap precompile --gemfile
-
-# RUN bundle exec bootsnap precompile app/ lib/
-
-# RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
-
 RUN apk add --no-cache curl vips-dev postgresql-client tzdata && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
