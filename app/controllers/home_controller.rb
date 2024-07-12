@@ -9,8 +9,7 @@ class HomeController < ApplicationController
       state: @state,
       scopes: @scopes
     }.to_json
-    puts("gagaga")
-    puts(@data_attributes)
+    
   end
 
   def auth
