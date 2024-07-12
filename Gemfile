@@ -12,6 +12,8 @@ gem 'instagram_graph_api'
 
 gem 'open-uri'
 
+gem 'administrate'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 
