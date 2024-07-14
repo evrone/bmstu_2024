@@ -3,15 +3,11 @@ FROM registry.docker.com/library/ruby:$RUBY_VERSION-alpine
 
 WORKDIR /rails
 
-RUN apk add --update docker
-
 ENV RAILS_ENV="development" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle"
 
 RUN apk add --no-cache --virtual .build-deps build-base git postgresql-dev vips-dev tzdata yarn nodejs-current npm
-
-RUN apk add --no-cache curl vips-dev postgresql-client tzdata
 RUN rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 RUN npm install -g yarn@latest
@@ -41,3 +37,4 @@ RUN chmod -R 777 /usr/local/bundle/ruby/3.2.0/cache
 USER rails:rails
 
 EXPOSE 3000
+CMD [ "./bin/dev" ]

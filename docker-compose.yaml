@@ -5,8 +5,7 @@ services:
       dockerfile: Dockerfile.dev
     image: ghcr.io/evrone/bmstu_2024_dev
     env_file:
-      - .env.dev
-      - .env.private
+      - .env
     stdin_open: true
     tty: true
     volumes:
@@ -17,14 +16,11 @@ services:
       - 12345:12345
     depends_on:
       - postgres
-    command: ash -c "rm -f tmp/pids/server.pid && bin/dev"
-
   postgres:
-    image: postgres:16
+    image: postgres:16-alpine
     restart: always
     env_file:
-      - .env.dev
-      - .env.private
+      - .env
     ports:
       - 5432:5432
     volumes:

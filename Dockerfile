@@ -2,7 +2,7 @@
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
 ARG RUBY_VERSION=3.2.4
-FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
+FROM registry.docker.com/library/ruby:$RUBY_VERSION-alpine as base
 
 # Rails app lives here
 WORKDIR /rails
@@ -13,28 +13,21 @@ ENV RAILS_ENV="production" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development"
 
-
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
-# Install packages needed to build gems and node modules
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential curl git libpq-dev libvips node-gyp pkg-config python-is-python3
+RUN apk add --no-cache --virtual .build-deps build-base git postgresql-dev vips-dev tzdata yarn nodejs-current npm
 
-# Install JavaScript dependencies
-ARG NODE_VERSION=18.20.4
-ARG YARN_VERSION=1.22.22
-ENV PATH=/usr/local/node/bin:$PATH
-RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
-    /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
-    npm install -g yarn@$YARN_VERSION && \
-    rm -rf /tmp/node-build-master
+RUN apk add --no-cache curl vips-dev postgresql-client tzdata
+RUN rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+RUN npm install -g yarn@latest
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
-RUN bundle install && \
-    rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
-    bundle exec bootsnap precompile --gemfile
+RUN bundle install
+RUN rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
+RUN bundle exec bootsnap precompile --gemfile
 
 # Install node modules
 COPY package.json yarn.lock ./
@@ -47,24 +40,24 @@ COPY . .
 RUN bundle exec bootsnap precompile app/ lib/
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
-
+RUN ./bin/rails assets:precompile
 
 # Final stage for app image
 FROM base
 
 # Install packages needed for deployment
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libvips postgresql-client && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+RUN apk add --no-cache --virtual .build-deps curl build-base postgresql-dev vips-dev tzdata
+RUN rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built artifacts: gems, application
 COPY --from=build /usr/local/bundle /usr/local/bundle
 COPY --from=build /rails /rails
 
 # Run and own only the runtime files as a non-root user for security
-RUN useradd rails --create-home --shell /bin/bash && \
-    chown -R rails:rails db log storage tmp
+RUN adduser -D rails --shell /bin/bash
+RUN mkdir -p /usr/local/bundle/ruby/3.2.0/cache
+RUN chown -R rails:rails db log storage tmp /usr/local/bundle/ruby/3.2.0/cache
+RUN chmod -R 777 /usr/local/bundle/ruby/3.2.0/cache
 USER rails:rails
 
 # Entrypoint prepares the database.
