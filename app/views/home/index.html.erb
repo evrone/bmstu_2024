@@ -1,137 +1,36 @@
 <!doctype html>
 <html lang="ru">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WhereMyLikes</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
   </head>
   <body>
-
-  <nav class="navbar navbar-expand-lg bg-body-tertiary py-4">
-  <div class="container-fluid" style="font-size: 24px;">
-    <a class="navbar-brand" href="#" style="font-size: 28px;">WhereMyLikes</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" style="padding-bottom: 2px;"><%= t '.homes' %></a>
-        </li>
-        <li class="nav-item dropdown">
-          <%= link_to '#', class: 'nav-link dropdown-toggle text-black', id: 'navbarDropdown', role: 'button', data: { "bs-toggle": 'dropdown' }, aria: { expanded: 'false' }, style: "padding-bottom: 0px;" do %>
-            <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1" %>
-            <%= I18n.locale %>
-          <% end %>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <% I18n.available_locales.each do |locale| %>
-              <li>
-                <% if I18n.locale == locale %>
-                  <%= tag.span t(locale), class: 'dropdown-item' %>
-                <% else %>
-                  <%= link_to t(locale), root_path(locale: locale), class: 'dropdown-item' %>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
     <main> <turbo-frame id="frame">
       <div id="ffc-calculator__wrap">
         <section id="ffc-header" class="container mobile-adjusted page-top mt-3">
-          <h1 style="text-align: center; font-weight: bold;"><%= t '.title' %></h1>
-          <p><%= t '.aboutCom' %></p>
+          <h1 style="text-align: center; font-weight: bold;">VK Fake Follower checker</h1>
+          <p>Get an influencer’s audience audit &amp; identify fake, dormant or suspect followers to evaluate an influencer’s audience quality.</p>
         </section>
-        <div id="unlockCalculator" class="unlock-calculator-popup popupOverlay">
-          <div>
-            <div class="content">
-              <div class="content-group">
-                <div class="cta">
-                </div>
-              </div>
-            </div> <!----> <!---->
-          </div>
-        </div>
         <section id="ffc-calculator" class="container mobile-adjusted">
           <div id="ffc-form" class="form-group">
-            <div data-controller='vkid' data-vkid-url-value="<%= @data_attributes %>" class="mt-3">
-              <div id="VkIdSdkOneTap"></div>
-            </div>
+            
+            <div data-controller='vkid' class="mt-3">
+             <div id="VkIdSdkOneTap"></div>
+             </div>
+             </div>
+             </div>
           </div>
-          </div>
-          <div id="ffc-result" class="card row section shadow">
-            <div class="container">
-              <div class="row row-cols-2 ">
+          <div id="ffc-result" class="card row section shadow m-5">
+            <div class="container ">
+              <div class="row row-cols-2  ">
                 <div class="col p-4">
             <div class="col-md-12 profile-info text-center p-2 m-auto">
               <img src="https://d3aqwrzdsjcw3e.cloudfront.net/Fkxjvj7qICrK-_rv7sgjaX7Y9_rR5B3nPsPjRj9ZyNs/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yODg1LTE5LzM1NjIxNTMyOF82NzE4MzQ4MzQ3NjM2MDdfMTA3MjQxMzExMTM0ODY1MDg4M19uLmpwZz9zdHA9ZHN0LWpwZ19lMF9zMTUweDE1MCZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMDcmX25jX29oYz1SeW1lNjVxeHJ2TVE3a052Z0dlcE9lcSZlZG09QUVGOHRZWUJBQUFBJmNjYj03LTUmb2g9MDBfQVlEYkVsb0dpYlF5YWI3NzhGVk90N2lWbHV2azVIWDZ3Qm1rNk1IQWNpWFk2dyZvZT02NjkyMzIyMyZfbmNfc2lkPTFlMjBkMg" alt="amoureuxdumonde">
               <p class="username">@amoureuxdumonde</p>
               <span class="tag tag--exceptional">
-                <%= t '.se' %>
+                Score - Exceptional
               </span>
-              <div class="audience-score row p-3 m-auto rounded">
-                <div class="gauge-wrapper card col-xs-12 shadow">
-                  <div>
-                    <p class="score">10.0<br>
-                      <span><%= t '.audience' %></span>
-                    </p>
-                  </div>
-                  <svg viewBox="-100 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg" version="1.1">
-                    <path id="gauge_back" stroke="#F0F0F0" stroke-width="11" stroke-linecap="round" d="M 275 159.99999999999997 A 125 125 0 0 0 25 160.00000000000003"></path>
-                    <path id="gauge" fill="none" d="M 275 159.99999999999997 A 125 125 0 0 0 25 160.00000000000003" stroke="url(#paint0_linear_2410_5725)" stroke-width="11" stroke-linecap="round"></path>
-                    <g filter="url(#filter0_d_2410_5728)"><circle cx="275" cy="159.99999999999997" r="8.5" fill="white" id="circle"></circle></g>
-                    <defs>
-                      <linearGradient id="paint0_linear_2410_5725" x1="6" y1="123" x2="240" y2="123" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#FFE9F0"></stop>
-                        <stop offset="0.510417" stop-color="#FAECDB"></stop>
-                        <stop offset="1" stop-color="#D6EBE4"></stop>
-                      </linearGradient>
-                      <filter id="filter0_d_2410_5728" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
-                        <feOffset dy="4"></feOffset>
-                        <feGaussianBlur stdDeviation="4.5"></feGaussianBlur>
-                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"></feColorMatrix>
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2410_5728"></feBlend>
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2410_5728" result="shape"></feBlend>
-                      </filter>
-                    </defs>
-                  </svg>
-                </div>
-              </div>
-              <div class="stats row m-auto p-3">
-                <div class="card col-xs-12 p-tb-60 m-tb-40">
-                  <div class="row shadow">
-                    <div class="followers col-xs-12 col-sm-4 col-md-4 m-auto p-4">
-                      <svg width="15" height="19" viewBox="0 0 15 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="7.49995" cy="5.07143" r="4.28571" fill="#E7CAA7"></circle>
-                        <path d="M0 17.9286C0 13.7864 3.35786 10.4286 7.5 10.4286C11.6421 10.4286 15 13.7864 15 17.9286V19H0V17.9286Z" fill="#E7CAA7"></path>
-                      </svg>
-                      <p>169.7k</p>
-                      <span><%= t '.followers' %></span>
-                    </div>
-                    <div class="engagement col-xs-12 col-sm-4 col-md-4 m-auto">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge-fill text-success" viewBox="0 0 16 16">
-                        <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
-                      </svg>
-                      <p>1.81%</p>
-                      <span><%= t '.engagement' %></span>
-                    </div>
-                    <div class="likes col-xs-12 col-sm-4 col-md-4 m-auto">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill text-danger" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                      </svg>
-                      <p>2.95k</p>
-                      <span><%= t '.likes' %></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <%= render partial: "partial_content/audience-score"%>
+              <%= render partial: "partial_content/account-stats"%>
             </div>
             </div>
             <div class="col p-3">
@@ -140,63 +39,8 @@
                 <div class="col-xs-12">
                   <div class="card ratio-followers shadow">
                     <div class="row">
-                      <div class="col-lg-4 col-xs-12 real-followers">
-                        <p>170k</p>
-                        <span><%= t '.Rfollow' %></span>
-                      </div>
-                      <div class="col-lg-8 col-xs-12">
-                        <p class="percent">100%</p>
-                        <div class="data-progressbar">
-                          <span id="followers-data-progress" class="data-progressbar--fill" style="background-color: rgb(231, 202, 167); width: 100%;"></span>
-                        </div>
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-lg-4 col-xs-12 inactive-foll">
-                        <p>0</p>
-                        <span><%= t '.Infollow' %></span>
-                      </div>
-                      <div class="col-lg-8 col-xs-12">
-                        <p class="percent">0%</p>
-                        <div class="data-progressbar">
-                          <span id="inactive-data-progress" class="data-progressbar--fill" style="background-color: rgb(0, 0, 0); width: 0%;"></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 average-subtitle m-auto p-5">
-                  <h5><%= t '.vs' %></h5>
-                </div>
-                <div class="col-xs-12 m-auto p-1">
-                  <div class="card ratio-average shadow">
-                    <div class="row">
-                      <div class="col-lg-4 col-xs-12 average-likes">
-                        <p>2.95k</p>
-                        <span><%= t '.likes' %></span>
-                      </div>
-                    <div class="col-lg-8 col-xs-12">
-                      <p class="percent"><%= t '.target' %> 10.2k</p>
-                      <div class="data-progressbar">
-                        <span id="likesTarget-data-progress" class="data-progressbar--fill" style="background-color: rgb(231, 174, 192); width: 28.9667%;"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-lg-4 col-xs-12 average-comments">
-                      <p>7.1%</p>
-                      <span><%= t '.komment' %></span>
-                    </div>
-                    <div class="col-lg-8 col-xs-12">
-                      <p class="percent"><%= t '.target' %> 4%</p>
-                      <div class="data-progressbar">
-                        <span id="followersTarget-data-progress" class="data-progressbar--fill" style="background-color: rgb(149, 190, 176); width: 100%;"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  <%= render partial: "partial_content/ratio-followers"%>    
+                  <%= render partial: "partial_content/ratio-average"%>
               </div>
             </div>
           </div>
@@ -205,153 +49,49 @@
             <div class="row">
               <div class="col-xs-12 col-md-12 posts">
               <div class="card shadow">
-                <p class="card-title m-auto p-1"><%= t '.latestEng' %></p>
+                <p class="card-title m-auto p-1">Latest Audience Engagement</p>
                 <div class="row m-auto p-1">
                   <div class="col-xs-6 col-sm-4 col-md-2">
                     <div class="post text-center">
                       <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/mC9ffsBvKrrFBldu6lSHm8cwqeoiUH1uHeogU8gmjsM/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDk4MDU1MDZfMTM5NjIwODA5NDM3NzU5MF82ODE5NzI2NTIzNzI2NTMxMjZfbi5qcGc_c3RwPWRzdC1qcGdfZTM1JmVmZz1leUoyWlc1amIyUmxYM1JoWnlJNkltbHRZV2RsWDNWeWJHZGxiaTR4TkRRd2VERTRNREF1YzJSeUxtWXlPVE0xTUNKOSZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMTAmX25jX29oYz1JTWxVaG9uNHZEZ1E3a052Z0Vyc3htdSZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16UXdNemt6TlRVeU9URTNNek0wTkRZME1RJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZQWx4NGhscEhmcnRNN25sdkNna25mLWI5YXRlMmVvRTVxRjRtY2RCQnVKVHcmb2U9NjY5MjQ2RTkmX25jX3NpZD04ZjE1NDk&quot;);">
-                        <!---->
-                      </div>
-                      <p>
-                        <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16"><path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
-                          2.13k
-                        </span>
-                        <span>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">  <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></svg>
-                           58
-                        </span>
-                        <span>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16"><path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/></svg>
-                           1.3%
-                        </span>
-                      </p>
-                    </div>
+                       <%= render partial: "partial_content/photo-stats"%>
                   </div>
                   <div class="col-xs-6 col-sm-4 col-md-2">
                     <div class="post text-center">
                       <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/3Cb1ZaFN-99vIQyKh1r4C9qkD-zBDUwCowo4G1UV-Xg/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTEuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDg2MDAyODFfMTM3OTQ5Njk1OTQxMjQ3Nl8xOTI3OTc1MDQyMjQ1MTYxMTA1X24uanBnP3N0cD1kc3QtanBnX2UxNSZlZmc9ZXlKMlpXNWpiMlJsWDNSaFp5STZJbWx0WVdkbFgzVnliR2RsYmk0eE1EZ3dlREU1TWpBdWMyUnlMbVl5T1RNMU1DSjkmX25jX2h0PWluc3RhZ3JhbS5maWV2MjItMS5mbmEuZmJjZG4ubmV0Jl9uY19jYXQ9MTA4Jl9uY19vaGM9dzF4bHYyeUhhUFlRN2tOdmdIelFYRlImZWRtPUFFaHlYVWtCQUFBQSZjY2I9Ny01JmlnX2NhY2hlX2tleT1Nek01TWpNMU1EazJOREl3TnpBeE16VTJOZyUzRCUzRC4yLWNjYjctNSZvaD0wMF9BWURQcDZqMFpYWjdTc0RNQnNheFhuUl9KLThEbHRVTjN1V1hXQWRmWjBKRUVBJm9lPTY2OTI1NjU3Jl9uY19zaWQ9OGYxNTQ5&quot;);">
-
-                      </div>
-                      <p>
-                        <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16"><path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
-                          2.13k
-                        </span>
-                        <span>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">  <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></svg>
-                           58
-                        </span>
-                        <span>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16"><path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/></svg>
-                           1.3%
-                        </span>
-                      </p>
-                    </div>
+                     <%= render partial: "partial_content/photo-stats"%>
                   </div>
                   <div class="col-xs-6 col-sm-4 col-md-2">
                     <div class="post text-center">
                       <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/h2JfA140kwCVdonLQpTyB5--uWCH_t5gz4tAkkSjlZw/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDgxMzA1NTZfMzU0OTQ1MTAwOTQzODMxXzY3NDMxMTM4NzIwNTUyMjAwMjZfbi5qcGc_c3RwPWRzdC1qcGdfZTE1JmVmZz1leUoyWlc1amIyUmxYM1JoWnlJNkltbHRZV2RsWDNWeWJHZGxiaTR4TVRjNWVESXdPVFl1YzJSeUxtWXlPVE0xTUNKOSZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMTEmX25jX29oYz1xVE5MRjIwTmxVVVE3a052Z0haVWxlNCZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16TTRPREU1TURRNE1ERTBNVFkyTkRZMk9BJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZREtjQ0ZMSVdhbVVrS0tva0M5U2NhQ1BVQWxrTW9pS1hxd3VjeGx5ejZUbUEmb2U9NjY5MjUzQ0UmX25jX3NpZD04ZjE1NDk&quot;);">
-
-                      </div>
-                      <p>
-                        <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16"><path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
-                          2.13k
-                        </span>
-                        <span>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">  <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></svg>
-                           58
-                        </span>
-                        <span>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16"><path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/></svg>
-                           1.3%
-                        </span>
-                      </p>
-                    </div>
+                       <%= render partial: "partial_content/photo-stats"%>
                   </div>
                 <div class="col-xs-6 col-sm-4 col-md-2">
                   <div class="post text-center">
                     <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/HnVO613jn6UiUT-84vCIv62pPKFc6mSsQFzTWyBgItw/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTEuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDcyMjAyNzNfMzQ3NTM4OTY0NzQ1OTYxXzI5MTQwNzY5NDg5NjUxMjQ0NV9uLmpwZz9zdHA9ZHN0LWpwZ19lMTUmZWZnPWV5SjJaVzVqYjJSbFgzUmhaeUk2SW1sdFlXZGxYM1Z5YkdkbGJpNHlNalk0ZURRd016SXVjMlJ5TG1ZeU9UTTFNQ0o5Jl9uY19odD1pbnN0YWdyYW0uZmlldjIyLTEuZm5hLmZiY2RuLm5ldCZfbmNfY2F0PTEwOSZfbmNfb2hjPXMyRnNQaXZFV1BVUTdrTnZnRm5MUjluJmdpZD1lZmQ1YWY4NmZhMDA0OGUxODNlMmRkNTU4YzMxODg1OSZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16TTRNREExTmprMk1UQXlPRGM0T0RJM01nJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZRFJjMmd5NkNoVWRxY050Xy1TcHZzMmxBZWwtYV9tMWo4Uk1pRUFLRmtrYWcmb2U9NjY5MjUwQ0EmX25jX3NpZD04ZjE1NDk&quot;);">
-
-                    </div>
-                    <p>
-                      <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16"><path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
-                          2.13k
-                        </span>
-                        <span>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">  <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></svg>
-                           58
-                        </span>
-                        <span>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16"><path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/></svg>
-                           1.3%
-                        </span>
-                    </p>
-                  </div>
+                     <%= render partial: "partial_content/photo-stats"%>
                 </div>
                 <div class="col-xs-6 col-sm-4 col-md-2">
                   <div class="post text-center">
                     <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/HAfbjCdXscj1rUnvL-1wHNVRyFUaTsQTyz1d0EW7BHw/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDU1ODkxMDZfODIyOTk3MTg5NzE4ODQzXzUwMDQ4ODA0MTAyMjM5Nzk2MjZfbi5qcGc_c3RwPWRzdC1qcGdfZTE1JmVmZz1leUoyWlc1amIyUmxYM1JoWnlJNkltbHRZV2RsWDNWeWJHZGxiaTR6TVRNeWVEVTFOakl1YzJSeUxtWXlPVE0xTUNKOSZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMTEmX25jX29oYz1Hd2I1a1B3RmZaNFE3a052Z0hfUm5xWCZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16TTNOREkxTlRZNE1UQTNNekEyTURnd01BJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZQXBmbHBseXlZT3VWNTc0TFRQb3piVXZNNmRVZ2FpUm5zdU1rb2FDZ281ckEmb2U9NjY5MjVCMjAmX25jX3NpZD04ZjE1NDk&quot;);">
-
-                    </div>
-                    <p>
-                      <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16"><path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
-                          2.13k
-                        </span>
-                        <span>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">  <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></svg>
-                           58
-                        </span>
-                        <span>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16"><path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/></svg>
-                           1.3%
-                        </span>
-                    </p>
-                  </div>
+                     <%= render partial: "partial_content/photo-stats"%>
                 </div>
                 <div class="col-xs-6 col-sm-4 col-md-2">
                   <div class="post text-center">
                     <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/mDpuTAf1VkufYZXRQ61qzZPLlNadT-X_tNYnIiTTS1Y/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDI2ODYyNzRfMTk4NDA2NTA1ODY5MTQzNF80ODk5MjgyNDczNjQ5MTM4NzEwX24uanBnP3N0cD1kc3QtanBnX2UxNSZlZmc9ZXlKMlpXNWpiMlJsWDNSaFp5STZJbWx0WVdkbFgzVnliR2RsYmk0eE1EZ3dlREU1TWpBdWMyUnlMbVl5T1RNMU1DSjkmX25jX2h0PWluc3RhZ3JhbS5maWV2MjItMi5mbmEuZmJjZG4ubmV0Jl9uY19jYXQ9MTEwJl9uY19vaGM9ZGZucXYtTnZuemdRN2tOdmdFU3ZYb0YmZWRtPUFFaHlYVWtCQUFBQSZjY2I9Ny01JmlnX2NhY2hlX2tleT1Nek0yT0RRME16RTBPVFF5TmpZeU9USXpPUSUzRCUzRC4yLWNjYjctNSZvaD0wMF9BWUN2VjVhSnNKcUtMN0VQd1pRSWxXcERWUGROUUNCYWpKVG9rLUZpQmFqaVB3Jm9lPTY2OTIzNDkyJl9uY19zaWQ9OGYxNTQ5&quot;);">
-
-                    </div>
-                    <p>
-                     <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16"><path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
-                          2.13k
-                        </span>
-                        <span>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">  <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></svg>
-                           58
-                        </span>
-                        <span>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16"><path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/></svg>
-                           1.3%
-                        </span>
-                    </p>
-                  </div>
+                    <%= render partial: "partial_content/photo-stats"%>
                 </div>
               </div>
               </div>
             </div>
           </div>
           </div>
-          <div class="col-lg-12 text-center ">
-            <p class="subtext col-md-6 m-auto p-2"><%= t '.finTitle' %></p>
+          <div class="col-12 text-center ">
+            <p class="subtext col-md-6 m-auto p-2">We use the avg. likes &amp; comments then compare them to industry standards by following size. This calculator does not analyse followers, so the audience score is an estimation.</p>
           </div>
         </section>
       </div></turbo-frame>
     </main>
-    <footer class="py-3 my-4">
-      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"><%= t '.homes' %></a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"><%= t '.faqs' %></a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"><%= t '.about' %></a></li>
-      </ul>
-      <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+    </body>
+    <div id="vkid-data" data-attributes="<%= @data_attributes %>"></div>
 </html>
