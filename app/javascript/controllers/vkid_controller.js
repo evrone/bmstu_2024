@@ -8,18 +8,18 @@ export default class extends Controller {
   }
   connect() {
     console.log("Hello");
-    const vkidDataElement = document.getElementById('vkid-data');
-    const dataAttributes = JSON.parse(vkidDataElement.getAttribute('data-attributes'));
-    
-    const { code_challenge, state, scopes } = dataAttributes;
     
     const VKID = window.VKIDSDK;
         VKID.Config.init({
           app: '51989509', // Идентификатор приложения.
           redirectUrl: 'https://wheremylikes.com/auth/vkontakte/callback/', // Адрес для перехода после авторизации.
-          state: state, // Произвольная строка состояния приложения.
-          codeVerifier: code_challenge, // Верификатор в виде случайной строки. Обеспечивает защиту передаваемых данных.
-          scope: scopes // Список прав доступа, которые нужны приложению.
+          //state: "<%= @state %>", // Произвольная строка состояния приложения.
+          //codeVerifier: "<%= @code_challenge%>", // Верификатор в виде случайной строки. Обеспечивает защиту передаваемых данных.
+          //scope: '<%= @scopes %>' // Список прав доступа, которые нужны приложению.
+          state: 'df29figadjsd82',
+          codeVerifier: 'FzG+WDtlamaYFRXi83XYv47GnVhUXw5ipjCYGzjV9js=',
+          scope: 'vkid.personal_info friends wall'
+
         });
         
         // Получение кнопки из разметки.
