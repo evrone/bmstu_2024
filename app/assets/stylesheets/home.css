@@ -2,7 +2,7 @@ html,body {
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow-x: hidden; 
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -10,7 +10,7 @@ html,body {
 
 header {
     flex-shrink: 0;
-    width: 100%; 
+    width: 100%;
 }
 
 main {
@@ -18,13 +18,13 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%; 
-    padding: 0 10px; 
+    width: 100%;
+    padding: 0 10px;
     font-size: 22px;
 }
 
 .navbar {
-    width: 100%; 
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -33,8 +33,8 @@ main {
 }
 
 .name {
-    flex: 1; 
-    padding: 46px 20px; 
+    flex: 1;
+    padding: 46px 20px;
     color: rgb(255, 255, 255);
     font-family: Kaisei Opti;
     font-size: 36px;
@@ -45,29 +45,29 @@ main {
 }
 
 .about {
-    width: 100%; 
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     padding: 0px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 .about_text {
     color: rgb(0, 0, 0);
     font-family: Libre Caslon Text;
     font-size: 26px;
     font-weight: 400;
-    line-height: 1.5; 
+    line-height: 1.5;
     letter-spacing: 0px;
     text-align: justify;
-    margin-bottom: 10px; 
-    width: 90%; 
-    box-sizing: border-box; 
+    margin-bottom: 10px;
+    width: 90%;
+    box-sizing: border-box;
 }
 
 .login {
-    width: 100%; 
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -78,8 +78,8 @@ main {
 }
 
 .login_button {
-    width: 90%; 
-    max-width: 500px; 
+    width: 90%;
+    max-width: 500px;
     height: 100px;
     display: flex;
     justify-content: center;
@@ -131,8 +131,6 @@ main {
 }
 
 .photo {
-    /* position: absolute; */
-    /* overflow: hidden; */
     width:  400px;
     height: 600px;
     flex-shrink: 0;
@@ -169,20 +167,20 @@ main {
     .about_text {
         font-size: 22px;
     }
-    
+
     .login_button {
-        width: 90%; 
-        max-width: 400px; 
+        width: 90%;
+        max-width: 400px;
         font-size: 24px;
-        white-space: normal; 
+        white-space: normal;
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1000px) {
     .login_button {
-        width: 100%; 
-        max-width: 600px; 
-        font-size: 28px; 
+        width: 100%;
+        max-width: 600px;
+        font-size: 28px;
     }
 }
 .VkIdWebSdk__button_reset {

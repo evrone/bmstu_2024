@@ -10,8 +10,8 @@ class HomeController < ApplicationController
       scopes: @scopes
     }.to_json
     puts (@data_attributes)
-    
+
   end
-  
+
 end
 

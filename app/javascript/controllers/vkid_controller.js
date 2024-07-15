@@ -20,7 +20,7 @@ export default class extends Controller {
           // Создание экземпляра кнопки.
           const oneTap = new VKID.OneTap();
           // Получение контейнера из разметки.
-          const container = document.getElementById('VkIdSdkOneTap'); 
+          const container = document.getElementById('VkIdSdkOneTap');
           // Проверка наличия кнопки в разметке.
           if (container) {
             // Отрисовка кнопки в контейнере с именем приложения APP_NAME, светлой темой и на русском языке.
@@ -32,5 +32,4 @@ export default class extends Controller {
             VKID.Auth.login()
           }
         });
-  }}; 
-  
+  }};

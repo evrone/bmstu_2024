@@ -8,7 +8,7 @@
 /.bundle
 
 # Ignore all environment files (except templates).
-/.env*
+/.env
 !/.env*.erb
 
 # Ignore all logfiles and tempfiles.
@@ -28,10 +28,38 @@
 /tmp/storage/*
 !/tmp/storage/
 !/tmp/storage/.keep
+*.rdb
 
 /public/assets
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+/app/assets/builds/*
+!/app/assets/builds/.keep
+
+/node_modules
 .env
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,rails
+
+.DS_Store

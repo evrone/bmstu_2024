@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
       response = conn.post('/oauth2/auth',{
         grant_type:'authorization_code',
         code: code,
-        code_verifier: code_verifier, 
+        code_verifier: code_verifier,
         device_id: device_id,
         redirect_uri: 'https://wheremylikes.com/auth/vkontakte/callback/',
         state: state,
