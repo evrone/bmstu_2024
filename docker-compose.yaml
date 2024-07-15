@@ -3,7 +3,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    image: ghcr.io/evrone/bmstu_2024_dev
     env_file:
       - .env
     stdin_open: true
@@ -15,6 +14,7 @@ services:
       - 12345:12345
     depends_on:
       - postgres
+
   postgres:
     image: postgres:16-alpine
     restart: always

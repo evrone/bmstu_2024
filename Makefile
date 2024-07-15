@@ -9,8 +9,8 @@ export
 setup: build db-prepare
 
 build:
-	bundle install
-	yarn install
+	bundle lock --update
+	npm install --package-lock-only 
 	docker compose build
 
 up:
@@ -29,10 +29,16 @@ console:
 	docker compose run --rm app bundle exec rails c
 
 yarn:
-	docker-compose run --rm app yarn install
+	docker compose run --rm app yarn install
 
 bundle:
-	docker-compose run --rm app bundle install
+	docker compose run --rm app bundle install
+
+rubocop:
+	docker compose run --rm app bundle exec rubocop
+
+rubocopA:
+	docker compose run --rm app bundle exec rubocop -A
 
 db-psql:
 	docker compose run --rm app psql -d ${POSTGRES_DB} -U ${POSTGRES_USER} -W -h db
