@@ -20,9 +20,7 @@ main {
     justify-content: center;
     width: 100%; 
     padding: 0 10px; 
-    font-family: Book Antiqua;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 22px;
 }
 
 .navbar {
@@ -31,8 +29,7 @@ main {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    background: linear-gradient(35.47deg, rgba(255, 220, 128, 0.78) 0.612%, rgba(252, 175, 69, 0.78) 9.55%, rgba(247, 119, 55, 0.78) 20.553%, rgba(253, 29, 29, 0.78) 40.267%, rgba(225, 48, 108, 0.78) 56.698%, rgba(193, 53, 132, 0.78) 67.893%, rgba(131, 58, 180, 0.78) 77.921%, rgba(91, 81, 216, 0.78) 88.97%, rgba(64, 93, 230, 0.78) 100.045%);
-}
+    }
 
 .name {
     flex: 1; 
@@ -133,16 +130,30 @@ main {
 }
 
 .photo {
-    /* position: absolute; */
-    /* overflow: hidden; */
     width:  400px;
     height: 600px;
     flex-shrink: 0;
     background-size: contain;
     background-repeat: no-repeat;
-    /* background-color: #efe4f0; */
 }
-@media (max-width: 768px) {
+
+.post{
+    font-size: 16px;
+}
+.views{
+    font-size: medium;
+}
+#ffc-form {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+
+@media (max-width: 999px) {
     .about_text {
         font-size: 22px;
     }
@@ -153,12 +164,84 @@ main {
         font-size: 24px;
         white-space: normal; 
     }
+    .img{
+        width: 110px;
+        height: 110px;
+        flex-shrink: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        object-fit: cover
+        ;
+    }
+    
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1000px) {
     .login_button {
         width: 100%; 
         max-width: 600px; 
         font-size: 28px; 
     }
+    .img{
+        width: 180px;
+        height: 180px;
+        flex-shrink: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        object-fit: cover
+        ;
+    }
 }
+.VkIdWebSdk__button_reset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+  }
+
+  .VkIdWebSdk__button {
+    background: #0077ff;
+    cursor: pointer;
+    transition: all .1s ease-out;
+  }
+
+  .VkIdWebSdk__button:hover{
+    opacity: 0.8;
+  }
+
+  .VkIdWebSdk__button:active {
+    opacity: .7;
+    transform: scale(.97);
+  }
+
+  .VkIdWebSdk__button {
+    border-radius: 8px;
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .VkIdWebSdk__button_container {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+  }
+
+  .VkIdWebSdk__button_icon + .VkIdWebSdk__button_text {
+    margin-left: -28px;
+  }
+
+  .VkIdWebSdk__button_text {
+    display: flex;
+    font-family: -apple-system, system-ui, "Helvetica Neue", Roboto, sans-serif;
+    flex: 1;
+    justify-content: center;
+    color: #ffffff;
+  }
