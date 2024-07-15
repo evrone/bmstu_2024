@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  get 'admin', to: 'admin#index'
+  resources :users
+
+  constraints AdminConstraint.new do
+    mount RailsPerformance::Engine, at: 'performance'
+  end
+
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     get 'auth/:provider/callback', to: 'sessions#create'
     get '/login', to: 'sessions#new'
@@ -6,4 +14,6 @@ Rails.application.routes.draw do
     get 'sessions/create'
     root 'home#index'
   end
+  
+    match '*path', to: 'errors#not_found', via: :all
 end

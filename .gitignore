@@ -28,6 +28,7 @@
 /tmp/storage/*
 !/tmp/storage/
 !/tmp/storage/.keep
+*.rdb
 
 /public/assets
 
@@ -60,3 +61,5 @@
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,rails
+
+.DS_Store
