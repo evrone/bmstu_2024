@@ -4,9 +4,9 @@
     
   </head>
   <body>
-    <main> <turbo-frame id="frame">
+    <main class="raleway"> <turbo-frame id="frame">
       <div id="ffc-calculator__wrap">
-        <section id="ffc-header" class="container mobile-adjusted page-top mt-3">
+        <section id="ffc-header" class="container mobile-adjusted page-top mt-3 ">
           <h1 style="text-align: center; font-weight: bold;">VK Fake Follower checker</h1>
           <p>Get an influencer’s audience audit &amp; identify fake, dormant or suspect followers to evaluate an influencer’s audience quality.</p>
         </section>
@@ -19,12 +19,12 @@
              </div>
              </div>
           </div>
-          <div id="ffc-result" class="card row section shadow m-5">
-            <div class="container ">
-              <div class="row row-cols-2  ">
-                <div class="col p-4">
+          <div id="ffc-result" class="card row section shadow bord m-2 m-lg-5">
+            <div class="container  ">
+              <div class="row row-cols-1 row-cols-lg-2  ">
+                <div class="col p-1 p-lg-4">
             <div class="col-md-12 profile-info text-center p-2 m-auto">
-              <img src="https://d3aqwrzdsjcw3e.cloudfront.net/Fkxjvj7qICrK-_rv7sgjaX7Y9_rR5B3nPsPjRj9ZyNs/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yODg1LTE5LzM1NjIxNTMyOF82NzE4MzQ4MzQ3NjM2MDdfMTA3MjQxMzExMTM0ODY1MDg4M19uLmpwZz9zdHA9ZHN0LWpwZ19lMF9zMTUweDE1MCZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMDcmX25jX29oYz1SeW1lNjVxeHJ2TVE3a052Z0dlcE9lcSZlZG09QUVGOHRZWUJBQUFBJmNjYj03LTUmb2g9MDBfQVlEYkVsb0dpYlF5YWI3NzhGVk90N2lWbHV2azVIWDZ3Qm1rNk1IQWNpWFk2dyZvZT02NjkyMzIyMyZfbmNfc2lkPTFlMjBkMg" alt="amoureuxdumonde">
+              <img class="avatar"src="https://images.squarespace-cdn.com/content/v1/5b5dbd883917ee427d49e685/1532872690221-RKSVMP4O2VGVRJBYVRZB/image-asset.jpeg" alt="amoureuxdumonde">
               <p class="username">@amoureuxdumonde</p>
               <span class="tag tag--exceptional">
                 Score - Exceptional
@@ -33,11 +33,11 @@
               <%= render partial: "partial_content/account-stats"%>
             </div>
             </div>
-            <div class="col p-3">
-            <div class="col-md-12 data-info text-center p-3">
+            <div class="col p-1 p-lg-3">
+            <div class="col-md-12 data-info text-center p-2 p-lg-3">
               <div class="row">
                 <div class="col-xs-12">
-                  <div class="card ratio-followers shadow">
+                  <div class="card ratio-followers bord shadow">
                     <div class="row">
                   <%= render partial: "partial_content/ratio-followers"%>    
                   <%= render partial: "partial_content/ratio-average"%>
@@ -45,40 +45,40 @@
             </div>
           </div>
           </div>
-          <div class="col-xs-12 col-md-12 posts-info m-auto p-3">
+          <div class="col-12 col-lg-12 posts-info m-auto p-3">
             <div class="row">
               <div class="col-xs-12 col-md-12 posts">
-              <div class="card shadow">
-                <p class="card-title m-auto p-1">Latest Audience Engagement</p>
+              <div class="card shadow bord">
+                <p class="card-title m-auto p-1 text-center">Latest Audience Engagement</p>
                 <div class="row m-auto p-1">
-                  <div class="col-xs-6 col-sm-4 col-md-2">
+                  <div class="col-xs-6 col-sm-4 col-md-6 col-lg-2">
                     <div class="post text-center">
-                      <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/mC9ffsBvKrrFBldu6lSHm8cwqeoiUH1uHeogU8gmjsM/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDk4MDU1MDZfMTM5NjIwODA5NDM3NzU5MF82ODE5NzI2NTIzNzI2NTMxMjZfbi5qcGc_c3RwPWRzdC1qcGdfZTM1JmVmZz1leUoyWlc1amIyUmxYM1JoWnlJNkltbHRZV2RsWDNWeWJHZGxiaTR4TkRRd2VERTRNREF1YzJSeUxtWXlPVE0xTUNKOSZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMTAmX25jX29oYz1JTWxVaG9uNHZEZ1E3a052Z0Vyc3htdSZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16UXdNemt6TlRVeU9URTNNek0wTkRZME1RJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZQWx4NGhscEhmcnRNN25sdkNna25mLWI5YXRlMmVvRTVxRjRtY2RCQnVKVHcmb2U9NjY5MjQ2RTkmX25jX3NpZD04ZjE1NDk&quot;);">
+                      <div class="img rounded m-auto" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/mC9ffsBvKrrFBldu6lSHm8cwqeoiUH1uHeogU8gmjsM/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDk4MDU1MDZfMTM5NjIwODA5NDM3NzU5MF82ODE5NzI2NTIzNzI2NTMxMjZfbi5qcGc_c3RwPWRzdC1qcGdfZTM1JmVmZz1leUoyWlc1amIyUmxYM1JoWnlJNkltbHRZV2RsWDNWeWJHZGxiaTR4TkRRd2VERTRNREF1YzJSeUxtWXlPVE0xTUNKOSZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMTAmX25jX29oYz1JTWxVaG9uNHZEZ1E3a052Z0Vyc3htdSZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16UXdNemt6TlRVeU9URTNNek0wTkRZME1RJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZQWx4NGhscEhmcnRNN25sdkNna25mLWI5YXRlMmVvRTVxRjRtY2RCQnVKVHcmb2U9NjY5MjQ2RTkmX25jX3NpZD04ZjE1NDk&quot;);">
                        <%= render partial: "partial_content/photo-stats"%>
                   </div>
-                  <div class="col-xs-6 col-sm-4 col-md-2">
+                  <div class="col-xs-6 col-sm-4 col-md-6 col-lg-2">
                     <div class="post text-center">
-                      <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/3Cb1ZaFN-99vIQyKh1r4C9qkD-zBDUwCowo4G1UV-Xg/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTEuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDg2MDAyODFfMTM3OTQ5Njk1OTQxMjQ3Nl8xOTI3OTc1MDQyMjQ1MTYxMTA1X24uanBnP3N0cD1kc3QtanBnX2UxNSZlZmc9ZXlKMlpXNWpiMlJsWDNSaFp5STZJbWx0WVdkbFgzVnliR2RsYmk0eE1EZ3dlREU1TWpBdWMyUnlMbVl5T1RNMU1DSjkmX25jX2h0PWluc3RhZ3JhbS5maWV2MjItMS5mbmEuZmJjZG4ubmV0Jl9uY19jYXQ9MTA4Jl9uY19vaGM9dzF4bHYyeUhhUFlRN2tOdmdIelFYRlImZWRtPUFFaHlYVWtCQUFBQSZjY2I9Ny01JmlnX2NhY2hlX2tleT1Nek01TWpNMU1EazJOREl3TnpBeE16VTJOZyUzRCUzRC4yLWNjYjctNSZvaD0wMF9BWURQcDZqMFpYWjdTc0RNQnNheFhuUl9KLThEbHRVTjN1V1hXQWRmWjBKRUVBJm9lPTY2OTI1NjU3Jl9uY19zaWQ9OGYxNTQ5&quot;);">
+                      <div class="img rounded m-auto" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/3Cb1ZaFN-99vIQyKh1r4C9qkD-zBDUwCowo4G1UV-Xg/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTEuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDg2MDAyODFfMTM3OTQ5Njk1OTQxMjQ3Nl8xOTI3OTc1MDQyMjQ1MTYxMTA1X24uanBnP3N0cD1kc3QtanBnX2UxNSZlZmc9ZXlKMlpXNWpiMlJsWDNSaFp5STZJbWx0WVdkbFgzVnliR2RsYmk0eE1EZ3dlREU1TWpBdWMyUnlMbVl5T1RNMU1DSjkmX25jX2h0PWluc3RhZ3JhbS5maWV2MjItMS5mbmEuZmJjZG4ubmV0Jl9uY19jYXQ9MTA4Jl9uY19vaGM9dzF4bHYyeUhhUFlRN2tOdmdIelFYRlImZWRtPUFFaHlYVWtCQUFBQSZjY2I9Ny01JmlnX2NhY2hlX2tleT1Nek01TWpNMU1EazJOREl3TnpBeE16VTJOZyUzRCUzRC4yLWNjYjctNSZvaD0wMF9BWURQcDZqMFpYWjdTc0RNQnNheFhuUl9KLThEbHRVTjN1V1hXQWRmWjBKRUVBJm9lPTY2OTI1NjU3Jl9uY19zaWQ9OGYxNTQ5&quot;);">
                      <%= render partial: "partial_content/photo-stats"%>
                   </div>
-                  <div class="col-xs-6 col-sm-4 col-md-2">
+                  <div class="col-xs-6 col-sm-4 col-md-6 col-lg-2">
                     <div class="post text-center">
-                      <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/h2JfA140kwCVdonLQpTyB5--uWCH_t5gz4tAkkSjlZw/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDgxMzA1NTZfMzU0OTQ1MTAwOTQzODMxXzY3NDMxMTM4NzIwNTUyMjAwMjZfbi5qcGc_c3RwPWRzdC1qcGdfZTE1JmVmZz1leUoyWlc1amIyUmxYM1JoWnlJNkltbHRZV2RsWDNWeWJHZGxiaTR4TVRjNWVESXdPVFl1YzJSeUxtWXlPVE0xTUNKOSZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMTEmX25jX29oYz1xVE5MRjIwTmxVVVE3a052Z0haVWxlNCZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16TTRPREU1TURRNE1ERTBNVFkyTkRZMk9BJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZREtjQ0ZMSVdhbVVrS0tva0M5U2NhQ1BVQWxrTW9pS1hxd3VjeGx5ejZUbUEmb2U9NjY5MjUzQ0UmX25jX3NpZD04ZjE1NDk&quot;);">
+                      <div class="img rounded m-auto" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/h2JfA140kwCVdonLQpTyB5--uWCH_t5gz4tAkkSjlZw/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDgxMzA1NTZfMzU0OTQ1MTAwOTQzODMxXzY3NDMxMTM4NzIwNTUyMjAwMjZfbi5qcGc_c3RwPWRzdC1qcGdfZTE1JmVmZz1leUoyWlc1amIyUmxYM1JoWnlJNkltbHRZV2RsWDNWeWJHZGxiaTR4TVRjNWVESXdPVFl1YzJSeUxtWXlPVE0xTUNKOSZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMTEmX25jX29oYz1xVE5MRjIwTmxVVVE3a052Z0haVWxlNCZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16TTRPREU1TURRNE1ERTBNVFkyTkRZMk9BJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZREtjQ0ZMSVdhbVVrS0tva0M5U2NhQ1BVQWxrTW9pS1hxd3VjeGx5ejZUbUEmb2U9NjY5MjUzQ0UmX25jX3NpZD04ZjE1NDk&quot;);">
                        <%= render partial: "partial_content/photo-stats"%>
                   </div>
-                <div class="col-xs-6 col-sm-4 col-md-2">
+                <div class="col-xs-6 col-sm-4 col-md-6 col-lg-2">
                   <div class="post text-center">
-                    <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/HnVO613jn6UiUT-84vCIv62pPKFc6mSsQFzTWyBgItw/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTEuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDcyMjAyNzNfMzQ3NTM4OTY0NzQ1OTYxXzI5MTQwNzY5NDg5NjUxMjQ0NV9uLmpwZz9zdHA9ZHN0LWpwZ19lMTUmZWZnPWV5SjJaVzVqYjJSbFgzUmhaeUk2SW1sdFlXZGxYM1Z5YkdkbGJpNHlNalk0ZURRd016SXVjMlJ5TG1ZeU9UTTFNQ0o5Jl9uY19odD1pbnN0YWdyYW0uZmlldjIyLTEuZm5hLmZiY2RuLm5ldCZfbmNfY2F0PTEwOSZfbmNfb2hjPXMyRnNQaXZFV1BVUTdrTnZnRm5MUjluJmdpZD1lZmQ1YWY4NmZhMDA0OGUxODNlMmRkNTU4YzMxODg1OSZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16TTRNREExTmprMk1UQXlPRGM0T0RJM01nJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZRFJjMmd5NkNoVWRxY050Xy1TcHZzMmxBZWwtYV9tMWo4Uk1pRUFLRmtrYWcmb2U9NjY5MjUwQ0EmX25jX3NpZD04ZjE1NDk&quot;);">
+                    <div class="img rounded m-auto" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/HnVO613jn6UiUT-84vCIv62pPKFc6mSsQFzTWyBgItw/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTEuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDcyMjAyNzNfMzQ3NTM4OTY0NzQ1OTYxXzI5MTQwNzY5NDg5NjUxMjQ0NV9uLmpwZz9zdHA9ZHN0LWpwZ19lMTUmZWZnPWV5SjJaVzVqYjJSbFgzUmhaeUk2SW1sdFlXZGxYM1Z5YkdkbGJpNHlNalk0ZURRd016SXVjMlJ5TG1ZeU9UTTFNQ0o5Jl9uY19odD1pbnN0YWdyYW0uZmlldjIyLTEuZm5hLmZiY2RuLm5ldCZfbmNfY2F0PTEwOSZfbmNfb2hjPXMyRnNQaXZFV1BVUTdrTnZnRm5MUjluJmdpZD1lZmQ1YWY4NmZhMDA0OGUxODNlMmRkNTU4YzMxODg1OSZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16TTRNREExTmprMk1UQXlPRGM0T0RJM01nJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZRFJjMmd5NkNoVWRxY050Xy1TcHZzMmxBZWwtYV9tMWo4Uk1pRUFLRmtrYWcmb2U9NjY5MjUwQ0EmX25jX3NpZD04ZjE1NDk&quot;);">
                      <%= render partial: "partial_content/photo-stats"%>
                 </div>
-                <div class="col-xs-6 col-sm-4 col-md-2">
+                <div class="col-xs-6 col-sm-4 col-md-6 col-lg-2">
                   <div class="post text-center">
-                    <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/HAfbjCdXscj1rUnvL-1wHNVRyFUaTsQTyz1d0EW7BHw/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDU1ODkxMDZfODIyOTk3MTg5NzE4ODQzXzUwMDQ4ODA0MTAyMjM5Nzk2MjZfbi5qcGc_c3RwPWRzdC1qcGdfZTE1JmVmZz1leUoyWlc1amIyUmxYM1JoWnlJNkltbHRZV2RsWDNWeWJHZGxiaTR6TVRNeWVEVTFOakl1YzJSeUxtWXlPVE0xTUNKOSZfbmNfaHQ9aW5zdGFncmFtLmZpZXYyMi0yLmZuYS5mYmNkbi5uZXQmX25jX2NhdD0xMTEmX25jX29oYz1Hd2I1a1B3RmZaNFE3a052Z0hfUm5xWCZlZG09QUVoeVhVa0JBQUFBJmNjYj03LTUmaWdfY2FjaGVfa2V5PU16TTNOREkxTlRZNE1UQTNNekEyTURnd01BJTNEJTNELjItY2NiNy01Jm9oPTAwX0FZQXBmbHBseXlZT3VWNTc0TFRQb3piVXZNNmRVZ2FpUm5zdU1rb2FDZ281ckEmb2U9NjY5MjVCMjAmX25jX3NpZD04ZjE1NDk&quot;);">
+                    <div class="img rounded m-auto" style="background-image: url(&quot;https://www.interfax-russia.ru/storage/news/tourism/images/cms-image-000015366.jpg&quot;);">
                      <%= render partial: "partial_content/photo-stats"%>
                 </div>
-                <div class="col-xs-6 col-sm-4 col-md-2">
+                <div class="col-xs-6 col-sm-4 col-md-6 col-lg-2">
                   <div class="post text-center">
-                    <div class="img rounded" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/mDpuTAf1VkufYZXRQ61qzZPLlNadT-X_tNYnIiTTS1Y/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDI2ODYyNzRfMTk4NDA2NTA1ODY5MTQzNF80ODk5MjgyNDczNjQ5MTM4NzEwX24uanBnP3N0cD1kc3QtanBnX2UxNSZlZmc9ZXlKMlpXNWpiMlJsWDNSaFp5STZJbWx0WVdkbFgzVnliR2RsYmk0eE1EZ3dlREU1TWpBdWMyUnlMbVl5T1RNMU1DSjkmX25jX2h0PWluc3RhZ3JhbS5maWV2MjItMi5mbmEuZmJjZG4ubmV0Jl9uY19jYXQ9MTEwJl9uY19vaGM9ZGZucXYtTnZuemdRN2tOdmdFU3ZYb0YmZWRtPUFFaHlYVWtCQUFBQSZjY2I9Ny01JmlnX2NhY2hlX2tleT1Nek0yT0RRME16RTBPVFF5TmpZeU9USXpPUSUzRCUzRC4yLWNjYjctNSZvaD0wMF9BWUN2VjVhSnNKcUtMN0VQd1pRSWxXcERWUGROUUNCYWpKVG9rLUZpQmFqaVB3Jm9lPTY2OTIzNDkyJl9uY19zaWQ9OGYxNTQ5&quot;);">
+                    <div class="img rounded m-auto" style="background-image: url(&quot;https://d3aqwrzdsjcw3e.cloudfront.net/mDpuTAf1VkufYZXRQ61qzZPLlNadT-X_tNYnIiTTS1Y/aHR0cHM6Ly9pbnN0YWdyYW0uZmlldjIyLTIuZm5hLmZiY2RuLm5ldC92L3Q1MS4yOTM1MC0xNS80NDI2ODYyNzRfMTk4NDA2NTA1ODY5MTQzNF80ODk5MjgyNDczNjQ5MTM4NzEwX24uanBnP3N0cD1kc3QtanBnX2UxNSZlZmc9ZXlKMlpXNWpiMlJsWDNSaFp5STZJbWx0WVdkbFgzVnliR2RsYmk0eE1EZ3dlREU1TWpBdWMyUnlMbVl5T1RNMU1DSjkmX25jX2h0PWluc3RhZ3JhbS5maWV2MjItMi5mbmEuZmJjZG4ubmV0Jl9uY19jYXQ9MTEwJl9uY19vaGM9ZGZucXYtTnZuemdRN2tOdmdFU3ZYb0YmZWRtPUFFaHlYVWtCQUFBQSZjY2I9Ny01JmlnX2NhY2hlX2tleT1Nek0yT0RRME16RTBPVFF5TmpZeU9USXpPUSUzRCUzRC4yLWNjYjctNSZvaD0wMF9BWUN2VjVhSnNKcUtMN0VQd1pRSWxXcERWUGROUUNCYWpKVG9rLUZpQmFqaVB3Jm9lPTY2OTIzNDkyJl9uY19zaWQ9OGYxNTQ5&quot;);">
                     <%= render partial: "partial_content/photo-stats"%>
                 </div>
               </div>
@@ -86,8 +86,9 @@
             </div>
           </div>
           </div>
+          </div>
           <div class="col-12 text-center ">
-            <p class="subtext col-md-6 m-auto p-2">We use the avg. likes &amp; comments then compare them to industry standards by following size. This calculator does not analyse followers, so the audience score is an estimation.</p>
+            <p class="subtext col-md-6 m-auto p-4">We use the avg. likes &amp; comments then compare them to industry standards by following size. This calculator does not analyse followers, so the audience score is an estimation.</p>
           </div>
         </section>
       </div></turbo-frame>

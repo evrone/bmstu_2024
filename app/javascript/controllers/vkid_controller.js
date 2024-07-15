@@ -12,13 +12,13 @@ export default class extends Controller {
     
     const VKID = window.VKIDSDK;
 
-        VKID.Config.init({
-          app: '51989509', // Идентификатор приложения.
-          redirectUrl: 'https://wheremylikes.com/auth/vkontakte/callback/', // Адрес для перехода после авторизации.
-          state: state, // Произвольная строка состояния приложения.
-          codeVerifier: code_challenge, // Верификатор в виде случайной строки. Обеспечивает защиту передаваемых данных.
-          scope: scopes // Список прав доступа, которые нужны приложению.
-        });
+      VKID.Config.init({
+        app: '51989509', // Идентификатор приложения.
+        redirectUrl: 'https://wheremylikes.com/auth/vkontakte/callback/', // Адрес для перехода после авторизации.
+        state: state, // Произвольная строка состояния приложения.
+        codeVerifier: code_challenge, // Верификатор в виде случайной строки. Обеспечивает защиту передаваемых данных.
+        scope: scopes // Список прав доступа, которые нужны приложению.
+      });
         
         // Получение кнопки из разметки.
         const button = document.getElementById('VKIDSDKAuthButton');
