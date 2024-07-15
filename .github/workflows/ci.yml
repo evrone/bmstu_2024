@@ -9,6 +9,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install ruby
+        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
+
       - name: Prepare
         run: cp ./.env.example ./.env  
 
