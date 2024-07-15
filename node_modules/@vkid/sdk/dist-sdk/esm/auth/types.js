@@ -1,0 +1,27 @@
+var AuthStatsFlowSource;
+(function(AuthStatsFlowSource) {
+    AuthStatsFlowSource["AUTH"] = 'from_custom_auth';
+    AuthStatsFlowSource["BUTTON_ONE_TAP"] = 'from_one_tap';
+    AuthStatsFlowSource["FLOATING_ONE_TAP"] = 'from_floating_one_tap';
+    AuthStatsFlowSource["MULTIBRANDING"] = 'from_multibranding';
+})(AuthStatsFlowSource || (AuthStatsFlowSource = {}));
+var AuthErrorCode;
+(function(AuthErrorCode) {
+    AuthErrorCode[AuthErrorCode[/**
+   * Неизвестное событие
+   */ "EventNotSupported"] = 100] = "EventNotSupported";
+    AuthErrorCode[AuthErrorCode[/**
+   * Новая вкладка не создалась
+   */ "CannotCreateNewTab"] = 101] = "CannotCreateNewTab";
+    AuthErrorCode[AuthErrorCode[/**
+   * Новая вкладка была закрыта
+   */ "NewTabHasBeenClosed"] = 102] = "NewTabHasBeenClosed";
+    AuthErrorCode[AuthErrorCode[/**
+   * Авторизация завершилась ошибкой
+   */ "AuthorizationFailed"] = 103] = "AuthorizationFailed";
+    AuthErrorCode[AuthErrorCode[/**
+   * Проверка стейта завершилась с ошибкой
+   */ "StateMismatch"] = 104] = "StateMismatch";
+})(AuthErrorCode || (AuthErrorCode = {}));
+
+export { AuthErrorCode, AuthStatsFlowSource };

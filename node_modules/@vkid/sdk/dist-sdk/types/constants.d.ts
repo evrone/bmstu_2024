@@ -1,0 +1,10 @@
+export declare const VERSION: string;
+export declare const PRODUCTION: any;
+export declare const DOMAIN = "vk.com";
+export declare const LOGIN_DOMAIN: string;
+export declare const OAUTH_DOMAIN: string;
+export declare const VKID_DOMAIN: string;
+export declare const ALLOWED_DOMAINS: string[];
+export declare const DEFAULT_DOMAIN = "vk.com";
+export declare const DOMAIN_FILE_URL = "https://vk.ru/domain.txt";
+export declare const COOKIE_EXPIRES_TIME_15_MIN = 900000;
