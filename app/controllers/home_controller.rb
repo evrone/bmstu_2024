@@ -9,6 +9,7 @@ class HomeController < ApplicationController
       state: @state,
       scopes: @scopes
     }.to_json
+    puts (@data_attributes)
     
   end
 
@@ -22,5 +23,5 @@ class HomeController < ApplicationController
   }
 )
   end
-
 end
+
