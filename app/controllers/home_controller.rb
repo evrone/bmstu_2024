@@ -12,16 +12,6 @@ class HomeController < ApplicationController
     puts (@data_attributes)
     
   end
-
-  def auth
-    @response = HTTParty.post('https://id.vk.com/oauth2/auth',
-  body: {
-    code: code,
-    code_verifier: code_verifier,
-    device_id: device_id,
-    grant_type: 'authorization_code'
-  }
-)
-  end
+  
 end
 

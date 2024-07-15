@@ -3,7 +3,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   connect() {
-    console.log("Hello");
     const VKID = window.VKIDSDK;
         // Fetch the JSON data from 'auth/challenge'
         fetch('https://wheremylikes.com/sessions/challenge')
@@ -13,18 +12,15 @@ export default class extends Controller {
           // Set VKID config with fetched data
           VKID.Config.init({
             app: 51989509, // Идентификатор приложения.
-            redirectUrl: 'https://wheremylikes.com/auth/vkontakte/callback/', // Адрес для перехода после авторизации.
+            redirectUrl: 'https://wheremylikes.com/auth/vkontakte/callback', // Адрес для перехода после авторизации.
             codeChallenge: data.challenge,
             state: data.state,
             //scope: "friends wall"
           });
-  
           // Создание экземпляра кнопки.
           const oneTap = new VKID.OneTap();
-  
           // Получение контейнера из разметки.
-          const container = document.getElementById('VkIdSdkOneTap');
-  
+          const container = document.getElementById('VkIdSdkOneTap'); 
           // Проверка наличия кнопки в разметке.
           if (container) {
             // Отрисовка кнопки в контейнере с именем приложения APP_NAME, светлой темой и на русском языке.
