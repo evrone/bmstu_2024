@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  root 'home#index'
+  #devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get '/login', to: 'sessions#new'
 
-  get 'admin', to: 'admin#index'
   resources :users
 
   constraints AdminConstraint.new do
@@ -14,6 +18,12 @@ Rails.application.routes.draw do
     get 'sessions/create'
     root 'home#index'
   end
-  
+
     match '*path', to: 'errors#not_found', via: :all
+
+  namespace :admin, constraints: AdminConstraint.new do
+    resources :users
+
+    root to: "users#index"
+  end
 end
