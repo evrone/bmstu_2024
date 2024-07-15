@@ -1,51 +1,35 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="vkid"
-
 export default class extends Controller {
+
   connect() {
-    console.log("Hello");
-    const vkidDataElement = document.getElementById('vkid-data');
-    const dataAttributes = JSON.parse(vkidDataElement.getAttribute('data-attributes'));
-    
-    const { code_challenge, state, scopes } = dataAttributes;
-    
     const VKID = window.VKIDSDK;
-
-        VKID.Config.init({
-          app: '51989509', // Идентификатор приложения.
-          redirectUrl: 'https://wheremylikes.com/auth/vkontakte/callback/', // Адрес для перехода после авторизации.
-          state: state, // Произвольная строка состояния приложения.
-          codeVerifier: code_challenge, // Верификатор в виде случайной строки. Обеспечивает защиту передаваемых данных.
-          scope: scopes // Список прав доступа, которые нужны приложению.
-        });
-        
-        // Получение кнопки из разметки.
-        const button = document.getElementById('VKIDSDKAuthButton');
-        // Проверка наличия кнопки в разметке.
-        if (button) {
-          // Добавление обработчика клика по кнопке.
-          button.onclick = handleClick;
-        }
-
-        // Создание экземпляра кнопки.
-        const oneTap = new VKID.OneTap();
-
-        // Получение контейнера из разметки.
-        const container = document.getElementById('VkIdSdkOneTap');
-        // Проверка наличия кнопки в разметке.
-        if (container) {
-          // Отрисовка кнопки в контейнере с именем приложения APP_NAME, светлой темой и на русском языке.
-          oneTap.render({ container: container, scheme: VKID.Scheme.LIGHT, lang: VKID.Languages.RUS })
-                //.on(VKID.WidgetEvents.ERROR, handleError); // handleError — какой-либо обработчик ошибки.
-              }
-              // Обработчик клика.
+        // Fetch the JSON data from 'auth/challenge'
+        fetch('https://wheremylikes.com/sessions/challenge')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          // Set VKID config with fetched data
+          VKID.Config.init({
+            app: 51989509, // Идентификатор приложения.
+            redirectUrl: 'https://wheremylikes.com/auth/vkontakte/callback', // Адрес для перехода после авторизации.
+            codeChallenge: data.challenge,
+            state: data.state,
+            //scope: "friends wall"
+          });
+          // Создание экземпляра кнопки.
+          const oneTap = new VKID.OneTap();
+          // Получение контейнера из разметки.
+          const container = document.getElementById('VkIdSdkOneTap');
+          // Проверка наличия кнопки в разметке.
+          if (container) {
+            // Отрисовка кнопки в контейнере с именем приложения APP_NAME, светлой темой и на русском языке.
+            const res = oneTap.render({ container: container, scheme: VKID.Scheme.LIGHT, lang: VKID.Languages.RUS })
+          }
           const handleClick = () => {
             // Открытие авторизации.
             VKID.Config.init()
             VKID.Auth.login()
           }
-
-
-  }
-}
+        });
+  }};
