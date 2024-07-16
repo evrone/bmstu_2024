@@ -16,6 +16,9 @@ build:
 up:
 	sudo docker compose up
 
+up-healthy:
+	sudo docker compose up -d --wait-timeout 60
+
 clear:
 	sudo docker compose down -v --rmi all
 
