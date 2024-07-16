@@ -35,9 +35,15 @@ COPY --from=node /node_modules /node_modules
 RUN yarn global add nodemon esbuild sass postcss postcss-cli --prefix /usr/local
 
 RUN adduser -D rails --shell /bin/bash
-RUN mkdir -p /usr/local/bundle/ruby/3.2.0/cache
-RUN chown -R rails:rails db log storage tmp /usr/local/bundle/ruby/3.2.0/cache
+RUN mkdir -p /usr/local/bundle/ruby/3.2.0/cache && \
+    mkdir -p /rails/log && touch /rails/log/development.log
+RUN chown -R rails:rails \
+    db log storage tmp \
+    /usr/local/bundle/ruby/3.2.0/cache \
+    /rails/log \
+    /rails/log/development.log
 RUN chmod -R 777 /usr/local/bundle/ruby/3.2.0/cache
+
 USER rails:rails
 
 EXPOSE 3000
