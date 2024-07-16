@@ -18,7 +18,7 @@ jobs:
         run: cp ./.env.example ./.env && touch ./log/development.log && chmod 0664 ./log/development.log
 
       - name: Setup container
-        run: make setup
+        run: make build
 
       - name: Lint code
         run: make rubocop
