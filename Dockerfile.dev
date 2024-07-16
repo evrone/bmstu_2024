@@ -8,7 +8,8 @@ ENV RAILS_ENV="development" \
     BUNDLE_PATH="/usr/local/bundle" \
     NODE_PATH="/node_modules"
 
-RUN apk add --no-cache --virtual .build-deps build-base git postgresql postgresql-dev vips-dev tzdata yarn nodejs-current npm
+# Install system dependencies
+RUN apk add --virtual .build-deps curl build-base git postgresql postgresql-dev vips-dev tzdata yarn nodejs-current npm
 RUN rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Install application gems

@@ -16,8 +16,8 @@ build:
 up:
 	sudo docker compose up
 
-up-healthy:
-	sudo docker compose up -d --wait-timeout 60
+down:
+	sudo docker compose down
 
 clear:
 	sudo docker compose down -v --rmi all
@@ -38,10 +38,13 @@ bundle:
 	sudo docker compose run --rm app bundle install
 
 rubocop:
+	sudo docker compose run --rm app bundle exec rubocop --config /rails/config/rubocop.yml
+
+rubocop-verbose:
 	sudo docker compose run --rm app bundle exec rubocop
 
 rubocopA:
-	sudo docker compose run --rm app bundle exec rubocop -A
+	sudo docker compose run --rm app bundle exec rubocop --config /rails/config/rubocop.yml -A
 
 db-psql:
 	sudo docker compose run --rm app psql -d ${POSTGRES_DB} -U ${POSTGRES_USER} -W -h db
@@ -65,3 +68,15 @@ db-reset:
 
 db-drop:
 	sudo docker compose run --rm app bin/rails db:drop
+
+ci-build:
+	bundle lock --update
+	npm install --package-lock-only 
+	sudo docker compose build -q
+
+ci-up-healthy: db-prepare
+	sudo docker compose up -d --wait --wait-timeout 60
+
+ci-rubocop: rubocop
+
+ci-clear: clear

@@ -20,12 +20,12 @@ class SessionsController < ApplicationController
   end
 
   def exchange_code(code, code_verifier, device_id, state)
-    conn = Faraday.new(url: 'https://id.vk.com') do |conn|
-      conn.headers['Content-Type'] = 'application/json'
-      conn.headers['Accept'] = 'application/json'
-      conn.request :json
-      conn.response :json
-      conn.response :logger
+    conn = Faraday.new(url: 'https://id.vk.com') do |conn_builder|
+      conn_builder.headers['Content-Type'] = 'application/json'
+      conn_builder.headers['Accept'] = 'application/json'
+      conn_builder.request :json
+      conn_builder.response :json
+      conn_builder.response :logger
     end
 
     response = conn.post('/oauth2/auth', {

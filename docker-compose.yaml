@@ -15,11 +15,11 @@ services:
     depends_on:
       - postgres
     healthcheck:
-      test: curl --fail http://localhost/up || exit 1
-      interval: 1m
+      test: curl --fail http://localhost:3000/up || exit 1
+      interval: 30s
       timeout: 10s
       retries: 5
-      start_period: 15s
+      start_period: 10s
 
   postgres:
     image: postgres:16-alpine
