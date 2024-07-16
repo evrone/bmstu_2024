@@ -3,7 +3,7 @@ on:
   pull_request:
     branches: [ "dev", "main" ]
 jobs:
-  test:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -17,7 +17,7 @@ jobs:
       - name: Prepare
         run: cp ./.env.example ./.env && touch ./log/development.log && chmod 0664 ./log/development.log
 
-      - name: Setup container
+      - name: Build container
         run: make build
 
       - name: Lint code
