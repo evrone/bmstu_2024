@@ -15,8 +15,7 @@ jobs:
           ruby-version: '3.2.0'
 
       - name: Prepare
-        run: cp ./.env.example ./.env && \
-             /bin/chmod 0664 ./log/development.log
+        run: cp ./.env.example ./.env && chmod 0664 ./log/development.log
 
       - name: Setup container
         run: make setup
