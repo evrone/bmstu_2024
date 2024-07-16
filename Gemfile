@@ -7,15 +7,14 @@ ruby '3.2.4'
 # gem 'omniauth-instagram-graph'
 # gem 'omniauth-instagram_display'
 
-gem 'httparty'
-gem 'faraday'
 gem 'devise'
 gem 'digest'
-gem 'pkce_challenge'
-gem 'omniauth-instagram'
+gem 'faraday'
+gem 'httparty'
 gem 'instagram_basic_display'
 gem 'instagram_graph_api'
 gem 'omniauth-instagram'
+gem 'pkce_challenge'
 
 gem 'rubocop', '~> 1.65', require: false
 
@@ -24,7 +23,7 @@ gem 'open-uri'
 gem 'rails_performance'
 
 gem 'administrate'
-gem 'ffi', '~> 1.16.3'  # There is a known issue with ffi platform-versions namings since 1.17.0
+gem 'ffi', '~> 1.16.3' # There is a known issue with ffi platform-versions namings since 1.17.0
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.3', '>= 7.1.3.4'
