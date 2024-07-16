@@ -1,5 +1,5 @@
 ARG RUBY_VERSION=3.2.4
-FROM registry.docker.com/library/ruby:$RUBY_VERSION-alpine
+FROM registry.docker.com/library/ruby:$RUBY_VERSION-alpine AS base
 
 WORKDIR /rails
 
@@ -8,8 +8,19 @@ ENV RAILS_ENV="development" \
     BUNDLE_PATH="/usr/local/bundle" \
     NODE_PATH="/node_modules"
 
+FROM base AS node
+
+# Install node modules
+RUN apk add --virtual .build-deps nodejs-current npm yarn
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile --modules-folder /node_modules
+
+FROM base AS run
+
 # Install system dependencies
-RUN apk add --virtual .build-deps curl build-base git postgresql postgresql-dev vips-dev tzdata yarn nodejs-current npm
+RUN apk add --virtual .build-deps \
+    build-base postgresql-dev vips-dev tzdata curl postgresql \
+    nodejs-current npm yarn
 RUN rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Install application gems
@@ -18,16 +29,13 @@ RUN bundle install
 RUN rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 RUN bundle exec bootsnap precompile --gemfile
 
-# Install node modules
-COPY package.json yarn.lock ./
-RUN npm install -g yarn@1.22.22
-RUN yarn install --frozen-lockfile --modules-folder /node_modules
-RUN yarn global add nodemon esbuild sass postcss postcss-cli --prefix /usr/local
-
 COPY . .
 
+COPY --from=node /node_modules /node_modules
+RUN yarn global add nodemon esbuild sass postcss postcss-cli --prefix /usr/local
+
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+# RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
 RUN adduser -D rails --shell /bin/bash
 RUN mkdir -p /usr/local/bundle/ruby/3.2.0/cache
