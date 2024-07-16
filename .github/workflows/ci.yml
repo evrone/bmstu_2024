@@ -16,7 +16,7 @@ jobs:
 
       - name: Prepare
         run: cp ./.env.example ./.env && \
-             chmod 0664 ./log/development.log
+             /bin/chmod 0664 ./log/development.log
 
       - name: Setup container
         run: make setup
