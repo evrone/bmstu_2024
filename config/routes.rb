@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     mount RailsPerformance::Engine, at: 'performance'
   end
 
-  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+  scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
     get 'auth/:provider/callback', to: 'sessions#create'
     get '/login', to: 'sessions#new'
     get 'up' => 'rails/health#show', as: :rails_health_check
@@ -20,12 +20,11 @@ Rails.application.routes.draw do
     root 'home#index'
   end
 
-    match '*path', to: 'errors#not_found', via: :all
+  match '*path', to: 'errors#not_found', via: :all
 
   namespace :admin, constraints: AdminConstraint.new do
     resources :users
 
-    root to: "users#index"
+    root to: 'users#index'
   end
-
 end
