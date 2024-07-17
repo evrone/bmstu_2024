@@ -8,7 +8,8 @@ class SocialMetrics
               :target_comments,
               :comments_likes_ratio,
               :target_comments_likes_ratio,
-              :audience_score
+              :audience_score,
+              :average_engagement_score
 
   TARGET_LIKES_RATIO = 0.3        # % of friends who like
   TARGET_COMMENTS_RATIO = 0.1     # % of friends who comment
@@ -56,6 +57,7 @@ class SocialMetrics
     compute_comments_likes_ratio
     compute_target_comments_likes_ratio
     compute_audience_score
+    compute_average_engagement_score
   end
 
   # Computes set of active and inactive friends
@@ -137,5 +139,18 @@ class SocialMetrics
     else
       @audience_score = (@active_friends.size.to_f / @friends.size * 10).round(1)
     end
+  end
+
+  # Computes average engagement score across all posts
+  def compute_average_engagement_score
+    if @post_metrics.empty?
+      @average_engagement_score = 0
+      return
+    end
+
+    total_engagement_score = @post_metrics.sum do |metrics|
+      metrics[:engagement_score]
+    end
+    @average_engagement_score = (total_engagement_score / @post_metrics.size).round
   end
 end
