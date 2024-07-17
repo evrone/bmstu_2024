@@ -39,12 +39,10 @@ RUN bundle exec bootsnap precompile app/ lib/
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
-RUN adduser -D rails --shell /bin/bash
+RUN adduser -D rails --shell /bin/ash
 RUN mkdir -p /usr/local/bundle/ruby/3.2.0/cache
-RUN chown -R rails:rails \
-    db log storage tmp \
-    /usr/local/bundle/ruby/3.2.0/cache
-RUN chmod -R 777 /usr/local/bundle/ruby/3.2.0/cache
+RUN chown -R rails:rails storage /usr/local/bundle/ruby/3.2.0/cache
+RUN chmod -R 755 /usr/local/bundle/ruby/3.2.0/cache
 
 USER rails:rails
 

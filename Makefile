@@ -6,6 +6,8 @@ GID := $(shell id -g)
 include .env
 export
 
+RAILS_ENV ?= development
+
 setup: build db-prepare
 
 build:
@@ -52,7 +54,7 @@ db-psql:
 db-prepare: db-drop db-create db-migrate db-seed
 
 db-create:
-	docker compose run --rm app bin/rails db:create RAILS_ENV=development
+	docker compose run --rm app bin/rails db:create RAILS_ENV=${RAILS_ENV}
 
 db-migrate:
 	docker compose run --rm app bin/rails db:migrate
@@ -70,11 +72,11 @@ db-drop:
 	docker compose run --rm app bin/rails db:drop
 
 ci-build:
-	bundle lock --update
-	npm install --package-lock-only 
-	docker compose build -q
+	docker compose build
 
-ci-up-healthy: db-prepare
+ci-up-healthy:
+	export CI=
+	RAILS_ENV=test make db-prepare
 	docker compose up -d --wait --wait-timeout 60
 
 ci-rubocop: rubocop
