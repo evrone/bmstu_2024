@@ -36,12 +36,11 @@ RUN yarn global add nodemon esbuild sass postcss postcss-cli --prefix /usr/local
 
 RUN adduser -D rails --shell /bin/bash
 RUN mkdir -p /usr/local/bundle/ruby/3.2.0/cache && \
-    mkdir -p /rails/log && touch /rails/log/development.log
+    mkdir -p /log && touch /log/test.log
 RUN chown -R rails:rails \
     db log storage tmp \
     /usr/local/bundle/ruby/3.2.0/cache \
-    /rails/log \
-    /rails/log/development.log
+    /log
 RUN chmod -R 777 /usr/local/bundle/ruby/3.2.0/cache
 
 USER rails:rails
