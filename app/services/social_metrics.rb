@@ -3,9 +3,12 @@ class SocialMetrics
               :active_friends,
               :inactive_friends,
               :average_likes,
-              :target_likes
+              :target_likes,
+              :average_comments,
+              :target_comments
 
   TARGET_LIKES_RATIO = 0.3        # % of friends who like
+  TARGET_COMMENTS_RATIO = 0.1     # % of friends who comment
   ENGAGEMENT_SCORE_FACTOR = 1000  # score sensitivity
 
   def initialize(posts, friends)
@@ -45,6 +48,8 @@ class SocialMetrics
     compute_active_friends
     compute_average_likes
     compute_target_likes
+    compute_average_comments
+    compute_target_comments
   end
 
   # Computes set of active and inactive friends
@@ -72,5 +77,22 @@ class SocialMetrics
   # number of followers
   def compute_target_likes
     @target_likes = (@friends.size * TARGET_LIKES_RATIO).round
+  end
+
+  # Computes average number of comments per post
+  def compute_average_comments
+    if @posts.empty?
+      @average_comments = 0
+      return
+    end
+
+    @average_comments = (@total_comments.to_f / @posts.size).round
+  end
+
+  # Computes target number of comments based on TARGET_COMMENTS_RATIO
+  # Target number - theoretically possible with the current
+  # number of followers
+  def compute_target_comments
+    @target_comments = (@friends.size * TARGET_COMMENTS_RATIO).round
   end
 end
