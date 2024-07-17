@@ -1,8 +1,11 @@
 class SocialMetrics
   attr_reader :post_metrics,
               :active_friends,
-              :inactive_friends
+              :inactive_friends,
+              :average_likes,
+              :target_likes
 
+  TARGET_LIKES_RATIO = 0.3        # % of friends who like
   ENGAGEMENT_SCORE_FACTOR = 1000  # score sensitivity
 
   def initialize(posts, friends)
@@ -40,6 +43,8 @@ class SocialMetrics
   # Computes common metrics for the class
   def compute_common_metrics
     compute_active_friends
+    compute_average_likes
+    compute_target_likes
   end
 
   # Computes set of active and inactive friends
@@ -50,5 +55,22 @@ class SocialMetrics
     }.uniq
     @active_friends = active_friends_set & @friends
     @inactive_friends = @friends - @active_friends
+  end
+
+  # Computes average number of likes per post
+  def compute_average_likes
+    if @posts.empty?
+      @average_likes = 0
+      return
+    end
+
+    @average_likes = (@total_likes.to_f / @posts.size).round
+  end
+
+  # Computes target number of likes based on TARGET_LIKES_RATIO
+  # Target number - theoretically possible with the current
+  # number of followers
+  def compute_target_likes
+    @target_likes = (@friends.size * TARGET_LIKES_RATIO).round
   end
 end
