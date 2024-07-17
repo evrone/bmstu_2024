@@ -7,7 +7,8 @@ class SocialMetrics
               :average_comments,
               :target_comments,
               :comments_likes_ratio,
-              :target_comments_likes_ratio
+              :target_comments_likes_ratio,
+              :audience_score
 
   TARGET_LIKES_RATIO = 0.3        # % of friends who like
   TARGET_COMMENTS_RATIO = 0.1     # % of friends who comment
@@ -54,6 +55,7 @@ class SocialMetrics
     compute_target_comments
     compute_comments_likes_ratio
     compute_target_comments_likes_ratio
+    compute_audience_score
   end
 
   # Computes set of active and inactive friends
@@ -123,6 +125,17 @@ class SocialMetrics
       @target_comments_likes_ratio = '0:0'
     else
       @target_comments_likes_ratio = "#{target_comments / common_divisor}:#{target_likes / common_divisor}"
+    end
+  end
+
+  # Computes audience score based on the ratio of active friends
+  # to total friends
+  # The score is scaled to a range of 0.0 to 10.0
+  def compute_audience_score
+    if @friends.empty?
+      @audience_score = 0.0
+    else
+      @audience_score = (@active_friends.size.to_f / @friends.size * 10).round(1)
     end
   end
 end
