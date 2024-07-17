@@ -1,5 +1,7 @@
 class SocialMetrics
-  attr_reader :post_metrics
+  attr_reader :post_metrics,
+              :active_friends,
+              :inactive_friends
 
   ENGAGEMENT_SCORE_FACTOR = 1000  # score sensitivity
 
@@ -11,6 +13,7 @@ class SocialMetrics
     @total_comments = @posts.sum { |post| post[:comments].size }
 
     compute_post_metrics
+    compute_common_metrics
   end
 
   private
@@ -32,5 +35,20 @@ class SocialMetrics
         engagement_score: get_engagement_score(post)
       }
     end
+  end
+
+  # Computes common metrics for the class
+  def compute_common_metrics
+    compute_active_friends
+  end
+
+  # Computes set of active and inactive friends
+  # based on activity (likes and comments) on posts
+  def compute_active_friends
+    active_friends_set = @posts.flat_map { |post|
+      post[:likes] + post[:comments]
+    }.uniq
+    @active_friends = active_friends_set & @friends
+    @inactive_friends = @friends - @active_friends
   end
 end
