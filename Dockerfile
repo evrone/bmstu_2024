@@ -13,15 +13,13 @@ ENV RAILS_ENV="production" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development"
 
+
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
-RUN apk add --no-cache --virtual .build-deps build-base git postgresql-dev vips-dev tzdata yarn nodejs-current npm
-
+RUN apk add --no-cache --virtual .build-deps build-base git postgresql-dev vips-dev tzdata pkgconfig
 RUN apk add --no-cache curl vips-dev postgresql-client tzdata
 RUN rm -rf /var/lib/apt/lists /var/cache/apt/archives
-
-RUN npm install -g yarn@latest
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
@@ -29,18 +27,12 @@ RUN bundle install
 RUN rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 RUN bundle exec bootsnap precompile --gemfile
 
-# Install node modules
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
-
 # Copy application code
 COPY . .
 
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
 
-# Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN ./bin/rails assets:precompile
 
 # Final stage for app image
 FROM base
