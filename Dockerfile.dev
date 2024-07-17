@@ -34,6 +34,11 @@ COPY . .
 COPY --from=node /node_modules /node_modules
 RUN yarn global add nodemon esbuild sass postcss postcss-cli --prefix /usr/local
 
+RUN bundle exec bootsnap precompile app/ lib/
+
+# Precompiling assets for production without requiring secret RAILS_MASTER_KEY
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+
 RUN adduser -D rails --shell /bin/bash
 RUN mkdir -p /usr/local/bundle/ruby/3.2.0/cache
 RUN chown -R rails:rails \
