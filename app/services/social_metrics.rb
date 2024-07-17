@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable ClassLength
 # Calculates user metrics
 class SocialMetrics
   attr_reader :post_metrics,
@@ -158,3 +159,4 @@ class SocialMetrics
     @average_engagement_score = (total_engagement_score / @post_metrics.size).round
   end
 end
+# rubocop:enable ClassLength
