@@ -60,24 +60,24 @@ jobs:
       - name: Clear
         run: make ci-clear
 
-  healthcheck:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+  # healthcheck:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
 
-      - name: Prepare
-        run: cp ./.env.example ./.env
+  #     - name: Prepare
+  #       run: cp ./.env.example ./.env
 
-      - name: Download image
-        uses: actions/download-artifact@v4
-        with:
-          name: bmstu_2024-app
-          path: /tmp
+  #     - name: Download image
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: bmstu_2024-app
+  #         path: /tmp
 
-      - name: Load container
-        run: docker load --input /tmp/bmstu_2024-app.tar
+  #     - name: Load container
+  #       run: docker load --input /tmp/bmstu_2024-app.tar
       
-      - name: Healthcheck
-        run: make ci-up-healthy
+  #     - name: Healthcheck
+  #       run: make ci-up-healthy

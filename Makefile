@@ -74,11 +74,8 @@ ci-build:
 	npm install --package-lock-only 
 	sudo docker compose build -q
 
-ci-up-healthy:
-	sudo docker compose run --rm app bin/rails db:create RAILS_ENV=test
-	sudo docker compose run --rm app bin/rails db:migrate RAILS_ENV=test
-	sudo docker compose run --rm app bin/rails db:seed RAILS_ENV=test
-	RAILS_ENV=test sudo docker compose up -d --wait --wait-timeout 60
+ci-up-healthy: db-prepare
+	sudo docker compose up -d --wait --wait-timeout 60
 
 ci-rubocop: rubocop
 
