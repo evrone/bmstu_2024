@@ -5,7 +5,9 @@ class SocialMetrics
               :average_likes,
               :target_likes,
               :average_comments,
-              :target_comments
+              :target_comments,
+              :comments_likes_ratio,
+              :target_comments_likes_ratio
 
   TARGET_LIKES_RATIO = 0.3        # % of friends who like
   TARGET_COMMENTS_RATIO = 0.1     # % of friends who comment
@@ -50,6 +52,8 @@ class SocialMetrics
     compute_target_likes
     compute_average_comments
     compute_target_comments
+    compute_comments_likes_ratio
+    compute_target_comments_likes_ratio
   end
 
   # Computes set of active and inactive friends
@@ -94,5 +98,31 @@ class SocialMetrics
   # number of followers
   def compute_target_comments
     @target_comments = (@friends.size * TARGET_COMMENTS_RATIO).round
+  end
+
+  # Computes ratio of total comments to total likes
+  # in the form "comments:likes"
+  def compute_comments_likes_ratio
+    common_divisor = @total_comments.gcd(@total_likes)
+    if common_divisor.zero?
+      @comments_likes_ratio = '0:0'
+    else
+      @comments_likes_ratio = "#{@total_comments / common_divisor}:#{@total_likes / common_divisor}"
+    end
+  end
+
+  # Computes target ratio of total comments to total likes
+  # in the form "comments:likes"
+  # Target number - theoretically possible with the current
+  # number of followers
+  def compute_target_comments_likes_ratio
+    target_comments = (@total_comments * TARGET_COMMENTS_RATIO).round
+    target_likes = (@total_likes * TARGET_LIKES_RATIO).round
+    common_divisor = target_comments.gcd(target_likes)
+    if common_divisor.zero?
+      @target_comments_likes_ratio = '0:0'
+    else
+      @target_comments_likes_ratio = "#{target_comments / common_divisor}:#{target_likes / common_divisor}"
+    end
   end
 end
