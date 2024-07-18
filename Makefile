@@ -12,7 +12,7 @@ build:
 	docker compose build
 
 deps:
-	yarn install
+	yarn install && rm -rf ./node_modules
 	bundle install
 
 up:
