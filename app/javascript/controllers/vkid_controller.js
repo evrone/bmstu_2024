@@ -28,10 +28,5 @@ export default class extends Controller {
             // Отрисовка кнопки в контейнере с именем приложения APP_NAME, светлой темой и на русском языке.
             const res = oneTap.render({ container: container, scheme: VKID.Scheme.LIGHT, lang: VKID.Languages.RUS })
           }
-          const handleClick = () => {
-            // Открытие авторизации.
-            VKID.Config.init()
-            VKID.Auth.login()
-          }
-        
+               
   }};
