@@ -9,8 +9,11 @@ export
 setup: build db-prepare
 
 build:
-	bundle lock --update
 	docker compose build
+
+deps:
+	yarn install
+	bundle install
 
 up:
 	docker compose up

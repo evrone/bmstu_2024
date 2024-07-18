@@ -37,3 +37,4 @@
 /public/assets
 
 *.private
+/node_modules

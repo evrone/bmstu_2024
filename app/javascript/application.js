@@ -1,3 +1,3 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "turbo.min.js"
+import "@hotwired/turbo-rails"
 import "controllers"
