@@ -6,7 +6,16 @@ WORKDIR /rails
 ENV RAILS_ENV="development" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
-    NODE_PATH="./node_modules"
+    NODE_PATH="/node_modules"
+
+FROM base AS node
+
+# Install node modules
+RUN apk add --virtual .build-deps yarn
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile --modules-folder $NODE_PATH
+
+FROM base AS run
 
 # Install system dependencies
 RUN apk add --no-cache --virtual .build-deps build-base git postgresql-dev vips-dev tzdata yarn pkgconfig
@@ -21,6 +30,9 @@ RUN bundle exec bootsnap precompile --gemfile
 
 # Copy application code
 COPY . .
+
+COPY --from=node /node_modules /node_modules
+RUN yarn global add nodemon esbuild sass postcss postcss-cli --prefix /usr/local
 
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/

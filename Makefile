@@ -10,7 +10,6 @@ setup: build db-prepare
 
 build:
 	bundle lock --update
-	yarn install
 	docker compose build
 
 up:
