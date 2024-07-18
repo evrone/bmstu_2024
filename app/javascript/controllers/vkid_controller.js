@@ -2,22 +2,22 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static values ={
-    challenge: String,
-    state: String
+    pkce: Object
   }
 
   connect() {
     console.log("hello")
     const VKID = window.VKIDSDK;
+    const data = this.pkceValue
+    const challenge = data.challenge
+    const state = data.state
         // Fetch the JSON data from 'auth/challenge'
-         console.log(this.stateValue) 
-         console.log(this.challengeValue)
           // Set VKID config with fetched data
           VKID.Config.init({
             app: 51989509, // Идентификатор приложения.
             redirectUrl: 'http://localhost:3000/auth/vkontakte/callback', // Адрес для перехода после авторизации.
-            codeChallenge: this.challengeValue,
-            state: this.stateValue,
+            codeChallenge: challenge,
+            state: state,
             //scope: "friends wall"
           });
           // Создание экземпляра кнопки.
