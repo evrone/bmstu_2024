@@ -46,7 +46,7 @@
                 <div class="row m-auto p-1">
                   <div class="col-xs-6 col-sm-4 col-md-6 col-lg-2">
                     <div class="post text-center">
-                      <div class="img rounded m-auto" style="background-image: url(<%= image_tag %>macket-photo1.jpg);">
+                      <div class="img rounded m-auto" style="background-image: url(<%= asset_path('macket-photo1.jpg') %>);">
                        <%= render partial: "partial_content/photo-stats"%>
                   </div>
                   <div class="col-xs-6 col-sm-4 col-md-6 col-lg-2">
@@ -85,5 +85,8 @@
             <p class="subtext col-md-6 m-auto p-2"><%= t '.finTitle' %></p>
           </div>
         </section>
-      </div></turbo-frame>
-    <div id="vkid-data" data-attributes="<%= @data_attributes %>"></div>
+      </div>
+      <div data-controller="vkid" 
+      data-vkid-challenge-value=<%= @data_attributes[:challenge]%>
+      data-vkid-state-value=<%= @data_attributes[:state]%>>
+      </div>

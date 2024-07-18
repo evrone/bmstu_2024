@@ -13,7 +13,6 @@ class HomeController < ApplicationController
     # }.to_json
     pkce_challenge = PkceChallenge.challenge
     session[:code_verifier] = pkce_challenge.code_verifier
-    render json: { challenge: pkce_challenge.code_challenge, state: session.id.public_id }
     @data_attributes = {
       challenge: pkce_challenge.code_challenge, state: session.id.public_id
     }.to_json
