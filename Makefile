@@ -16,9 +16,6 @@ build:
 up:
 	docker compose up
 
-up80:
-	APP_PORT=80 docker compose up
-
 down:
 	docker compose down
 
