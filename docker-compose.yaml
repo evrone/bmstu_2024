@@ -10,7 +10,7 @@ services:
     volumes:
       - .:/rails
     ports:
-      - 3000:3000
+      - ${APP_PORT:-3000}:3000
       - 12345:12345
     depends_on:
       - postgres
