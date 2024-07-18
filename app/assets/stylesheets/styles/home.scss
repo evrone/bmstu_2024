@@ -1,0 +1,267 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  header {
+    flex-shrink: 0;
+    width: 100%;
+  }
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 0 10px;
+    font-size: 22px;
+  }
+  .navbar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .name {
+    flex: 1;
+    padding: 46px 20px;
+    color: white;
+    font-family: Kaisei Opti;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 52px;
+    letter-spacing: 0px;
+    text-align: center;
+  }
+  .about {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  .about_text {
+    color: black;
+    font-family: Libre Caslon Text;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0px;
+    text-align: justify;
+    margin-bottom: 10px;
+    width: 90%;
+    box-sizing: border-box;
+  }
+  .login {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 68px;
+  }
+  .login_button {
+    width: 90%;
+    max-width: 500px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(35.47deg, rgba(255, 220, 128, 0.78) -1.116%, rgba(252, 175, 69, 0.78) 7.996%, rgba(247, 119, 55, 0.78) 19.212%, rgba(253, 29, 29, 0.78) 39.31%, rgba(225, 48, 108, 0.78) 56.06%, rgba(193, 53, 132, 0.78) 67.473%, rgba(131, 58, 180, 0.78) 77.696%, rgba(91, 81, 216, 0.78) 88.96%, rgba(64, 93, 230, 0.78) 100.25%);
+    color: white;
+    font-family: Inter;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 34px;
+    letter-spacing: 0px;
+    text-align: center;
+    transition: background 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+  }
+  .login_button:hover {
+    background: linear-gradient(35.47deg, #ffdc80 -1.116%, #fcaf45 7.996%, #f77737 19.212%, #fd1d1d 39.31%, #e1306c 56.06%, #c13584 67.473%, #833ab4 77.696%, #5b51d8 88.96%, #405de6 100.25%);
+    transform: scale(1.05);
+  }
+  .inst_logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  .footer {
+    height: 138px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #5b51d8;
+    width: 100%;
+  }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 0.5fr);
+    gap: 10px;
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-shrink: 0;
+  }
+  .photo {
+    width: 400px;
+    height: 600px;
+    flex-shrink: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .post span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  .views {
+    font-size: medium;
+  }
+  #ffc-form {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  .avatar {
+    width: 400px;
+    height: 400px;
+    flex-shrink: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+  }
+  .raleway {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .spangrey {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  @media (max-width: 1024px) {
+    .img {
+      width: 110px;
+      height: 110px;
+      flex-shrink: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      object-fit: cover;
+    }
+  }
+  @media (max-width: 768px) {
+    .about_text {
+      font-size: 22px;
+    }
+    .login_button {
+      width: 90%;
+      max-width: 400px;
+      font-size: 24px;
+      white-space: normal;
+    }
+    .img {
+      width: 200px;
+      height: 200px;
+      flex-shrink: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      object-fit: cover;
+    }
+    .bord {
+      border-style: none;
+    }
+    .avatar {
+      width: 200px;
+      height: 200px;
+      flex-shrink: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      object-fit: cover;
+    }
+    .spangrey {
+      font-size: 16px;
+    }
+  }
+  @media (min-width: 1025px) {
+    .login_button {
+      width: 100%;
+      max-width: 600px;
+      font-size: 28px;
+    }
+    .img {
+      width: 180px;
+      height: 180px;
+      flex-shrink: 0;
+      background-size: cover;
+      background-repeat: no-repeat;
+      object-fit: cover;
+    }
+  }
+  .VkIdWebSdk__button_reset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+  }
+  .VkIdWebSdk__button {
+    background: #0077ff;
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+  }
+  .VkIdWebSdk__button:hover {
+    opacity: 0.8;
+  }
+  .VkIdWebSdk__button:active {
+    opacity: 0.7;
+    transform: scale(0.97);
+  }
+  .VkIdWebSdk__button {
+    border-radius: 8px;
+    width: 100%;
+    min-height: 44px;
+  }
+  .VkIdWebSdk__button_container {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+  }
+  .VkIdWebSdk__button_icon + .VkIdWebSdk__button_text {
+    margin-left: -28px;
+  }
+  .VkIdWebSdk__button_text span {
+    display: flex;
+    font-family: -apple-system, system-ui, "Helvetica Neue", Roboto, sans-serif;
+    flex: 1;
+    justify-content: center;
+    color: #ffffff;
+  }
