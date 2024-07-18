@@ -6,7 +6,6 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("hello")
     const VKID = window.VKIDSDK;
     const data = this.pkceValue
     const challenge = data.challenge
