@@ -7,10 +7,8 @@ pin_all_from 'app/javascript/controllers', under: 'controllers'
 
 pin '@hotwired/stimulus', to: '@hotwired--stimulus.js' # @3.2.2
 pin '@stimulus/webpack-helpers', to: '@stimulus--webpack-helpers.js' # @2.0.0
-pin 'crypto' # @2.0.1
-pin 'crypto-js/enc-base64', to: 'crypto-js--enc-base64.js' # @4.2.0
-pin 'crypto-js/sha256', to: 'crypto-js--sha256.js' # @4.2.0
 pin '@hotwired/turbo', to: '@hotwired--turbo.js' # @8.0.4
 pin '@rails/actioncable/src', to: '@rails--actioncable--src.js' # @7.1.3
-pin '@vkid/sdk', to: '@vkid--sdk.js' # @1.1.1
 pin '@hotwired/turbo-rails', to: '@hotwired--turbo-rails.js' # @8.0.4
+
+# pin '@hotwired/stimulus-loading', to: 'stimulus-loading.js'
