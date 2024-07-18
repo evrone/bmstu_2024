@@ -66,9 +66,10 @@ module SocialMetrics
   def self.active_friends(ctx)
     active_friends_set = ctx.posts.flat_map do |post|
       post[:likes] + post[:comments]
-    end.uniq
-    active_friends = active_friends_set & ctx.friends
-    inactive_friends = ctx.friends - active_friends
+    end.to_set
+    friends_set = ctx.friends.to_set
+    active_friends = active_friends_set & friends_set
+    inactive_friends = friends_set - active_friends
     [active_friends, inactive_friends]
   end
 
