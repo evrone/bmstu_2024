@@ -33,7 +33,7 @@ module SocialMetrics
 
   # Calculates engagement score for a single post
   # Engagement score - average activity shown by each user
-  def self.get_engagement_score(ctx, post)
+  def self.engagement_score(ctx, post)
     return 0 if ctx.friends.empty?
 
     ((post[:likes].size + post[:comments].size).to_f / ctx.friends.size * ctx.engagement_score_factor).round
@@ -46,12 +46,12 @@ module SocialMetrics
         post_id: post[:id],
         likes_count: post[:likes].size,
         comments_count: post[:comments].size,
-        engagement_score: get_engagement_score(ctx, post)
+        engagement_score: engagement_score(ctx, post)
       }
     end
   end
 
-  def self.get_average_engagement_score(post_metrics)
+  def self.average_engagement_score(post_metrics)
     return 0 if post_metrics.empty?
 
     total_engagement_score = post_metrics.sum do |metrics|
