@@ -11,6 +11,7 @@ setup: build db-prepare
 build:
 	bundle lock --update
 	npm install --package-lock-only 
+
 	sudo docker compose build
 
 up:
