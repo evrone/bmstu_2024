@@ -1,20 +1,22 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+  static values ={
+    pkce: Object
+  }
 
   connect() {
     const VKID = window.VKIDSDK;
+    const data = this.pkceValue
+    const challenge = data.challenge
+    const state = data.state
         // Fetch the JSON data from 'auth/challenge'
-        fetch('https://wheremylikes.com/sessions/challenge')
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
           // Set VKID config with fetched data
           VKID.Config.init({
             app: 51989509, // Идентификатор приложения.
-            redirectUrl: 'https://wheremylikes.com/auth/vkontakte/callback', // Адрес для перехода после авторизации.
-            codeChallenge: data.challenge,
-            state: data.state,
+            redirectUrl: 'http://localhost:3000/auth/vkontakte/callback', // Адрес для перехода после авторизации.
+            codeChallenge: challenge,
+            state: state,
             //scope: "friends wall"
           });
           // Создание экземпляра кнопки.
@@ -26,10 +28,5 @@ export default class extends Controller {
             // Отрисовка кнопки в контейнере с именем приложения APP_NAME, светлой темой и на русском языке.
             const res = oneTap.render({ container: container, scheme: VKID.Scheme.LIGHT, lang: VKID.Languages.RUS })
           }
-          const handleClick = () => {
-            // Открытие авторизации.
-            VKID.Config.init()
-            VKID.Auth.login()
-          }
-        });
+               
   }};
