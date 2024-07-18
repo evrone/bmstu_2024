@@ -6,7 +6,7 @@ WORKDIR /rails
 ENV RAILS_ENV="development" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
-    NODE_PATH="/node_modules"
+    NODE_PATH="./node_modules"
 
 # Install system dependencies
 RUN apk add --no-cache --virtual .build-deps build-base git postgresql-dev vips-dev tzdata yarn pkgconfig

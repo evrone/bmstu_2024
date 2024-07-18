@@ -10,7 +10,7 @@ setup: build db-prepare
 
 build:
 	bundle lock --update
-	npm install --package-lock-only 
+	yarn install
 	docker compose build
 
 up:
@@ -20,16 +20,16 @@ down:
 	docker compose down
 
 clear:
-	sudo docker compose down -v --rmi all
+	docker compose down -v --rmi all
 
 creds:
 	EDITOR='code --wait' bin/rails credentials:edit
 
 ash:
-	sudo docker compose run --rm app ash
+	docker compose run --rm app ash
 
 console:
-	sudo docker compose run --rm app bundle exec rails c
+	docker compose run --rm app bundle exec rails c
 
 yarn:
 	docker compose run --rm app yarn install
@@ -47,24 +47,24 @@ rubocopA:
 	docker compose run --rm app bundle exec rubocop --config /rails/config/rubocop.yml -A
 
 db-psql:
-	sudo docker compose run --rm app psql -d ${POSTGRES_DB} -U ${POSTGRES_USER} -W -h db
+	docker compose run --rm app psql -d ${POSTGRES_DB} -U ${POSTGRES_USER} -W -h db
 
 db-prepare: db-drop db-create db-migrate db-seed
 
 db-create:
-	sudo docker compose run --rm app bin/rails db:create RAILS_ENV=development
+	docker compose run --rm app bin/rails db:create RAILS_ENV=development
 
 db-migrate:
-	sudo docker compose run --rm app bin/rails db:migrate
+	docker compose run --rm app bin/rails db:migrate
 
 db-rollback:
-	sudo docker compose run --rm app bin/rails db:rollback
+	docker compose run --rm app bin/rails db:rollback
 
 db-seed:
-	sudo docker compose run --rm app bin/rails db:seed
+	docker compose run --rm app bin/rails db:seed
 
 db-reset:
-	sudo docker compose run --rm app bin/rails db:reset
+	docker compose run --rm app bin/rails db:reset
 
 db-drop:
 	docker compose run --rm app bin/rails db:drop
