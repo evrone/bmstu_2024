@@ -1,162 +1,134 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/ClassLength
-# Calculates user metrics
-class SocialMetrics
-  attr_reader :post_metrics,
-              :active_friends,
-              :inactive_friends,
-              :average_likes,
-              :target_likes,
-              :average_comments,
-              :target_comments,
-              :comments_likes_ratio,
-              :target_comments_likes_ratio,
-              :audience_score,
-              :average_engagement_score
+# Contains logic for calculating user metrics
+module SocialMetrics
+  # Contains data for calculating user metrics
+  class Context
+    attr_reader :posts,
+                :friends,
+                :total_likes,
+                :total_comments,
+                :target_likes_ratio,
+                :target_comments_ratio,
+                :engagement_score_factor
 
-  TARGET_LIKES_RATIO = 0.3        # % of friends who like
-  TARGET_COMMENTS_RATIO = 0.1     # % of friends who comment
-  ENGAGEMENT_SCORE_FACTOR = 1000  # score sensitivity
+    def initialize(
+      posts,
+      friends,
+      target_likes_ratio      = 0.3,
+      target_comments_ratio   = 0.1,
+      engagement_score_factor = 1000
+    )
+      @posts = posts
+      @friends = friends
 
-  def initialize(posts, friends)
-    @posts = posts
-    @friends = friends
+      @total_likes = @posts.sum { |post| post[:likes].size }
+      @total_comments = @posts.sum { |post| post[:comments].size }
 
-    @total_likes = @posts.sum { |post| post[:likes].size }
-    @total_comments = @posts.sum { |post| post[:comments].size }
-
-    compute_post_metrics
-    compute_common_metrics
+      @target_likes_ratio = target_likes_ratio
+      @target_comments_ratio = target_comments_ratio
+      @engagement_score_factor = engagement_score_factor
+    end
   end
-
-  private
 
   # Calculates engagement score for a single post
   # Engagement score - average activity shown by each user
-  def get_engagement_score(post)
-    return 0 if @friends.empty?
+  def self.get_engagement_score(ctx, post)
+    return 0 if ctx.friends.empty?
 
-    ((post[:likes].size + post[:comments].size).to_f / @friends.size * ENGAGEMENT_SCORE_FACTOR).round
+    ((post[:likes].size + post[:comments].size).to_f / ctx.friends.size * ctx.engagement_score_factor).round
   end
 
   # Computes some metrics for each post
-  def compute_post_metrics
-    @post_metrics = @posts.map do |post|
+  def self.post_metrics(ctx)
+    ctx.posts.map do |post|
       {
         post_id: post[:id],
         likes_count: post[:likes].size,
         comments_count: post[:comments].size,
-        engagement_score: get_engagement_score(post)
+        engagement_score: get_engagement_score(ctx, post)
       }
     end
   end
 
-  # Computes common metrics for the class
-  def compute_common_metrics
-    compute_active_friends
-    compute_average_likes
-    compute_target_likes
-    compute_average_comments
-    compute_target_comments
-    compute_comments_likes_ratio
-    compute_target_comments_likes_ratio
-    compute_audience_score
-    compute_average_engagement_score
+  def self.get_average_engagement_score(post_metrics)
+    return 0 if post_metrics.empty?
+
+    total_engagement_score = post_metrics.sum do |metrics|
+      metrics[:engagement_score]
+    end
+
+    (total_engagement_score / post_metrics.size).round
   end
 
   # Computes set of active and inactive friends
   # based on activity (likes and comments) on posts
-  def compute_active_friends
-    active_friends_set = @posts.flat_map do |post|
+  def self.active_friends(ctx)
+    active_friends_set = ctx.posts.flat_map do |post|
       post[:likes] + post[:comments]
     end.uniq
-    @active_friends = active_friends_set & @friends
-    @inactive_friends = @friends - @active_friends
+    active_friends = active_friends_set & ctx.friends
+    inactive_friends = ctx.friends - active_friends
+    [active_friends, inactive_friends]
   end
 
   # Computes average number of likes per post
-  def compute_average_likes
-    if @posts.empty?
-      @average_likes = 0
-      return
-    end
+  def self.average_likes(ctx)
+    return 0 if ctx.posts.empty?
 
-    @average_likes = (@total_likes.to_f / @posts.size).round
+    (ctx.total_likes.to_f / ctx.posts.size).round
   end
 
-  # Computes target number of likes based on TARGET_LIKES_RATIO
+  # Computes target number of likes based on `target_likes_ratio`
   # Target number - theoretically possible with the current
   # number of followers
-  def compute_target_likes
-    @target_likes = (@friends.size * TARGET_LIKES_RATIO).round
+  def self.target_likes(ctx)
+    (ctx.friends.size * ctx.target_likes_ratio).round
   end
 
   # Computes average number of comments per post
-  def compute_average_comments
-    if @posts.empty?
-      @average_comments = 0
-      return
-    end
+  def self.average_comments(ctx)
+    return 0 if ctx.posts.empty?
 
-    @average_comments = (@total_comments.to_f / @posts.size).round
+    (ctx.total_comments.to_f / ctx.posts.size).round
   end
 
-  # Computes target number of comments based on TARGET_COMMENTS_RATIO
+  # Computes target number of comments based on `target_comments_ratio`
   # Target number - theoretically possible with the current
   # number of followers
-  def compute_target_comments
-    @target_comments = (@friends.size * TARGET_COMMENTS_RATIO).round
+  def self.target_comments(ctx)
+    (ctx.friends.size * ctx.target_comments_ratio).round
   end
 
   # Computes ratio of total comments to total likes
   # in the form "comments:likes"
-  def compute_comments_likes_ratio
-    common_divisor = @total_comments.gcd(@total_likes)
-    @comments_likes_ratio = if common_divisor.zero?
-                              '0:0'
-                            else
-                              "#{@total_comments / common_divisor}:#{@total_likes / common_divisor}"
-                            end
+  def self.comments_likes_ratio(ctx)
+    common_divisor = ctx.total_comments.gcd(ctx.total_likes)
+    return '0:0' if common_divisor.zero?
+
+    "#{ctx.total_comments / common_divisor}:#{ctx.total_likes / common_divisor}"
   end
 
   # Computes target ratio of total comments to total likes
   # in the form "comments:likes"
   # Target number - theoretically possible with the current
   # number of followers
-  def compute_target_comments_likes_ratio
-    target_comments = (@total_comments * TARGET_COMMENTS_RATIO).round
-    target_likes = (@total_likes * TARGET_LIKES_RATIO).round
+  def self.target_comments_likes_ratio(ctx)
+    target_comments = (ctx.total_comments * ctx.target_comments_ratio).round
+    target_likes = (ctx.total_likes * ctx.target_likes_ratio).round
+
     common_divisor = target_comments.gcd(target_likes)
-    @target_comments_likes_ratio = if common_divisor.zero?
-                                     '0:0'
-                                   else
-                                     "#{target_comments / common_divisor}:#{target_likes / common_divisor}"
-                                   end
+    return '0:0' if common_divisor.zero?
+
+    "#{target_comments / common_divisor}:#{target_likes / common_divisor}"
   end
 
   # Computes audience score based on the ratio of active friends
   # to total friends
   # The score is scaled to a range of 0.0 to 10.0
-  def compute_audience_score
-    @audience_score = if @friends.empty?
-                        0.0
-                      else
-                        (@active_friends.size.to_f / @friends.size * 10).round(1)
-                      end
-  end
+  def self.audience_score(ctx, active_friends)
+    return 0.0 if ctx.friends.empty?
 
-  # Computes average engagement score across all posts
-  def compute_average_engagement_score
-    if @post_metrics.empty?
-      @average_engagement_score = 0
-      return
-    end
-
-    total_engagement_score = @post_metrics.sum do |metrics|
-      metrics[:engagement_score]
-    end
-    @average_engagement_score = (total_engagement_score / @post_metrics.size).round
+    (active_friends.size.to_f / ctx.friends.size * 10).round(1)
   end
 end
-# rubocop:enable Metrics/ClassLength
