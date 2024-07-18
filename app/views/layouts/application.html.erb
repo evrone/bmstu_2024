@@ -7,6 +7,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://unpkg.com/@vkid/sdk@<3.0.0/dist-sdk/umd/index.js"></script>
+    <script>
+      window.VK_AUTH_REDIRECT_URL = "<%= Rails.VK_AUTH_REDIRECT_URL %>"
+      window.VK_APP_ID = "<%= Rails.VK_APP_ID %>"
+    </script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
