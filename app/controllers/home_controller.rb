@@ -2,14 +2,20 @@
 
 class HomeController < ApplicationController
   def index
-    @code_verifier = SecureRandom.urlsafe_base64(64)
-    @code_challenge = Digest::SHA256.base64digest(@code_verifier)
-    @state = 'df29figadjsd82'
-    @scopes = 'vkid.personal_info friends wall'
+    # @code_verifier = SecureRandom.urlsafe_base64(64)
+    # @code_challenge = Digest::SHA256.base64digest(@code_verifier)
+    # @state = 'df29figadjsd82'
+    # @scopes = 'vkid.personal_info friends wall'\
+    # @data_attributes = {
+    #   code_challenge: @code_challenge,
+    #   state: @state,
+    #   scopes: @scopes
+    # }.to_json
+    pkce_challenge = PkceChallenge.challenge
+    session[:code_verifier] = pkce_challenge.code_verifier
+    render json: { challenge: pkce_challenge.code_challenge, state: session.id.public_id }
     @data_attributes = {
-      code_challenge: @code_challenge,
-      state: @state,
-      scopes: @scopes
+      challenge: pkce_challenge.code_challenge, state: session.id.public_id
     }.to_json
   end
 
