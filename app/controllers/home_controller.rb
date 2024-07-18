@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HomeController < ApplicationController
   def index
     @code_verifier = SecureRandom.urlsafe_base64(64)
@@ -9,9 +11,15 @@ class HomeController < ApplicationController
       state: @state,
       scopes: @scopes
     }.to_json
-    puts (@data_attributes)
-
   end
 
+  def auth
+    @response = HTTParty.post('https://id.vk.com/oauth2/auth',
+                              body: {
+                                code:,
+                                code_verifier:,
+                                device_id:,
+                                grant_type: 'authorization_code'
+                              })
+  end
 end
-
