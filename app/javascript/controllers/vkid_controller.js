@@ -3,16 +3,17 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   connect() {
+    console.log("hello")
     const VKID = window.VKIDSDK;
         // Fetch the JSON data from 'auth/challenge'
-        fetch('https://wheremylikes.com/sessions/challenge')
+        fetch('http://localhost:3000/sessions/challenge')
         .then(response => response.json())
         .then(data => {
           console.log(data);
           // Set VKID config with fetched data
           VKID.Config.init({
             app: 51989509, // Идентификатор приложения.
-            redirectUrl: 'https://wheremylikes.com/auth/vkontakte/callback', // Адрес для перехода после авторизации.
+            redirectUrl: 'http://localhost:3000/auth/vkontakte/callback', // Адрес для перехода после авторизации.
             codeChallenge: data.challenge,
             state: data.state,
             //scope: "friends wall"

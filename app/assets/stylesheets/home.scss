@@ -158,8 +158,8 @@ main {
   }
 
 .avatar{
-        width: 400px;
-        height: 400px;
+        width: 25rem;
+        height: 25rem;
         flex-shrink: 0;
         background-size: cover;
         background-repeat: no-repeat;
@@ -183,8 +183,8 @@ main {
       
 @media (max-width: 1024px) {
     .img{
-        width: 110px;
-        height: 110px;
+        width: 6.875rem;
+        height: 6.875rem;
         flex-shrink: 0;
         background-size: cover;
         background-repeat: no-repeat;
@@ -204,8 +204,8 @@ main {
         white-space: normal; 
     }
     .img{
-        width: 200px;
-        height: 200px;
+        width: 11rem;
+        height: 11rem;
         flex-shrink: 0;
         background-size: cover;
         background-repeat: no-repeat;
@@ -216,8 +216,8 @@ main {
         border-style: none;
     }
     .avatar{
-        width: 200px;
-        height: 200px;
+        width: 12.5rem;
+        height: 12.5rem;
         flex-shrink: 0;
         background-size: cover;
         background-repeat: no-repeat;
@@ -236,8 +236,8 @@ main {
         font-size: 28px; 
     }
     .img{
-        width: 180px;
-        height: 180px;
+        width: 12rem;
+        height: 12rem;
         flex-shrink: 0;
         background-size: cover;
         background-repeat: no-repeat;

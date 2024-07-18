@@ -2,8 +2,6 @@
 <html>
   <head>
     <meta charset="utf-8">
-   
-  
     <title>Where my likes</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -13,17 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <%= javascript_include_tag '' %>
+     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
-
   <body>
     <%= render partial: "partial_content/navbar"%>
-    <%= yield %>
-    <main>
-
+    <main class="raleway">
+      <%= yield %>
     </main>
     <%= render partial: "partial_content/footer"%>
   </body>
-  
-  
 </html>
