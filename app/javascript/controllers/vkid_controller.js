@@ -10,7 +10,6 @@ export default class extends Controller {
     const data = this.pkceValue;
     const challenge = data.challenge;
     const state = data.state;
-    console.log("hello");
     // Fetch the JSON data from 'auth/challenge'
     // Set VKID config with fetched data
     VKID.Config.init({
