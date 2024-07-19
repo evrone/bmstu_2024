@@ -166,6 +166,16 @@ main {
         object-fit: cover
         ;
 }
+.friends-avatars{
+    width: 5.3rem;
+    height: 5.3rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover
+    ;
+}
 .raleway {
         font-family: "Raleway", sans-serif;
         font-optical-sizing: auto;
