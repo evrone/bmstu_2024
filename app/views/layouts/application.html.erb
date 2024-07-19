@@ -11,16 +11,21 @@
       window.VK_AUTH_REDIRECT_URL = "<%= ENV['VK_AUTH_REDIRECT_URL'] %>"
       window.VK_APP_ID = "<%= ENV['VK_APP_ID'] %>"
     </script>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= javascript_importmap_tags %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
+
   <body>
     <%= render partial: "partial_content/navbar"%>
-    <main class="raleway">
-      <%= yield %>
+    <%= yield %>
+    <main>
+
     </main>
     <%= render partial: "partial_content/footer"%>
   </body>
+</html>
