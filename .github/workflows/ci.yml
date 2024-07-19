@@ -80,6 +80,6 @@ jobs:
 
   #     - name: Load container
   #       run: docker load --input /tmp/bmstu_2024-app.tar
-      
+
   #     - name: Healthcheck
   #       run: make ci-up-healthy
