@@ -36,5 +36,4 @@
 !/app/assets/builds/.keep
 /public/assets
 
-*.private
 /node_modules

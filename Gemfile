@@ -4,9 +4,6 @@ source 'https://rubygems.org'
 
 ruby '3.2.4'
 
-# gem 'omniauth-instagram-graph'
-# gem 'omniauth-instagram_display'
-
 gem 'devise'
 gem 'digest'
 gem 'faraday'
@@ -15,6 +12,8 @@ gem 'instagram_basic_display'
 gem 'instagram_graph_api'
 gem 'omniauth-instagram'
 gem 'pkce_challenge'
+
+gem 'cssbundling-rails'
 
 gem 'rubocop', '~> 1.65', require: false
 
