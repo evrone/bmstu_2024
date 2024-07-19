@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'sessions/challenge'
   devise_for :users
+  get 'sessions/challenge'
   get 'auth/:provider/callback', to: 'sessions#create'
   get '/login', to: 'sessions#new'
 

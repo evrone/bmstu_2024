@@ -17,6 +17,13 @@ class SessionsController < ApplicationController
 
   def create
     exchange_code(params['code'], session[:code_verifier], params['device_id'], params['state'])
+    @user = User.find_or_create_by(user_id: response['user_id'].to_i)
+    @user.user_id = response['user_id'].to_i
+    @user.access_token = response['access_token']
+    @user.refresh_token = response['refresh_token']
+    @user.save
+    session[:user_id] = @user.user_id
+    redirect_to '/vkchecker/view'
   end
 
   def exchange_code(code, code_verifier, device_id, state)
@@ -33,7 +40,7 @@ class SessionsController < ApplicationController
                            code:,
                            code_verifier:,
                            device_id:,
-                           redirect_uri: 'https://wheremylikes.com/auth/vkontakte/callback/',
+                           redirect_uri: 'https://localhost/auth/vkontakte/callback/',
                            state:,
                            client_id: '51989509'
                          })
