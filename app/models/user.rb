@@ -3,8 +3,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  validates :user_id, uniqueness: true
+  devise :database_authenticatable, :rememberable
 
   has_one :metric, dependent: :destroy
 
@@ -55,5 +55,36 @@ class User < ApplicationRecord
     post_metrics_have_nil = posts.map { |post| post.engagement_score.nil? }.any?
 
     metrics_have_nil || post_metrics_have_nil
+  end
+
+
+
+  def password_required?
+    new_record? ? false : super
+    false
+  end
+
+  def email_required?
+    false
+  end
+
+  def self.needs_refresh_token?(user)
+    Time.now > user.access_token_expiration_time
+  end
+
+  def self.user_create(userid, accesstoken, refreshtoken, deviceid, user_state)
+    user = User.find_or_create_by(user_id: userid) do |u|
+      u.access_token = accesstoken
+      u.refresh_token = refreshtoken
+      u.user_device_id = deviceid
+      u.access_token_expiration_time = Time.now + 60.minutes
+      u.user_state = user_state
+    end
+    if user.persisted?
+      puts("UPDATED")
+      user.update(access_token: accesstoken, refresh_token: refreshtoken,
+                  access_token_expiration_time: Time.now + 60.minutes, user_device_id: deviceid, user_state: user_state)
+    end
+    user
   end
 end

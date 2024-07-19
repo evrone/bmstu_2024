@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'sessions/challenge'
   devise_for :users
+  get 'sessions/challenge'
   get 'auth/:provider/callback', to: 'sessions#create'
+  get 'sessions/view'
   get '/login', to: 'sessions#new'
-
+  get 'sessions/user_sign_out'
   resources :users
 
   constraints AdminConstraint.new do
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
     get '/login', to: 'sessions#new'
     get 'up' => 'rails/health#show', as: :rails_health_check
     get 'sessions/create'
+    get 'sessions/view'
     root 'home#index'
   end
 
