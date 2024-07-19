@@ -331,7 +331,7 @@ GEM
       sprockets-rails
       tilt
     selectize-rails (0.12.6)
-    selenium-webdriver (4.22.0)
+    selenium-webdriver (4.23.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -356,7 +356,7 @@ GEM
     time (0.3.0)
       date
     timeout (0.4.1)
-    turbo-rails (2.0.5)
+    turbo-rails (2.0.6)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
