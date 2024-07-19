@@ -4,21 +4,13 @@ source 'https://rubygems.org'
 
 ruby '3.2.4'
 
-# gem 'omniauth-instagram-graph'
-# gem 'omniauth-instagram_display'
-
 gem 'devise'
 gem 'digest'
 gem 'faraday'
 gem 'httparty'
-gem 'instagram_basic_display'
-gem 'instagram_graph_api'
-gem 'omniauth-instagram'
 gem 'pkce_challenge'
 
 gem 'rubocop', '~> 1.65', require: false
-
-gem 'open-uri'
 
 gem 'rails_performance'
 
