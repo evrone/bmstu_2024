@@ -1,32 +1,45 @@
 <div class="col-xs-12 average-subtitle m-auto p-1 py-2 p-lg-5">
-                  <h5><%= t '.vs' %></h5>
-                </div>
-                <div class="col-xs-12 m-auto p-3 py-1 p-lg-2">
-                  <div class="card ratio-average shadow bord">
-                    <div class="row">
-                      <div class="col-lg-4 col-xs-12 average-likes">
-                        <p class="p-2">2.95k</p>
-                        <span class="spangrey"><%= t '.likes' %></span>
-                      </div>
-                    <div class="col-lg-8 col-xs-12">
-                      <p class="p-2"><%= t '.target' %> 10.2k</p>
-                      <div class="progress m-3">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-lg-4 col-xs-12 average-comments">
-                      <p class="p-2">7.1%</p>
-                      <span class="spangrey"><%= t '.komment' %></span>
-                    </div>
-                    <div class="col-lg-8 col-xs-12">
-                      <p class="percent"><%= t '.target' %> 4%</p>
-                      <div class="progress m-3">
-                      <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+  <h5><%= t '.vs' %></h5>
+</div>
+<div class="col-xs-12 m-auto p-3 py-1 p-lg-2">
+  <div class="card ratio-average shadow bord">
+    <div class="row">
+      <div class="col-lg-4 col-xs-12 average-likes">
+        <p class="p-2"><%= @metrics.average_likes %></p>
+        <span class="spangrey"><%= t '.likes' %></span>
+      </div>
+      <div class="col-lg-8 col-xs-12">
+        <p class="p-2"><%= t '.target' %> <%= @metrics.target_likes %></p>
+        <div class="progress m-3">
+          <div class="progress-bar bg-warning" role="progressbar" style="width: <%= (@metrics.average_likes.to_f / @metrics.target_likes * 100).round %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg-4 col-xs-12 average-comments">
+        <p class="p-2"><%= @metrics.comments_likes_ratio %></p>
+        <span class="spangrey"><%= t '.komment' %></span>
+      </div>
+      <div class="col-lg-8 col-xs-12">
+        <p class="percent"><%= t '.target' %> <%= @metrics.target_comments_likes_ratio %></p>
+        <div class="progress m-3">
+          <div class="progress-bar bg-warning" role="progressbar" style="width: <%= (@metrics.comments_likes_ratio.split(':').first.to_f / @metrics.target_comments_likes_ratio.split(':').first * 100).round %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg-4 col-xs-12 average-engagement">
+        <p class="p-2"><%= @metrics.average_engagement_score %></p>
+        <span class="spangrey"><%= t '.engagement' %></span>
+      </div>
+      <div class="col-lg-8 col-xs-12">
+        <p class="percent"><%= t '.target' %> <%= @metrics.target_engagement %></p>
+        <div class="progress m-3">
+          <div class="progress-bar bg-warning" role="progressbar" style="width: <%= (@metrics.average_engagement_score.to_f / @metrics.target_engagement * 100).round %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -27,4 +27,10 @@ class HomeController < ApplicationController
                                 grant_type: 'authorization_code'
                               })
   end
+
+  def show
+    @user = User.find(params[:id])
+    metrics_service = SocialMetricsService.new(@user)
+    @metrics = metrics_service.calculate_metrics
+  end
 end
