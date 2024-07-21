@@ -13,14 +13,13 @@ module SocialMetrics
                 :engagement_score_factor
 
     def initialize(
-      posts,
-      friends,
+      user,
       target_likes_ratio      = 0.3,
       target_comments_ratio   = 0.1,
       engagement_score_factor = 1000
     )
-      @posts = posts
-      @friends = friends
+      @posts = user.posts_brief
+      @friends = user.friends_ids
 
       @total_likes = @posts.sum { |post| post[:likes].size }
       @total_comments = @posts.sum { |post| post[:comments].size }
@@ -44,8 +43,6 @@ module SocialMetrics
     ctx.posts.map do |post|
       {
         post_id: post[:id],
-        likes_count: post[:likes].size,
-        comments_count: post[:comments].size,
         engagement_score: engagement_score(ctx, post)
       }
     end
