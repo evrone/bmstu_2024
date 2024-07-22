@@ -9,9 +9,11 @@ export
 setup: build db-prepare
 
 build:
-	bundle lock --update
-	npm install --package-lock-only 
 	docker compose build
+
+deps:
+	yarn install && rm -rf ./node_modules
+	bundle install
 
 up:
 	docker compose up

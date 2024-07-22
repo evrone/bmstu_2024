@@ -11,27 +11,28 @@ WORKDIR /rails
 ENV RAILS_ENV="production" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
-    BUNDLE_WITHOUT="development"
+    BUNDLE_WITHOUT="development" \
+    NODE_PATH="/node_modules"
+
+FROM base AS node
+
+# Install node modules
+RUN apk add --virtual .build-deps yarn
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile --modules-folder $NODE_PATH
 
 # Throw-away build stage to reduce size of final image
-FROM base as build
+FROM base AS build
 
-RUN apk add --no-cache --virtual .build-deps build-base git postgresql-dev vips-dev tzdata yarn nodejs-current npm
-
+RUN apk add --no-cache --virtual .build-deps build-base git postgresql-dev vips-dev tzdata pkgconfig
 RUN apk add --no-cache curl vips-dev postgresql-client tzdata
 RUN rm -rf /var/lib/apt/lists /var/cache/apt/archives
-
-RUN npm install -g yarn@latest
 
 # Install application gems
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
 RUN rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 RUN bundle exec bootsnap precompile --gemfile
-
-# Install node modules
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
 
 # Copy application code
 COPY . .
@@ -45,13 +46,17 @@ RUN ./bin/rails assets:precompile
 # Final stage for app image
 FROM base
 
-# Install packages needed for deployment
-RUN apk add --no-cache --virtual .build-deps curl build-base postgresql-dev vips-dev tzdata
-RUN rm -rf /var/lib/apt/lists /var/cache/apt/archives
-
 # Copy built artifacts: gems, application
 COPY --from=build /usr/local/bundle /usr/local/bundle
 COPY --from=build /rails /rails
+
+# Install packages needed for deployment
+RUN apk add --no-cache --virtual .build-deps curl build-base postgresql-dev vips-dev tzdata yarn
+RUN rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+# Copy node build artifacts
+COPY --from=node /node_modules /node_modules
+RUN yarn global add nodemon sass postcss-cli --prefix /usr/local
 
 # Run and own only the runtime files as a non-root user for security
 RUN adduser -D rails --shell /bin/bash
