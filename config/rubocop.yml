@@ -19,4 +19,4 @@ Style/Documentation:
 Metrics/AbcSize:
   Enabled: true
   Exclude:
-    - "app/models/metric.rb"
+    - "app/services/metrics_calculator.rb"
