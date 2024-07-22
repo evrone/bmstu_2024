@@ -93,6 +93,7 @@ GEM
     bootsnap (1.18.3)
       msgpack (~> 1.2)
     browser (5.3.1)
+    browser (5.3.1)
     builder (3.3.0)
     capybara (3.40.0)
       addressable
@@ -178,8 +179,10 @@ GEM
     matrix (0.4.2)
     mini_mime (1.1.5)
     mini_portile2 (2.8.7)
+    mini_portile2 (2.8.7)
     minitest (5.24.1)
     msgpack (1.7.2)
+    multi_xml (0.6.0)
     multi_xml (0.6.0)
     multipart-post (2.4.1)
     mutex_m (0.2.0)
@@ -195,6 +198,8 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.3)
+    nokogiri (1.16.6)
+      mini_portile2 (~> 2.8.2)
     nokogiri (1.16.6)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
