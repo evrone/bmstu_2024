@@ -14,7 +14,7 @@ export default class extends Controller {
           // Set VKID config with fetched data
           VKID.Config.init({
             app: 51989509, // Идентификатор приложения.
-            redirectUrl: 'http://localhost/auth/vkontakte/callback', // Адрес для перехода после авторизации.
+            redirectUrl: 'http://localhost/auth/vkontakte/callback/', // Адрес для перехода после авторизации.
             codeChallenge: challenge,
             state: state,
             //scope: "friends wall"

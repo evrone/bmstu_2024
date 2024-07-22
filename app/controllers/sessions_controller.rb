@@ -3,7 +3,8 @@
 require 'digest'
 require 'faraday'
 require 'json'
-
+require 'date'
+require_relative 'vkapiclient'
 class SessionsController < ApplicationController
   def new
     render :new
@@ -16,14 +17,41 @@ class SessionsController < ApplicationController
   end
 
   def create
-    exchange_code(params['code'], session[:code_verifier], params['device_id'], params['state'])
-    @user = User.find_or_create_by(user_id: response['user_id'].to_i)
-    @user.user_id = response['user_id'].to_i
-    @user.access_token = response['access_token']
-    @user.refresh_token = response['refresh_token']
-    @user.save
-    session[:user_id] = @user.user_id
-    redirect_to '/vkchecker/view'
+    if user_signed_in?
+      redirect_to '/sessions/view'
+    else
+      response = exchange_code(params['code'], session[:code_verifier], params['device_id'], params['state'])
+      @userId = response['user_id'].to_i
+      accessToken = response['access_token']
+      refreshToken = response['refresh_token']
+    # поиск пользователя или создание его
+      user = User.find_or_create_by(user_id: @userId) do |u|
+        u.access_token = accessToken
+        u.refresh_token = refreshToken
+        u.access_token_expiration_time = Time.now + 55.minutes
+      end
+    #проверка создания нового пользователя (если не создали то обновляем)
+      if user.persisted?
+        user.update(access_token: accessToken, refresh_token: refreshToken, access_token_expiration_time: Time.now + 55.minutes)
+      end
+      sign_in user
+      @user_is_signed_in = user_signed_in?
+      redirect_to '/sessions/view'
+    end
+  end
+  def view
+    if user_signed_in?
+      if needs_refresh_token?
+      #переход в другой контроллер (надо обратиться к vk_sdk)
+      else
+        puts(current_user.access_token)
+        vk_client = VkApiClient.new(@current_user.refresh_token, @current_user.access_token, @current_user.user_id)
+        profile_data = vk_client.get_profile_info()
+        @user_name = profile_data['first_name'] + " " + profile_data["last_name"]
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def exchange_code(code, code_verifier, device_id, state)
@@ -40,10 +68,13 @@ class SessionsController < ApplicationController
                            code:,
                            code_verifier:,
                            device_id:,
-                           redirect_uri: 'https://localhost/auth/vkontakte/callback/',
+                           redirect_uri: 'http://localhost/auth/vkontakte/callback/',
                            state:,
                            client_id: '51989509'
                          })
-    puts response.body['access_token']
+    response.body
+  end
+  def needs_refresh_token?
+    Time.now > @current_user.access_token_expiration_time 
   end
 end

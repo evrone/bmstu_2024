@@ -4,12 +4,14 @@ class User < ApplicationRecord
   validates :user_id, uniqueness: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
          def password_required?
           new_record? ? false : super
           false
         end
         
         def email_required?
-          true
+          false
         end
+        
 end
