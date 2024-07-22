@@ -63,3 +63,4 @@
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,rails
 
 .DS_Store
+.idea/
