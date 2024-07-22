@@ -6,5 +6,5 @@ class Friend < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :friend_id, presence: true, uniqueness: true
+  validates :vk_uid, presence: true, uniqueness: true
 end
