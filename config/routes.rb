@@ -20,9 +20,6 @@ Rails.application.routes.draw do
     root 'home#index'
   end
 
-  get 'user/:user_id/metrics', to: 'metrics#get', as: 'user_metrics'
-  post 'user/:user_id/metrics/update', to: 'metrics#update', as: 'update_user_metrics'
-
   namespace :admin, constraints: AdminConstraint.new do
     resources :users
 
