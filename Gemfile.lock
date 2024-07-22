@@ -141,9 +141,6 @@ GEM
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
-    instagram_basic_display (0.2.0)
-    instagram_graph_api (0.0.13)
-      koala
     io-console (0.7.2)
     irb (1.14.0)
       rdoc (>= 4.0.0)
@@ -362,11 +359,7 @@ DEPENDENCIES
   ffi (~> 1.16.3)
   httparty
   importmap-rails
-  instagram_basic_display
-  instagram_graph_api
   jbuilder
-  omniauth-instagram
-  open-uri
   pg (~> 1.1)
   pkce_challenge
   puma (>= 5.0)
