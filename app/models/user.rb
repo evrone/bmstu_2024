@@ -12,55 +12,48 @@ class User < ApplicationRecord
   has_many :relationships
   has_many :friends, through: :relationships
 
-  def friends_ids
-    relationships.pluck(:friend_id)
+  has_many :active_relationships, -> { where active: true }, class_name: 'Relationship'
+  has_many :inactive_relationships, -> { where active: false }, class_name: 'Relationship'
+
+  has_many :active_friends, through: :active_relationships, class_name: 'Friend', source: :friend
+  has_many :inactive_friends, through: :inactive_relationships, class_name: 'Friend', source: :friend
+
+  after_create :create_metric
+
+  def create_metric
+    Metric.create(user: self)
   end
 
-  def active_friends
-    relationships.where(is_active: true)
-  end
-
-  def inactive_friends
-    relationships.where(is_active: false)
-  end
-
-  def update_activity(value, friend_ids)
-    relationships.where(friend_id: friend_ids).update_all(is_active: value)
-  end
-
-  def posts_brief
-    posts.pluck(:id, :likers, :commentators).map do |post|
-      {
-        id: post[0],
-        likes: JSON.parse(post[1]),
-        comments: JSON.parse(post[2])
-      }
+  def total_likes
+    posts.sum do |post|
+      post.likes.size
     end
   end
 
-  def update_post_metrics(post_metrics)
-    post_metrics.each do |post_metric|
-      posts.where(id: post_metric[:post_id]).update_all(engagement_score: post_metric[:engagement_score])
+  def total_comments
+    posts.sum do |post|
+      post.comments.size
     end
   end
 
-  def update_metrics(forced: false)
+  def set_active(value, friends)
+    relationships.where(friend: friends).update_all(active: value)
+  end
+
+  def update_metrics
+    MetricsCalculator.call(self)
+  end
+
+  def update_metrics_needed?
     metrics_fields = %i[
       average_likes target_likes average_comments target_comments
       comments_likes_ratio target_comments_likes_ratio audience_score
       average_engagement_score
     ]
 
-    metrics_have_nil = metrics_fields.map do |field|
-      metric[field].nil?
-    end.any?
+    metrics_have_nil = metrics_fields.map { |field| metric[field].nil? }.any?
+    post_metrics_have_nil = posts.map { |post| post.engagement_score.nil? }.any?
 
-    posts_have_nil = posts.map do |post|
-      post.engagement_score.nil?
-    end.any?
-
-    return unless forced || metrics_have_nil || posts_have_nil
-
-    metric.calculate
+    metrics_have_nil || post_metrics_have_nil
   end
 end
