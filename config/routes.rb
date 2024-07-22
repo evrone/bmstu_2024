@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get '/login', to: 'sessions#new'
     get 'up' => 'rails/health#show', as: :rails_health_check
     get 'sessions/create'
+    get 'home/show', to: 'home#show'
     root 'home#index'
   end
 

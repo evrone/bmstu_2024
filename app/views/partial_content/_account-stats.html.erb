@@ -6,21 +6,21 @@
           <circle cx="7.49995" cy="5.07143" r="4.28571" fill="#E7CAA7"></circle>
           <path d="M0 17.9286C0 13.7864 3.35786 10.4286 7.5 10.4286C11.6421 10.4286 15 13.7864 15 17.9286V19H0V17.9286Z" fill="#E7CAA7"></path>
         </svg>
-        <p><%= @metrics.friends.size %></p>
+        <p><%= @metrics[:friends] %></p>
         <span class="spangrey"><%= t '.followers' %></span>
       </div>
       <div class="engagement col-xs-12 col-sm-4 col-md-4 m-auto">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="39" fill="currentColor" class="bi bi-lightning-charge-fill text-success" viewBox="0 0 16 16">
           <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
         </svg>
-        <p><%= @metrics.average_engagement_score %></p>
+        <p><%= @metrics[:average_engagement_score] %></p>
         <span class="spangrey"><%= t '.engagement' %></span>
       </div>
       <div class="likes col-xs-12 col-sm-4 col-md-4 m-auto">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="39" fill="currentColor" class="bi bi-heart-fill text-danger" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
         </svg>
-        <p><%= @metrics.average_likes %></p>
+        <p><%= @metrics[:average_likes] %></p>
         <span class="spangrey"><%= t '.likes' %></span>
       </div>
     </div>
