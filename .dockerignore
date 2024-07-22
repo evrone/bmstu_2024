@@ -12,6 +12,7 @@
 
 # Ignore all default key files.
 /config/master.key
+/config/authorized_key.json
 /config/credentials/*.key
 
 # Ignore all logfiles and tempfiles.

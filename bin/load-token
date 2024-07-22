@@ -1,0 +1,63 @@
+#!/usr/bin/env ruby
+
+# A sample pre-deploy hook
+#
+# Checks the Github status of the build, waiting for a pending build to complete for up to 720 seconds.
+#
+# Fails unless the combined status is "success"
+#
+# These environment variables are available:
+# KAMAL_RECORDED_AT
+# KAMAL_PERFORMER
+# KAMAL_VERSION
+# KAMAL_HOSTS
+# KAMAL_COMMAND
+# KAMAL_SUBCOMMAND
+# KAMAL_ROLE (if set)
+# KAMAL_DESTINATION (if set)
+
+require 'rubygems'
+gem 'jwt'
+gem 'httparty'
+require 'httparty'
+
+# Code from:
+# https://yandex.cloud/ru/docs/iam/operations/iam-token/create-for-sa#via-jwt
+require 'jwt'
+require 'json'
+require 'time'
+
+KEY_FILE = 'config/authorized_key.json'.freeze
+KEY_DATA = JSON.parse(File.read(KEY_FILE))
+KEY_ID = KEY_DATA['id']
+SERVICE_ACCOUNT_ID = KEY_DATA['service_account_id']
+
+def load_private_key
+  OpenSSL::PKey::RSA.new(KEY_DATA['private_key'])
+rescue IOError, JSON::ParserError, OpenSSL::PKey::RSAError => e
+  raise "Failed to load or parse private key: #{e.message}"
+end
+
+def signed_token
+  payload = {
+    iss: SERVICE_ACCOUNT_ID,
+    exp: Time.now.to_i + 3600,
+    iat: Time.now.to_i,
+    nbf: Time.now.to_i,
+    aud: 'https://iam.api.cloud.yandex.net/iam/v1/tokens'
+  }
+
+  header = {
+    kid: KEY_ID
+  }
+
+  private_key = load_private_key
+
+  JWT.encode(payload, private_key, 'PS256', header)
+end
+
+# Main execution
+jwt_token = signed_token
+iam_token = HTTParty.post('https://iam.api.cloud.yandex.net/iam/v1/tokens', body: %({"jwt":"#{jwt_token}"}),
+                                                                            headers: { 'Content-Type' => 'application/json' })
+puts iam_token['iamToken']
