@@ -3,9 +3,9 @@
 one:
   user_id: 1
   friend_id: 1
-  is_active: false
+  active: false
 
 two:
   user_id: 1
   friend_id: 1
-  is_active: false
+  active: false
