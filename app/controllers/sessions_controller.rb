@@ -68,6 +68,8 @@ class SessionsController < ApplicationController
     end
   end
 
+  private
+
   def exchange_code(code, code_verifier, device_id, state)
     conn = Faraday.new(url: 'https://id.vk.com') do |conn_builder|
       conn_builder.headers['Content-Type'] = 'application/json'
