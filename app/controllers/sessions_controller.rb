@@ -56,9 +56,11 @@ class SessionsController < ApplicationController
 
   def user_sign_out
     if user_signed_in?
-    sign_out current_user
+    sign_out @current_user
+    redirect_to root_path
     else
       puts("no user founded")
+      redirect_to root_path
     end
   end
 

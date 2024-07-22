@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'sessions/view'
   get '/login', to: 'sessions#new'
-
+  get 'sessions/user_sign_out'
   resources :users
 
   constraints AdminConstraint.new do
