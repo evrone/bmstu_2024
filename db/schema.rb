@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_22_100835) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_23_174343) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,14 +20,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_22_100835) do
     t.string "access_token", default: "", null: false
     t.string "refresh_token", default: "", null: false
     t.integer "user_id", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
     t.datetime "access_token_expiration_time"
     t.string "user_device_id"
+    t.string "user_state"
   end
 
 end
