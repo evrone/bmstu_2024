@@ -22,11 +22,11 @@ Rails.application.routes.draw do
     root 'home#index'
   end
 
-  match '*path', to: 'errors#not_found', via: :all
-
   namespace :admin, constraints: AdminConstraint.new do
     resources :users
 
     root to: 'users#index'
   end
+
+  match '*path', to: 'errors#not_found', via: :all
 end

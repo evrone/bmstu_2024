@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vk_uid: 1
+  date: 1
+  image_url: MyText
+  count_likes: 1
+  count_comments: 1
+  likes: MyArray
+  comments: MyArray
+  engagement_score: 1
+  user: one
+
+two:
+  vk_uid: 1
+  date: 1
+  image_url: MyText
+  count_likes: 1
+  count_comments: 1
+  likes: MyArray
+  comments: MyArray
+  engagement_score: 1
+  user: two

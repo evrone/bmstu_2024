@@ -1,11 +1,41 @@
 # frozen_string_literal: true
 
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+Post.destroy_all
+Relationship.destroy_all
+Friend.destroy_all
+Metric.destroy_all
+User.destroy_all
+
+user = User.create!(email: 'test@example.com', password: 'password')
+
+20.times do |i|
+  friend = Friend.create!(vk_uid: i + 1, first_name: 'Name', last_name: 'Surname', image_url: "https://example.com/image#{i + 1}.jpg")
+  Relationship.create!(user:, friend:)
+end
+
+Post.create!(
+  vk_uid: 1,
+  date: Time.now.to_i,
+  image_url: 'https://example.com/image1.jpg',
+  likes: [4, 2, 18, 16, 20],
+  comments: [1, 4, 18],
+  user:
+)
+
+Post.create!(
+  vk_uid: 2,
+  date: Time.now.to_i,
+  image_url: 'https://example.com/image2.jpg',
+  likes: [2, 18, 5, 9, 12, 6, 10, 3],
+  comments: [6, 2, 3, 1, 4, 5],
+  user:
+)
+
+Post.create!(
+  vk_uid: 3,
+  date: Time.now.to_i,
+  image_url: 'https://example.com/image3.jpg',
+  likes: [1, 4, 6],
+  comments: [19, 15],
+  user:
+)

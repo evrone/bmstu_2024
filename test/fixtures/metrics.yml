@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  average_likes: 1
+  target_likes: 1
+  average_comments: 1
+  target_comments: 1
+  comments_likes_ratio: MyString
+  target_comments_likes_ratio: MyString
+  audience_score: 9.99
+  average_engagement_score: 1
+  user: one
+
+two:
+  average_likes: 1
+  target_likes: 1
+  average_comments: 1
+  target_comments: 1
+  comments_likes_ratio: MyString
+  target_comments_likes_ratio: MyString
+  audience_score: 9.99
+  average_engagement_score: 1
+  user: two

@@ -11,16 +11,15 @@ ENV RAILS_ENV="development" \
 FROM base AS node
 
 # Install node modules
-RUN apk add --virtual .build-deps nodejs-current npm yarn
+RUN apk add --virtual .build-deps yarn
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile --modules-folder /node_modules
+RUN yarn install --frozen-lockfile --modules-folder $NODE_PATH
 
 FROM base AS run
 
 # Install system dependencies
-RUN apk add --virtual .build-deps \
-    build-base postgresql-dev vips-dev tzdata curl postgresql \
-    nodejs-current npm yarn
+RUN apk add --no-cache --virtual .build-deps build-base git postgresql-dev vips-dev tzdata yarn pkgconfig
+RUN apk add --no-cache curl vips-dev postgresql-client tzdata
 RUN rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Install application gems
@@ -29,11 +28,13 @@ RUN bundle install
 RUN rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 RUN bundle exec bootsnap precompile --gemfile
 
+# Copy application code
 COPY . .
 
 COPY --from=node /node_modules /node_modules
-RUN yarn global add nodemon esbuild sass postcss postcss-cli --prefix /usr/local
+RUN yarn global add nodemon sass postcss-cli --prefix /usr/local
 
+# Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
