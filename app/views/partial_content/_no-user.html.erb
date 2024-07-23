@@ -1,0 +1,347 @@
+      
+          <div id="ffc-calculator__wrap">
+        <section id="ffc-header" class="container mobile-adjusted page-top mt-3">
+          <h1 style="text-align: center; font-weight: bold;"><%= t '.title' %></h1>
+          <p><%= t '.aboutCom' %></p>
+        </section>
+        <section id="ffc-calculator" class="container mobile-adjusted">
+          <div id="ffc-form" class="form-group">
+
+
+            <div data-controller='vkid' class="mt-3"
+            data-vkid-pkce-value=<%= @data_attributes%>>  
+              <div id="VkIdSdkOneTap"></div>  
+            </div>
+             </div>
+             </div>
+          </div>
+          <div id="ffc-result" class="card row section shadow bord m-2 m-lg-5">
+            <div class="container">
+              <div class="row row-cols-1 row-cols-lg-2  ">
+                <div class="col p-1 p-lg-4">
+            <div class="col-md-12 profile-info text-center p-2 m-auto">
+              <img class="avatar" src=<%= asset_path('example-photo1.jpg') %> alt="amoureuxdumonde">
+              <p class="username">@amoureuxdumonde</p>
+              <span class="tag tag--exceptional">
+                <%= t '.se' %>
+              </span>
+              <div class="audience-score row p-1 py-4 p-lg-3 m-auto rounded">
+                <div class="gauge-wrapper bord card col-xs-12 shadow">
+                  
+                  <svg viewBox="-100 0 500 200" fill="none" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <path id="gauge_back" stroke="#F0F0F0" stroke-width="11" stroke-linecap="round" d="M 275 159.99999999999997 A 125 125 0 0 0 25 160.00000000000003"></path>
+                    <path id="gauge" fill="none" d="M 275 159.99999999999997 A 125 125 0 0 0 25 160.00000000000003" stroke="url(#paint0_linear_2410_5725)" stroke-width="11" stroke-linecap="round"></path>
+                    <g filter="url(#filter0_d_2410_5728)"><circle cx="275" cy="159.99999999999997" r="8.5" fill="white" id="circle"></circle></g>
+                    <defs>
+                      <linearGradient id="paint0_linear_2410_5725" x1="6" y1="123" x2="240" y2="123" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#FFE9F0"></stop>
+                        <stop offset="0.510417" stop-color="#FAECDB"></stop>
+                        <stop offset="1" stop-color="#D6EBE4"></stop>
+                      </linearGradient>
+                      <filter id="filter0_d_2410_5728" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+                        <feOffset dy="4"></feOffset>
+                        <feGaussianBlur stdDeviation="4.5"></feGaussianBlur>
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"></feColorMatrix>
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2410_5728"></feBlend>
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2410_5728" result="shape"></feBlend>
+                      </filter>
+                    </defs>
+                  </svg>
+                  <div>
+                    <p class="score">10.0<br>
+                      <span class="spangrey"><%= t '.audience' %></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="stats row m-auto p-1 p-lg-3 text-nowrap">
+                <div class="card col-xs-12 bord p-tb-60 m-tb-40">
+                  <div class="row shadow">
+                    <div class="followers col-xs-12 col-sm-4 col-md-4 m-auto p-1 p-lg-4">
+                      <svg width="30" height="38" viewBox="0 0 15 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="7.49995" cy="5.07143" r="4.28571" fill="#E7CAA7"></circle>
+                        <path d="M0 17.9286C0 13.7864 3.35786 10.4286 7.5 10.4286C11.6421 10.4286 15 13.7864 15 17.9286V19H0V17.9286Z" fill="#E7CAA7"></path>
+                      </svg>
+                      <p>169.7k</p>
+                      <span class="spangrey"><%= t '.followers' %></span>
+                    </div>
+                    <div class="engagement col-xs-12 col-sm-4 col-md-4 m-auto">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="39" fill="currentColor" class="bi bi-lightning-charge-fill text-success" viewBox="0 0 16 16">
+                        <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                      </svg>
+                      <p>1.81%</p>
+                      <span class="spangrey "><%= t '.engagement' %></span>
+                    </div>
+                    <div class="likes col-xs-12 col-sm-4 col-md-4 m-auto">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="39" fill="currentColor" class="bi bi-heart-fill text-danger" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                      </svg>
+                      <p>2.95k</p>
+                      <span class="spangrey"><%= t '.likes' %></span>
+                    </div>
+                  </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="col p-3">
+            <div class="col-md-12 data-info text-center p-3">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="card ratio-followers shadow">
+                    <div class="row">
+                      <div class="col-lg-4 col-xs-12 real-followers">
+                        <p class="p-2">170k</p>
+                        <span class="spangrey"><%= t '.Rfollow' %></span>
+                      </div>
+                      
+                      <div class="col-lg-8 col-xs-12 m-auto">
+                        <p class="percent">100%</p>
+                        <div class="progress m-3">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-lg-4 col-xs-12 inactive-foll">
+                        <p class="p-2">0</p>
+                        <span class="spangrey"><%= t '.Infollow' %></span>
+                      </div>
+                      <div class="col-lg-8 col-xs-12 m-auto">
+                        <p class="percent">0%</p>
+                        <div class="progress m-3">
+                          <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 average-subtitle m-auto p-1 py-2 p-lg-5">
+                  <h5><%= t '.vs' %></h5>
+                </div>
+                <div class="col-xs-12 m-auto p-3 py-1 p-lg-2">
+                  <div class="card ratio-average shadow bord">
+                    <div class="row">
+                      <div class="col-lg-4 col-xs-12 average-likes">
+                        <p class="p-2">2.95k</p>
+                        <span class="spangrey"><%= t '.likes' %></span>
+                      </div>
+                    <div class="col-lg-8 col-xs-12">
+                      <p class="p-2"><%= t '.target' %> 10.2k</p>
+                      <div class="progress m-3">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-lg-4 col-xs-12 average-comments">
+                      <p class="p-2">7.1%</p>
+                      <span class="spangrey"><%= t '.komment' %></span>
+                    </div>
+                    <div class="col-lg-8 col-xs-12">
+                      <p class="percent"><%= t '.target' %> 4%</p>
+                      <div class="progress m-3">
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-xs-12  m-auto p-1 py-2 p-lg-5">
+                      <h5>Inactive Friends</h5>
+                  </div>
+                  <div class="col-xs-12 ">
+                      <div class="card shadow bord">
+                          <div class="container">
+                              <div class="row scrollable-container">
+                                  <div class="col-3 m-auto p-3">
+                                      <div class=" friends-avatars " style="background-image: url(/assets/example-photo2-d53d82e7abf82686affbc8e98771b680679704071c2fd898f3c0007cd53b2e5d.jpg);"></div>
+                                  </div>
+                                  <div class="col-9 pt-3 m-auto text-start">
+                                      <a href="https://vk.com/vladikk86">Ivan Ivanov</a>
+                                  </div> 
+                                  <hr>
+                                  <div class="col-3 m-auto p-3">
+                                      <div class=" friends-avatars " style="background-image: url(/assets/example-photo2-d53d82e7abf82686affbc8e98771b680679704071c2fd898f3c0007cd53b2e5d.jpg);"></div>
+                                  </div>
+                                  <div class="col-9 pt-3 m-auto text-start">
+                                      <p>Ivan Ivanov</p>
+                                  </div>  
+                                  <hr>  
+                                  <div class="col-3 m-auto p-3">
+                                      <div class=" friends-avatars " style="background-image: url(/assets/example-photo2-d53d82e7abf82686affbc8e98771b680679704071c2fd898f3c0007cd53b2e5d.jpg);"></div>
+                                  </div>
+                                  <div class="col-9 pt-3 m-auto text-start">
+                                      <p>Ivan Ivanov</p>
+                                  </div>  
+                                  <hr>
+                                  <div class="col-3 m-auto p-3">
+                                      <div class=" friends-avatars " style="background-image: url(/assets/example-photo2-d53d82e7abf82686affbc8e98771b680679704071c2fd898f3c0007cd53b2e5d.jpg);"></div>
+                                  </div>
+                                  <div class="col-9 pt-3 m-auto text-start">
+                                      <p>Ivan Ivanov</p>
+                                  </div>  
+                                  <hr>
+                                  <div class="col-3 m-auto p-3">
+                                      <div class=" friends-avatars " style="background-image: url(/assets/example-photo2-d53d82e7abf82686affbc8e98771b680679704071c2fd898f3c0007cd53b2e5d.jpg);"></div>
+                                  </div>
+                                  <div class="col-9 pt-3 m-auto text-start">
+                                      <p>Ivan Ivanov</p>
+                                  </div>  
+                                  <hr>
+                                  <div class="col-3 m-auto p-3">
+                                      <div class=" friends-avatars " style="background-image: url(/assets/example-photo2-d53d82e7abf82686affbc8e98771b680679704071c2fd898f3c0007cd53b2e5d.jpg);"></div>
+                                  </div>
+                                  <div class="col-9 pt-3 m-auto text-start">
+                                      <p>Ivan Ivanov</p>
+                                  </div>         
+                              </div>
+                          </div>   
+                      </div>
+                  </div>
+             
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="col-12 col-lg-12 posts-info m-auto p-3">
+            <div class="row">
+              <div class="col-xs-12 col-md-12 posts">
+              <div class="card shadow bord">
+                <p class="card-title m-auto p-1"><%= t '.latestEng' %></p>
+                <div class="row m-auto p-1">
+                  <div class="col-xs-6 col-sm-4 col-md-6 col-lg-4">
+                  <div class="post text-center">
+                      <div class="img rounded m-auto" style="background-image: url(<%= asset_path('example-photo2.jpg') %>);">
+                      </div>
+                    <p>
+                     <span class="spangrey">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16"><path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
+                          2.71k
+                        </span>
+                        <span class="spangrey">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">  <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></svg>
+                           54
+                        </span>
+                        <span class="spangrey">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16"><path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/></svg>
+                           12%
+                        </span>
+                    </p>
+                  </div>
+                </div>
+                  <div class="col-xs-6 col-sm-4 col-md-6 col-lg-4">
+                  <div class="post text-center">
+                      <div class="img rounded m-auto" style="background-image: url(<%= asset_path('example-photo3.jpg') %>);">
+                      </div>
+                    <p>
+                     <span class="spangrey">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16"><path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
+                          2.71k
+                        </span>
+                        <span class="spangrey">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">  <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></svg>
+                           54
+                        </span>
+                        <span class="spangrey">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16"><path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/></svg>
+                           12%
+                        </span>
+                    </p>
+                  </div>
+                </div>
+                  <div class="col-xs-6 col-sm-4 col-md-6 col-lg-4">
+                  <div class="post text-center">
+                      <div class="img rounded m-auto" style="background-image: url(<%= asset_path('example-photo4.jpg') %>);">
+                      </div>
+                    <p>
+                     <span class="spangrey">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16"><path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
+                          2.71k
+                        </span>
+                        <span class="spangrey">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">  <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></svg>
+                           54
+                        </span>
+                        <span class="spangrey">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16"><path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/></svg>
+                           12%
+                        </span>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-6 col-lg-4">
+                  <div class="post text-center">
+                      <div class="img rounded m-auto" style="background-image: url(<%= asset_path('example-photo5.jpg') %>);">
+                      </div>
+                    <p>
+                     <span class="spangrey">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16"><path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
+                          2.71k
+                        </span>
+                        <span class="spangrey">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">  <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></svg>
+                           54
+                        </span>
+                        <span class="spangrey">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16"><path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/></svg>
+                           12%
+                        </span>
+                    </p>
+                  </div>
+                </div>
+              <div class="col-xs-6 col-sm-4 col-md-6 col-lg-4">
+                  <div class="post text-center">
+                      <div class="img rounded m-auto" style="background-image: url(<%= asset_path('example-photo6.jpg') %>);">
+                      </div>
+                    <p>
+                     <span class="spangrey">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16"><path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
+                          2.71k
+                        </span>
+                        <span class="spangrey">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">  <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></svg>
+                           54
+                        </span>
+                        <span class="spangrey">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16"><path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/></svg>
+                           12%
+                        </span>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-6 col-lg-4">
+                  <div class="post text-center">
+                      <div class="img rounded m-auto" style="background-image: url(<%= asset_path('example-photo7.jpg') %>);">
+                      </div>
+                    <p>
+                     <span class="spangrey">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16"><path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
+                          2.71k
+                        </span>
+                        <span class="spangrey">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">  <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/></svg>
+                           54
+                        </span>
+                        <span class="spangrey">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16"><path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/></svg>
+                           12%
+                        </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="col-lg-12 text-center ">
+            <p class="subtext col-md-6 m-auto p-2">We use the avg. likes &amp; comments then compare them to industry standards by following size. This calculator does not analyse followers, so the audience score is an estimation.</p>
+          </div>
+        </section>
+      </div>
+    

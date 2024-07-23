@@ -2,6 +2,7 @@
 
 module ApplicationHelper
   def current_user
-    User.first
+    # User.first
+    nil
   end
 end

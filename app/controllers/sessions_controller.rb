@@ -65,7 +65,8 @@ class SessionsController < ApplicationController
     private
 
     def current_user
-      User.first
+      # User.first
+      nil
     end
   end
 end

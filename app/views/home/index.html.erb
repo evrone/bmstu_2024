@@ -1,4 +1,4 @@
-<% if user_signed_in?%>
+<% if current_user %>
 <%= render partial: "partial_content/user-signed"%>
 <%else%>
 <%= render partial: "partial_content/no-user"%>
