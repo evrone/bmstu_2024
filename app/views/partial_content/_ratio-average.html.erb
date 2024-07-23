@@ -9,7 +9,6 @@
         <span class="spangrey"><%= t '.likes' %></span>
       </div>
       <div class="col-lg-8 col-xs-12">
-        <p class```erb
         <p class="p-2"><%= t '.target' %> <%= current_user&.metric.target_likes  || "" %></p>
         <div class="progress m-3">
           <div class="progress-bar bg-warning" role="progressbar" style="width: <%= (current_user&.metric.average_likes.to_f / current_user&.metric.target_likes * 100).round %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -26,19 +25,6 @@
         <p class="percent"><%= t '.target' %> <%= current_user&.metric.target_comments_likes_ratio || " " %></p>
         <div class="progress m-3">
           <div class="progress-bar bg-warning" role="progressbar" style="width: <%= (current_user&.metric.target_comments_likes_ratio.split(':').first.to_f / current_user&.metric.comments_likes_ratio.split(':').first.to_f * 100).round %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </div>
-    </div>
-    <hr>
-    <div class="row">
-      <div class="col-lg-4 col-xs-12 average-engagement">
-        <p class="p-2"><%= current_user&.metric.average_engagement_score || " " %></p>
-        <span class="spangrey"><%= t '.engagement' %></span>
-      </div>
-      <div class="col-lg-8 col-xs-12">
-        <p class="percent"><%= t '.target' %> <%= current_user&.metric.target_comments_likes_ratio || " " %></p>
-        <div class="progress m-3">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: <%= (current_user&.metric.average_engagement_score.to_f / current_user&.metric.target_comments_likes_ratio * 100).round %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
     </div>

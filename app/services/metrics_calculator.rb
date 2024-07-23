@@ -99,7 +99,7 @@ class MetricsCalculator
 
     # Calculates engagement score for a single post
     # Engagement score - average activity shown by each user
-    def engagement_score(post, engagement_score_factor: 1000)
+    def engagement_score(post, engagement_score_factor: 100)
       return 0 if post.user.friends.empty?
 
       ((post.likes.size + post.comments.size).to_f / post.user.friends.size * engagement_score_factor).round
