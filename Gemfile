@@ -19,8 +19,6 @@ gem 'rails_performance'
 gem 'administrate'
 gem 'ffi', '~> 1.16.3' # There is a known issue with ffi platform-versions namings since 1.17.0
 
-gem 'public_suffix', '~> 6.0'
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.3', '>= 7.1.3.4'
 
