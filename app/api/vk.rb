@@ -93,6 +93,7 @@ class Vk
   end
 
   def self.get_data(user)
+    posts = []
     resp = try_request(:get,
                        '/method/wall.get',
                        { access_token: user.access_token,
@@ -108,7 +109,7 @@ class Vk
       post_likers = get_likers(post_data['id'], like_count.to_i)
       post_commentators = get_commentators(post_data['id'], comment_count.to_i)
       # ?????????????????????????
-      post = Post.new(
+      post = {
         post_id: post_data['id'],
         date: post_data['date'],
         image_url: get_image_from_post(post_data['attachments']),
@@ -116,9 +117,10 @@ class Vk
         count_comments: post_data['comments']['count'],
         likers: post_likers,
         commentators: post_commentators
-      )
-      puts '*************************'
+      }
+      posts << post
     end
+    posts
   end
 
   def get_image_from_post(post_media)
