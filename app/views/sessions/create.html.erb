@@ -1,0 +1,6 @@
+
+<% if @user_is_signed_in %>
+     <%=@userId%>
+    <% else %>
+      <%= link_to 'Вернуться на главную', root_path %> 
+    <% end %>

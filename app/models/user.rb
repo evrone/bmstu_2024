@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  validates :user_id, uniqueness: true
+  devise :database_authenticatable, :rememberable
 
   has_one :metric, dependent: :destroy
 
@@ -55,5 +53,14 @@ class User < ApplicationRecord
     post_metrics_have_nil = posts.map { |post| post.engagement_score.nil? }.any?
 
     metrics_have_nil || post_metrics_have_nil
+  end
+    
+  def password_required?
+    new_record? ? false : super
+    false
+  end
+
+  def email_required?
+    false
   end
 end
