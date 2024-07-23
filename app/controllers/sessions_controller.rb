@@ -20,7 +20,8 @@ class SessionsController < ApplicationController
     if user_signed_in?
       redirect_to '/sessions/view'
     else
-      response = exchange_code(params['code'], session[:code_verifier], params['device_id'], params['state'])
+
+      response = Vk.exchange_code(params['code'], session[:code_verifier], params['device_id'], params['state'])
       @userId = response['user_id'].to_i
       accessToken = response['access_token']
       puts(accessToken)
@@ -47,11 +48,14 @@ class SessionsController < ApplicationController
   def view
     if user_signed_in?
       if needs_refresh_token?
-        response_from_refresh = refresh_userTokens(current_user.refresh_token, current_user.device_id, params['state'])
+        response_from_refresh = Vk.refresh_userTokens(current_user.refresh_token, current_user.device_id,
+                                                      params['state'])
         user.update(access_token: response_from_refresh['access_token'],
                     refresh_token: response_from_refresh['refresh_token'], access_token_expiration_time: Time.now + 55.minutes)
       end
-      profile_data = Vk::get_profile_info(current_user)
+      puts('PROFILE')
+      puts(current_user.access_token)
+      profile_data = Vk.get_profile_info(current_user)
       @user_name = profile_data['first_name'] + ' ' + profile_data['last_name']
       puts(@user_name)
     else
