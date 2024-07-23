@@ -71,16 +71,14 @@ class MetricsCalculator
     end
 
     # Computes ratio of total comments to total likes
-    # in the form "comments:likes"
     def comments_likes_ratio(user)
-      common_divisor = user.total_comments.gcd(user.total_likes)
-      return '0:0' if common_divisor.zero?
+      total_activity = user.total_comments + user.total_likes
+      return 0 if total_activity.zero?
 
-      "#{user.total_comments / common_divisor}:#{user.total_likes / common_divisor}"
+      (user.total_comments.to_f / total_activity * 100).round
     end
 
     # Computes target ratio of total comments to total likes
-    # in the form "comments:likes"
     # Target number - theoretically possible with the current
     # number of followers
     def target_comments_likes_ratio(
@@ -88,13 +86,12 @@ class MetricsCalculator
       target_likes_ratio: 0.3,
       target_comments_ratio: 0.1
     )
-      target_comments = (user.total_comments * target_comments_ratio).round
-      target_likes = (user.total_likes * target_likes_ratio).round
+      target_total_comments = (user.total_comments * target_comments_ratio).round
+      target_total_likes = (user.total_likes * target_likes_ratio).round
+      target_total_activity = target_total_comments + target_total_likes
+      return 0 if target_total_activity.zero?
 
-      common_divisor = target_comments.gcd(target_likes)
-      return '0:0' if common_divisor.zero?
-
-      "#{target_comments / common_divisor}:#{target_likes / common_divisor}"
+      (target_total_comments.to_f / target_total_activity * 100).round
     end
 
     # Calculates engagement rate for a single post

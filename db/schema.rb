@@ -29,8 +29,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_19_150646) do
     t.integer "target_likes"
     t.integer "average_comments"
     t.integer "target_comments"
-    t.string "comments_likes_ratio"
-    t.string "target_comments_likes_ratio"
+    t.integer "comments_likes_ratio"
+    t.integer "target_comments_likes_ratio"
     t.decimal "audience_score"
     t.integer "average_engagement_rate"
     t.bigint "user_id", null: false
