@@ -10,9 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_11_163944) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_19_150646) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friends", force: :cascade do |t|
+    t.integer "vk_uid"
+    t.text "first_name"
+    t.text "last_name"
+    t.text "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["vk_uid"], name: "index_friends_on_vk_uid", unique: true
+  end
+
+  create_table "metrics", force: :cascade do |t|
+    t.integer "average_likes"
+    t.integer "target_likes"
+    t.integer "average_comments"
+    t.integer "target_comments"
+    t.string "comments_likes_ratio"
+    t.string "target_comments_likes_ratio"
+    t.decimal "audience_score"
+    t.integer "average_engagement_score"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_metrics_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "vk_uid"
+    t.integer "date"
+    t.text "image_url"
+    t.integer "likes", array: true
+    t.integer "comments", array: true
+    t.integer "engagement_score"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["vk_uid"], name: "index_posts_on_vk_uid", unique: true
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "friend_id"
+    t.boolean "active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id", "user_id"], name: "index_relationships_on_friend_id_and_user_id"
+    t.index ["friend_id"], name: "index_relationships_on_friend_id"
+    t.index ["user_id", "friend_id"], name: "index_relationships_on_user_id_and_friend_id"
+    t.index ["user_id"], name: "index_relationships_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +78,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_11_163944) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "metrics", "users"
+  add_foreign_key "posts", "users"
 end

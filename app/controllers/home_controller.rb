@@ -16,6 +16,20 @@ class HomeController < ApplicationController
     @data_attributes = {
       challenge: pkce_challenge.code_challenge, state: session.id.public_id
     }.to_json
+
+    @metrics = {
+        active_friends: '170k',
+        active_friends_percentage: '100',
+        inactive_friends: '0',
+        inactive_friends_percentage: '0',
+        friends: '169.7k',
+        average_engagement_score: '1.81%',
+        average_likes: '2.95k',
+        comments_likes_ratio: '7.1%',
+        target_likes: '10.2k',
+        target_comments_likes_ratio: '4%',
+        audience_score: '10.0'
+      }
   end
 
   def auth
