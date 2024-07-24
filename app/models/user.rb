@@ -72,17 +72,19 @@ class User < ApplicationRecord
     Time.now > user.access_token_expiration_time
   end
 
-  def self.user_create(userid, accesstoken, refreshtoken, deviceid, user_state)
-    user = User.find_or_create_by(user_id: userid) do |u|
-      u.access_token = accesstoken
-      u.refresh_token = refreshtoken
-      u.user_device_id = deviceid
-      u.access_token_expiration_time = Time.now + 60.minutes
-      u.user_state = user_state
+  def self.user_create(response) # rubocop:disable Metrics/AbcSize
+    user = User.find_or_create_by(user_id: response['user_id']) do |u|
+      u.access_token = response['access_token']
+      u.refresh_token = response['refresh_token']
+      u.user_device_id = response['device_id']
+      u.access_token_expiration_time = Time.current + response['expires_in']
+      u.user_state = response['state']
     end
     if user.persisted?
-      user.update(access_token: accesstoken, refresh_token: refreshtoken,
-                  access_token_expiration_time: Time.now + 60.minutes, user_device_id: deviceid, user_state: user_state)
+      user.update(access_token: response['access_token'], refresh_token: response['refresh_token'],
+                  access_token_expiration_time: Time.current + response['expires_in'],
+                  user_device_id: response['device_id'],
+                  user_state: response['state'])
     end
     user
   end

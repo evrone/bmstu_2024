@@ -10,12 +10,6 @@ class SessionsController < ApplicationController
     render :new
   end
 
-  # def challenge
-  #   pkce_challenge = PkceChallenge.challenge
-  #   session[:code_verifier] = pkce_challenge.code_verifier
-  #   render json: { challenge: pkce_challenge.code_challenge, state: session.id.public_id }
-  # end
-
   def create # rubocop:disable Metrics/AbcSize
     unless user_signed_in?
       response = Vk.exchange_code(params['code'], session[:code_verifier], params['device_id'], params['state'])
@@ -31,7 +25,7 @@ class SessionsController < ApplicationController
                                                expires_in: params['expires_in'] }))
       sign_in user
     end
-    redirect_to '/sessions/view'
+    redirect_to root_path
   end
 
   def view # rubocop:disable Metrics/AbcSize
