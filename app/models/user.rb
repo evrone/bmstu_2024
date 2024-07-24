@@ -81,7 +81,6 @@ class User < ApplicationRecord
       u.user_state = user_state
     end
     if user.persisted?
-      puts("UPDATED")
       user.update(access_token: accesstoken, refresh_token: refreshtoken,
                   access_token_expiration_time: Time.now + 60.minutes, user_device_id: deviceid, user_state: user_state)
     end

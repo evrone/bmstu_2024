@@ -2,10 +2,9 @@
 
 class HomeController < ApplicationController
   def index
-    @user_is_signed_in_home = user_signed_in?
-    if @user_is_signed_in_home
-      puts('HOME ACCSES TOKEN')
-      puts(@current_user.access_token)
+ 
+    if current_user
+     
       redirect_to '/sessions/view'
     else
 
