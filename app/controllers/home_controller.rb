@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     if @user_is_signed_in_home
       puts("HOME ACCSES TOKEN")
       puts(@current_user.access_token)
-      redirect_to '/sessions/view'
+      # redirect_to '/sessions/view'
     else
 
     #puts("INDEX HOME CURRENT USER")
