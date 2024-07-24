@@ -32,7 +32,7 @@ class Vk # rubocop:disable Metrics/ClassLength
                          code:,
                          code_verifier:,
                          device_id:,
-                         redirect_uri: 'http://localhost/auth/vkontakte/callback/',
+                         redirect_uri: "#{ENV[HOST]}/auth/vkontakte/callback/",
                          state:,
                          client_id: '51989509' },
                        client: vkid_client)
