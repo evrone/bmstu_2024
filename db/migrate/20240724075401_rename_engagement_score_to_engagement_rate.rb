@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RenameEngagementScoreToEngagementRate < ActiveRecord::Migration[7.1]
   def change
     rename_column :metrics, :average_engagement_score, :average_engagement_rate
