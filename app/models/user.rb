@@ -86,4 +86,8 @@ class User < ApplicationRecord
     end
     user
   end
+
+  def link_friends(friends_array)
+    self.friends = friends_array
+  end
 end

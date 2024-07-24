@@ -2,9 +2,7 @@
 
 class HomeController < ApplicationController
   def index
-    if current_user
-      redirect_to root_path
-    else
+    unless current_user
       pkce_challenge = PkceChallenge.challenge
       session[:code_verifier] = pkce_challenge.code_verifier
       @data_attributes = {

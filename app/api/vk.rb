@@ -32,7 +32,7 @@ class Vk # rubocop:disable Metrics/ClassLength
                          code:,
                          code_verifier:,
                          device_id:,
-                         redirect_uri: "#{ENV[HOST]}/auth/vkontakte/callback/",
+                         redirect_uri: "#{ENV['HOST']}/auth/vkontakte/callback/",
                          state:,
                          client_id: '51989509' },
                        client: vkid_client)
@@ -56,19 +56,22 @@ class Vk # rubocop:disable Metrics/ClassLength
                        '/method/friends.get',
                        { access_token: user.access_token,
                          v: '5.199',
-                         fields: 'photo_100 first_name last_name' },
+                         fields: %w[photo_50 first_name last_name] },
                        { 'Authorization': "Bearer #{user.access_token}" })
     response_hash = resp.body['response']['items']
-    friends_id_list_str = response_hash.map(&:to_s).join(', ')
+    puts 'FRIENDLY FIRE'
+    puts resp.body
+    # friends_id_list_str = response_hash.map(&:to_s).join(', ')
 
-    response_info = try_request(:get,
-                                '/method/users.get',
-                                { access_token: user.access_token,
-                                  v: '5.199',
-                                  user_ids: friends_id_list_str,
-                                  fields: 'photo_100 first_name last_name' },
-                                client:)
-    response_info.body['response']['items']
+    # response_info = try_request(:get,
+    #                             '/method/users.get',
+    #                             { access_token: user.access_token,
+    #                               v: '5.199',
+    #                               user_ids: friends_id_list_str,
+    #                               fields: 'photo_100 first_name last_name' },
+    #                               { 'Authorization': "Bearer #{user.access_token}" }
+    #                             client:)
+    response_hash
   end
 
   def self.get_followers(user)
@@ -106,7 +109,6 @@ class Vk # rubocop:disable Metrics/ClassLength
   end
 
   def self.get_data(user) # rubocop:disable Metrics/AbcSize
-    posts = []
     resp = try_request(:get,
                        '/method/wall.get',
                        { access_token: user.access_token,
@@ -116,7 +118,7 @@ class Vk # rubocop:disable Metrics/ClassLength
                          filter: 'all' },
                        client:)
     post_data_all = resp.body['response']['items']
-    post_data_all.each do |post_data|
+    post_data_all.map do |post_data|
       like_count = post_data['likes']['count']
       comment_count = post_data['comments']['count']
 
@@ -125,23 +127,23 @@ class Vk # rubocop:disable Metrics/ClassLength
                     else
                       get_likers(post_data['id'], like_count.to_i, user)
                     end
-      post_commentators = if comment_count.zero?
-                            []
-                          else
-                            get_commentators(post_data['id'], comment_count.to_i, user)
-                          end
-      post = {
+      # post_commentators = if comment_count.zero?
+      #                       []
+      #                     else
+      #                       get_commentators(post_data['id'], comment_count.to_i, user)
+      #                     end
+      {
         post_id: post_data['id'],
         date: post_data['date'],
         image_url: get_image_from_post(post_data['attachments']),
         count_likes: post_data['likes']['count'],
-        count_comments: post_data['comments']['count'],
+        # count_comments: post_data['comments']['count'],
+        count_comments: 0,
         likers: post_likers,
-        commentators: post_commentators
+        # commentators: post_commentators
+        commentators: []
       }
-      posts << post
     end
-    posts
   end
 
   # проверить утром на работо способность!!!!!!!!!!!
@@ -266,6 +268,8 @@ class Vk # rubocop:disable Metrics/ClassLength
                            count: 100,
                            offset: 100 * i },
                          client:)
+      puts 'RESPONSE'
+      puts resp.body
       comments = resp.body['response']['items']
       current_commentators = comments.map { |comment| comment['from_id'] }
       commentators << current_commentators

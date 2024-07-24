@@ -14,8 +14,10 @@ class SessionsController < ApplicationController
     unless user_signed_in?
       response = Vk.exchange_code(params['code'], session[:code_verifier], params['device_id'], params['state'])
       # поиск пользователя или создание его
-      user = User.user_create(response.merge({ deviceid: params['device_id'], state: params['state'],
-                                               expires_in: params['expires_in'] }))
+      user = User.user_create(response.merge({ deviceid: params['device_id'], state: params['state'] }))
+      user.link_friends Vk.get_friends(user).map { |h| Friend.from_vk h }
+      Vk.get_data(user).map { |h| Post.from_vk h, user }
+      MetricsCalculator.call user
       sign_in user
     end
     redirect_to root_path
