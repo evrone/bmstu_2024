@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_240_719_150_646) do
+ActiveRecord::Schema[7.1].define(version: 20_240_724_080_223) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -29,12 +29,12 @@ ActiveRecord::Schema[7.1].define(version: 20_240_719_150_646) do
   create_table 'metrics', force: :cascade do |t|
     t.integer 'average_likes'
     t.integer 'target_likes'
-    t.integer 'average_cosmments'
+    t.integer 'average_comments'
     t.integer 'target_comments'
-    t.string 'comments_likes_ratio'
-    t.string 'target_comments_likes_ratio'
+    t.integer 'comments_likes_ratio'
+    t.integer 'target_comments_likes_ratio'
     t.decimal 'audience_score'
-    t.integer 'average_engagement_score'
+    t.integer 'average_engagement_rate'
     t.bigint 'user_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.1].define(version: 20_240_719_150_646) do
     t.text 'image_url'
     t.integer 'likes', array: true
     t.integer 'comments', array: true
-    t.integer 'engagement_score'
+    t.integer 'engagement_rate'
     t.bigint 'user_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
