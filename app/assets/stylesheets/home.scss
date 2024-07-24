@@ -166,6 +166,16 @@ main {
         object-fit: cover
         ;
 }
+.friends-avatars{
+    width: 5.3rem;
+    height: 5.3rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover
+    ;
+}
 .raleway {
         font-family: "Raleway", sans-serif;
         font-optical-sizing: auto;
@@ -179,7 +189,29 @@ main {
         color: rgba(0, 0, 0, 0.5);
 } 
     
-    
+.p-lg-5{
+    padding: 2.5rem !important;
+}   
+.scrollable-container {
+    max-height: 24.3rem;
+    overflow-y: auto;
+}
+.scrollable-container::-webkit-scrollbar {
+    width: 8px; /* Ширина скроллбара */
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+    background: #4e4e4e2c; /* Цвет бегунка */
+    border-radius: 8px; /* Закругление бегунка */
+}
+
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+    background: #4e4e4ea4; /* Цвет бегунка при наведении */
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Цвет трека */
+}
       
 @media (max-width: 1024px) {
     .img{

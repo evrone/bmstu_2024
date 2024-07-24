@@ -16,6 +16,11 @@ class HomeController < ApplicationController
     @data_attributes = {
       challenge: pkce_challenge.code_challenge, state: session.id.public_id
     }.to_json
+    #if user_sign_in?
+      #if user.update_metrics_needed?
+        #user.update_metrics
+      #end 
+    #end
   end
 
   def auth

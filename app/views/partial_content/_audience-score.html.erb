@@ -21,12 +21,11 @@
                         <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2410_5728" result="shape"></feBlend>
                       </filter>
                     </defs>
-                  </svg>
-                  <div>
-                    <p class="score">10.0<br>
-                      <span class="spangrey"><%= t '.audience' %></span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
+    </svg>
+    <div>
+      <p class="score"><%= current_user&.metric.audience_score %> <br>
+        <span class="spangrey"><%= t '.audience' %></span>
+      </p>
+    </div>
+  </div>
+</div>
