@@ -8,7 +8,7 @@ class CreatePosts < ActiveRecord::Migration[7.1]
       t.text :image_url
       t.integer 'likes', array: true
       t.integer 'comments', array: true
-      t.integer :engagement_rate, null: true, default: nil
+      t.integer :engagement_score, null: true, default: nil
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

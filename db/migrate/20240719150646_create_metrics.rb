@@ -7,10 +7,10 @@ class CreateMetrics < ActiveRecord::Migration[7.1]
       t.integer :target_likes
       t.integer :average_comments
       t.integer :target_comments
-      t.integer :comments_likes_ratio
-      t.integer :target_comments_likes_ratio
+      t.string :comments_likes_ratio
+      t.string :target_comments_likes_ratio
       t.decimal :audience_score
-      t.integer :average_engagement_rate
+      t.integer :average_engagement_score
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
