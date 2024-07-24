@@ -26,6 +26,11 @@
             <% end %>
           </ul>
         </li>
+        <%if current_user%>
+        <li class="nav-item">
+          <%= button_to "Log out", destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger' %>
+        </li>
+        <%end%>
       </ul>
     </div>
   </div>

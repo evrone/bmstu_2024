@@ -3,8 +3,8 @@ SHELL=/bin/sh
 UID := $(shell id -u)
 GID := $(shell id -g)
 
-include .env
-export
+# include .env
+# export
 
 setup: build db-prepare
 

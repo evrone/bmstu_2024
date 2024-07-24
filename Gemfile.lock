@@ -370,7 +370,10 @@ DEPENDENCIES
   jbuilder
   pg (~> 1.1)
   pkce_challenge
+  public_suffix
   puma (>= 5.0)
+  rack
+  rack-session
   rails (~> 7.1.3, >= 7.1.3.4)
   rails_performance
   rubocop (~> 1.65)

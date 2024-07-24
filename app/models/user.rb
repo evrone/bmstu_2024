@@ -3,8 +3,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  validates :user_id, uniqueness: true
+  devise :database_authenticatable, :rememberable
 
   has_one :metric, dependent: :destroy
 
@@ -55,5 +55,39 @@ class User < ApplicationRecord
     post_metrics_have_nil = posts.map { |post| post.engagement_score.nil? }.any?
 
     metrics_have_nil || post_metrics_have_nil
+  end
+
+  def password_required?
+    new_record? ? false : super
+    false
+  end
+
+  def email_required?
+    false
+  end
+
+  def self.needs_refresh_token?(user)
+    Time.now > user.access_token_expiration_time
+  end
+
+  def self.user_create(response) # rubocop:disable Metrics/AbcSize
+    user = User.find_or_create_by(user_id: response['user_id']) do |u|
+      u.access_token = response['access_token']
+      u.refresh_token = response['refresh_token']
+      u.user_device_id = response['device_id']
+      u.access_token_expiration_time = Time.current + response['expires_in']
+      u.user_state = response['state']
+    end
+    if user.persisted?
+      user.update(access_token: response['access_token'], refresh_token: response['refresh_token'],
+                  access_token_expiration_time: Time.current + response['expires_in'],
+                  user_device_id: response['device_id'],
+                  user_state: response['state'])
+    end
+    user
+  end
+
+  def link_friends(friends_array)
+    self.friends = friends_array
   end
 end
