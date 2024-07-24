@@ -1,5 +1,5 @@
-# frozen_string_literal: true
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 # A sample pre-deploy hook
 #
@@ -28,7 +28,7 @@ require 'jwt'
 require 'json'
 require 'time'
 
-KEY_FILE = 'config/authorized_key.json'.freeze
+KEY_FILE = 'config/authorized_key.json'
 KEY_DATA = JSON.parse(File.read(KEY_FILE))
 KEY_ID = KEY_DATA['id']
 SERVICE_ACCOUNT_ID = KEY_DATA['service_account_id']

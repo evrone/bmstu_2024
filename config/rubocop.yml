@@ -17,6 +17,4 @@ Style/Documentation:
   Enabled: false
 
 Metrics/AbcSize:
-  Enabled: true
-  Exclude:
-    - "app/services/metrics_calculator.rb"
+  Enabled: false

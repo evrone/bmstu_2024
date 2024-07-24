@@ -15,7 +15,7 @@ servers:
       traefik.http.routers.taska_secure.entrypoints: websecure
       traefik.http.routers.taska_secure.rule: Host(`wheremylikes.com`)
       traefik.http.routers.taska_secure.tls: true
-      traefik.http.routers.taska_secure.tls.certresolver: letsencrypt
+      traefik.http.routers.taska_secure.tls.certResolver: letsencrypt
     options:
       network: "private"
 
@@ -107,8 +107,6 @@ traefik:
     certificatesResolvers.letsencrypt.acme.storage: "/letsencrypt/acme.json" # Must match the path in `volume`
     certificatesResolvers.letsencrypt.acme.httpchallenge: true
     certificatesResolvers.letsencrypt.acme.httpchallenge.entrypoint: web # Must match the role in `servers`
-    accesslog: true
-    accesslog.format: json
 
 # Configure a custom healthcheck (default is /up on port 3000)
 # healthcheck:
