@@ -42,7 +42,7 @@ class SessionsController < ApplicationController
       end
       sign_in user
       @user_is_signed_in = user_signed_in?
-      redirect_to '/sessions/view'
+      redirect_to root_path
     end
   end
 
