@@ -57,8 +57,6 @@ class User < ApplicationRecord
     metrics_have_nil || post_metrics_have_nil
   end
 
-
-
   def password_required?
     new_record? ? false : super
     false
