@@ -36,4 +36,30 @@ class SessionsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  # rubocop:disable Metrics/AbcSize
+  def index
+    if user.update_metrics_needed?
+      user.update_metrics
+      MetricsCalculator.call(user)
+
+      @metrics = {
+        friends: user.friends.count,
+        active_friends: user.active_friends.count,
+        inactive_friends: user.inactive_friends.count,
+        average_likes: user.metric.average_likes,
+        target_likes: user.metric.target_likes,
+        average_comments: user.metric.average_comments,
+        target_comments: user.metric.target_comments,
+        comments_likes_ratio: user.metric.comments_likes_ratio,
+        target_comments_likes_ratio: user.metric.target_comments_likes_ratio,
+        average_engagement_score: user.metric.average_engagement_score,
+        audience_score: user.metric.audience_score,
+        active_friends_percentage: (user.active_friends.count.to_f / user.friends.count * 100).round(2),
+        inactive_friends_percentage: (user.inactive_friends.count.to_f / user.friends.count * 100).round(2)
+      }
+    end
+    # rubocop:enable Metrics/AbcSize
+  end
 end
+# rubocop:enable Lint/NestedMethodDefinition

@@ -1,0 +1,56 @@
+      <div id="ffc-calculator__wrap">
+        <section id="ffc-header" class="container mobile-adjusted page-top mt-3">
+          <h1 style="text-align: center; font-weight: bold;"><%= t '.title' %></h1>
+          <p><%= t '.aboutCom' %></p>
+        </section>
+        <section id="ffc-calculator" class="container mobile-adjusted">
+          <div id="ffc-form" class="form-group">
+             </div>
+             </div>
+          </div>
+          <div id="ffc-result" class="card row section shadow bord m-2 m-lg-5">
+            <div class="container">
+              <div class="row row-cols-1 row-cols-lg-2  ">
+                <div class="col p-1 p-lg-4">
+            <div class="col-md-12 profile-info text-center p-2 m-auto">
+              <img class="avatar" src=<%= asset_path('example-photo1.jpg') %> alt="amoureuxdumonde">
+              <p class="username">@amoureuxdumonde</p>
+              <span class="tag tag--exceptional">
+                <%= t '.se' %>
+              </span>
+              <%= render partial: "partial_content/audience-score" %>
+              <%= render partial: "partial_content/account-stats" %>
+            </div>
+            </div>
+            <div class="col p-1 p-lg-3">
+            <div class="col-md-12 data-info text-center p-2 p-lg-3">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="card ratio-followers bord shadow">
+                    <div class="row">
+                  <%= render partial: "partial_content/ratio-followers" %>
+                  <%= render partial: "partial_content/ratio-average" %>
+                  <%= render partial: "partial_content/friends-list" %>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="col-12 col-lg-12 posts-info m-auto p-3">
+            <div class="row">
+              <div class="col-xs-12 col-md-12 posts">
+              <div class="card shadow bord">
+                <p class="card-title m-auto p-1"><%= t '.latestEng' %></p>
+                <div class="row m-auto p-1">
+                       <%= render partial: "partial_content/photo-stats" %>
+                  </div>
+                  
+              </div>
+              </div>
+              </div>
+              </div>
+            </div>
+          <div class="col-12 text-center p-2 ">
+            <p class="subtext col-md-6 m-auto p-2"><%= t '.finTitle' %></p>
+          </div>
+        </section>
+      </div>

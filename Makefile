@@ -71,9 +71,10 @@ db-reset:
 db-drop:
 	docker compose run --rm app bin/rails db:drop
 
+deploy:
+	kamal deploy
+
 ci-build:
-	bundle lock --update
-	npm install --package-lock-only 
 	docker compose build -q
 
 ci-up-healthy: db-prepare
