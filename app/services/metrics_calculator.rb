@@ -19,7 +19,7 @@ class MetricsCalculator
       metric.comments_likes_ratio = comments_likes_ratio(user)
       metric.target_comments_likes_ratio = target_comments_likes_ratio(user)
 
-      metric.average_engagement_score = average_engagement_score(user)
+      metric.average_engagement_rate = average_engagement_rate(user)
       metric.audience_score = audience_score(user)
 
       metric.save
@@ -71,16 +71,14 @@ class MetricsCalculator
     end
 
     # Computes ratio of total comments to total likes
-    # in the form "comments:likes"
     def comments_likes_ratio(user)
-      common_divisor = user.total_comments.gcd(user.total_likes)
-      return '0:0' if common_divisor.zero?
+      total_activity = user.total_comments + user.total_likes
+      return 0 if total_activity.zero?
 
-      "#{user.total_comments / common_divisor}:#{user.total_likes / common_divisor}"
+      (user.total_comments.to_f / total_activity * 100).round
     end
 
     # Computes target ratio of total comments to total likes
-    # in the form "comments:likes"
     # Target number - theoretically possible with the current
     # number of followers
     def target_comments_likes_ratio(
@@ -88,34 +86,34 @@ class MetricsCalculator
       target_likes_ratio: 0.3,
       target_comments_ratio: 0.1
     )
-      target_comments = (user.total_comments * target_comments_ratio).round
-      target_likes = (user.total_likes * target_likes_ratio).round
+      target_total_comments = (user.total_comments * target_comments_ratio).round
+      target_total_likes = (user.total_likes * target_likes_ratio).round
+      target_total_activity = target_total_comments + target_total_likes
+      return 0 if target_total_activity.zero?
 
-      common_divisor = target_comments.gcd(target_likes)
-      return '0:0' if common_divisor.zero?
-
-      "#{target_comments / common_divisor}:#{target_likes / common_divisor}"
+      (target_total_comments.to_f / target_total_activity * 100).round
     end
 
-    # Calculates engagement score for a single post
-    # Engagement score - average activity shown by each user
-    def engagement_score(post, engagement_score_factor: 100)
+    # Calculates engagement rate for a single post
+    # Engagement rate - average activity shown by each user
+    def engagement_rate(post)
       return 0 if post.user.friends.empty?
 
-      ((post.likes.size + post.comments.size).to_f / post.user.friends.size * engagement_score_factor).round
+      engagement_rate = ((post.likes.size + post.comments.size).to_f / post.user.friends.size * 100).round
+      [engagement_rate, 100].min
     end
 
-    # Computes average engagement score of posts
-    def average_engagement_score(user)
+    # Computes average engagement rate of posts
+    def average_engagement_rate(user)
       return 0 if user.posts.empty?
 
       user.posts.each do |post|
-        post.engagement_score = engagement_score(post)
+        post.engagement_rate = engagement_rate(post)
         post.save
       end
 
-      total_engagement_score = user.posts.sum(&:engagement_score)
-      (total_engagement_score / user.posts.size).round
+      total_engagement_rate = user.posts.sum(&:engagement_rate)
+      (total_engagement_rate / user.posts.size).round
     end
 
     # Computes audience score based on the ratio of active friends

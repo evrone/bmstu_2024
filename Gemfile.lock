@@ -177,7 +177,6 @@ GEM
     marcel (1.0.4)
     matrix (0.4.2)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.7)
     minitest (5.24.1)
     msgpack (1.7.2)
     multi_xml (0.6.0)
@@ -194,7 +193,13 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.3)
-    nokogiri (1.16.6-x64-mingw-ucrt)
+    nokogiri (1.16.6-aarch64-linux)
+      racc (~> 1.4)
+    nokogiri (1.16.6-arm-linux)
+      racc (~> 1.4)
+    nokogiri (1.16.6-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.16.6-x86-linux)
       racc (~> 1.4)
     nokogiri (1.16.6-x86_64-darwin)
       racc (~> 1.4)
@@ -298,7 +303,6 @@ GEM
       tilt
     selectize-rails (0.12.6)
     selenium-webdriver (4.23.0)
-    selenium-webdriver (4.23.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -319,14 +323,11 @@ GEM
     tilt (2.4.0)
     timeout (0.4.1)
     turbo-rails (2.0.6)
-    turbo-rails (2.0.6)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2024.1)
-      tzinfo (>= 1.0.0)
     unicode-display_width (2.5.0)
     uri (0.13.0)
     warden (1.2.9)
@@ -346,8 +347,11 @@ GEM
     zeitwerk (2.6.16)
 
 PLATFORMS
-  x64-mingw-ucrt
-  x86_64-darwin-23
+  aarch64-linux
+  arm-linux
+  arm64-darwin
+  x86-linux
+  x86_64-darwin
   x86_64-linux
 
 DEPENDENCIES
@@ -380,4 +384,4 @@ RUBY VERSION
    ruby 3.2.4p170
 
 BUNDLED WITH
-   2.4.19
+   2.5.16
