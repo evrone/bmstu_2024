@@ -9,17 +9,17 @@ export
 setup: build db-prepare
 
 build:
-	sudo docker compose build
+	docker compose build
 
 deps:
 	yarn install && rm -rf ./node_modules
 	bundle install
 
 up:
-	sudo docker compose up
+	docker compose up
 
 down:
-	sudo docker compose down
+	docker compose down
 
 clear:
 	docker compose down -v --rmi all
@@ -34,19 +34,19 @@ console:
 	docker compose run --rm app bundle exec rails c
 
 yarn:
-	sudo docker compose run --rm app yarn install
+	docker compose run --rm app yarn install
 
 bundle:
-	sudo docker compose run --rm app bundle install
+	docker compose run --rm app bundle install
 
 rubocop:
-	sudo docker compose run --rm app bundle exec rubocop --config /rails/config/rubocop.yml
+	docker compose run --rm app bundle exec rubocop --config /rails/config/rubocop.yml
 
 rubocop-verbose:
-	sudo docker compose run --rm app bundle exec rubocop
+	docker compose run --rm app bundle exec rubocop
 
 rubocopA:
-	sudo docker compose run --rm app bundle exec rubocop --config /rails/config/rubocop.yml -A
+	docker compose run --rm app bundle exec rubocop --config /rails/config/rubocop.yml -A
 
 db-psql:
 	docker compose run --rm app psql -d ${POSTGRES_DB} -U ${POSTGRES_USER} -W -h db
@@ -69,15 +69,16 @@ db-reset:
 	docker compose run --rm app bin/rails db:reset
 
 db-drop:
-	sudo docker compose run --rm app bin/rails db:drop
+	docker compose run --rm app bin/rails db:drop
+
+deploy:
+	kamal deploy
 
 ci-build:
-	bundle lock --update
-	npm install --package-lock-only 
-	sudo docker compose build -q
+	docker compose build -q
 
 ci-up-healthy: db-prepare
-	sudo docker compose up -d --wait --wait-timeout 60
+	docker compose up -d --wait --wait-timeout 60
 
 ci-rubocop: rubocop
 

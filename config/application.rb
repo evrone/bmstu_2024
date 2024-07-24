@@ -30,6 +30,6 @@ module Wheremylikes
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.hosts << ENV['HOST']
-    config.hosts << 'wheremylikes.com'
+    config.hosts << 'localhost:3000'
   end
 end
