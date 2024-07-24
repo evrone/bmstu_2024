@@ -63,12 +63,6 @@ class SessionsController < ApplicationController
       }
     end
     # rubocop:enable Metrics/AbcSize
-    private
-    # rubocop:disable Lint/NestedMethodDefinition
-    def current_user
-      User.first
-      # nil
-    end
   end
 end
 # rubocop:enable Lint/NestedMethodDefinition
