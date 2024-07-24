@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/kjellberg/mrsk/validate-with-json-schema/lib/mrsk/configuration/schema.yaml
 # Name of your application. Used to uniquely configure containers.
 service: wheremylikes
 
@@ -67,16 +68,19 @@ accessories:
         - POSTGRES_USER
         - POSTGRES_PASSWORD
         - DATABASE_URL
-    port: 5432:5432
-    volumes:
+    port: 5432
+    directories:
       - postgres-data:/var/lib/postgresql/data
     options:
       network: "private"
   redis:
     image: redis:7.2-alpine
     host: 104.248.132.229
-    port: 6379:6379
-    volumes:
+    port: 6379
+    cmd: "redis-server --appendonly yes --replica-read-only no"
+    # volumes:
+    #   - redis-data:/data
+    directories:
       - redis-data:/data
     options:
       network: "private"
