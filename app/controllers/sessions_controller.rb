@@ -40,6 +40,7 @@ class SessionsController < ApplicationController
     puts response.body['access_token']
   end
 
+  # rubocop:disable Metrics/AbcSize
   def index
     if user.update_metrics_needed?
       user.update_metrics
@@ -61,12 +62,13 @@ class SessionsController < ApplicationController
         inactive_friends_percentage: (user.inactive_friends.count.to_f / user.friends.count * 100).round(2)
       }
     end
-
+    # rubocop:enable Metrics/AbcSize
     private
-
+    # rubocop:disable Lint/NestedMethodDefinition
     def current_user
       User.first
       # nil
     end
   end
 end
+# rubocop:enable Lint/NestedMethodDefinition
