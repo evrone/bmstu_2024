@@ -70,7 +70,7 @@ class User < ApplicationRecord
     Time.now > user.access_token_expiration_time
   end
 
-  def self.user_create(response) # rubocop:disable Metrics/AbcSize
+  def self.user_create(response)
     user = User.find_or_create_by(user_id: response['user_id']) do |u|
       u.access_token = response['access_token']
       u.refresh_token = response['refresh_token']

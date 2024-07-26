@@ -108,7 +108,7 @@ class Vk # rubocop:disable Metrics/ClassLength
     resp.body['response'][0]
   end
 
-  def self.get_data(user) # rubocop:disable Metrics/AbcSize
+  def self.get_data(user)
     resp = try_request(:get,
                        '/method/wall.get',
                        { access_token: user.access_token,
@@ -120,7 +120,7 @@ class Vk # rubocop:disable Metrics/ClassLength
     post_data_all = resp.body['response']['items']
     post_data_all.map do |post_data|
       like_count = post_data['likes']['count']
-      comment_count = post_data['comments']['count']
+      post_data['comments']['count']
 
       post_likers = if like_count.zero?
                       []
@@ -156,7 +156,7 @@ class Vk # rubocop:disable Metrics/ClassLength
     image_url
   end
 
-  def self.find_image_from_media(media) # rubocop:disable Metrics/AbcSize
+  def self.find_image_from_media(media)
     case media['type']
     when 'photo'
       return find_image_of_size(media['photo']['sizes'])
