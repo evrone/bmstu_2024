@@ -6,8 +6,6 @@ class Post < ApplicationRecord
   validates :vk_uid, presence: true, uniqueness: true
 
   def self.from_vk(payload, owner)
-    puts 'PAYLOAD!!!'
-    puts payload
     existing_post = find_or_create_by(vk_uid: payload[:post_id]) do |post|
       # post.vk_uid = payload[:post_id],
       post.date =  payload[:date],

@@ -7,14 +7,14 @@
             <div class="row scrollable-container">
                 <% current_user.inactive_friends.each do |friend|%>
                    <div class="col-3 m-auto p-3">
-                    <div class=" friends-avatars " style="background-image: url(/assets/example-photo2-d53d82e7abf82686affbc8e98771b680679704071c2fd898f3c0007cd53b2e5d.jpg);"></div>
-                </div>
-                <div class="col-9 pt-3 m-auto text-start">
-                    <a href="https://vk.com/<%= friend.vk_uid%>"><%= friend.first_name%> <%= friend.last_name%></a>
-                </div>  
-                <hr>
-                <%end%>     
+                        <%= image_tag (friend.image_url || 'example-photo2.jpg'), class: 'friends-avatars' %>
+                    </div>
+                    <div class="col-9 pt-3 m-auto text-start">
+                        <a href="https://vk.com/<%= friend.vk_uid%>"><%= friend.first_name%> <%= friend.last_name%></a>
+                    </div>
+                    <hr>
+                <%end%>
             </div>
-        </div>   
+        </div>
     </div>
 </div>

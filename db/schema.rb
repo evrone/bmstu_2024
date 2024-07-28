@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_240_724_080_223) do
+ActiveRecord::Schema[7.1].define(version: 20_240_728_113_624) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -80,6 +80,8 @@ ActiveRecord::Schema[7.1].define(version: 20_240_724_080_223) do
     t.datetime 'access_token_expiration_time'
     t.string 'user_device_id'
     t.string 'user_state'
+    t.string 'image_url'
+    t.string 'username'
   end
 
   add_foreign_key 'metrics', 'users'

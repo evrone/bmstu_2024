@@ -13,8 +13,8 @@
               <div class="row row-cols-1 row-cols-lg-2  ">
                 <div class="col p-1 p-lg-4">
             <div class="col-md-12 profile-info text-center p-2 m-auto">
-              <img class="avatar" src=<%= asset_path('example-photo1.jpg') %> alt="amoureuxdumonde">
-              <p class="username">@amoureuxdumonde</p>
+              <%= image_tag (current_user&.image_url || 'example-photo1.jpg'), class: 'avatar' %>
+              <p class="username"><%= current_user&.username || '@amoureuxdumonde' %></p>
               <span class="tag tag--exceptional">
                 <%= t '.se' %>
               </span>
@@ -43,7 +43,7 @@
                 <div class="row m-auto p-1">
                        <%= render partial: "partial_content/photo-stats" %>
                   </div>
-                  
+
               </div>
               </div>
               </div>

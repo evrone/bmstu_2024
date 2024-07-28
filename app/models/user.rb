@@ -66,28 +66,45 @@ class User < ApplicationRecord
     false
   end
 
-  def self.needs_refresh_token?(user)
-    Time.now > user.access_token_expiration_time
+  def needs_refresh_token?
+    Time.now > access_token_expiration_time
   end
 
-  def self.user_create(response)
-    user = User.find_or_create_by(user_id: response['user_id']) do |u|
-      u.access_token = response['access_token']
-      u.refresh_token = response['refresh_token']
-      u.user_device_id = response['device_id']
-      u.access_token_expiration_time = Time.current + response['expires_in']
-      u.user_state = response['state']
+  def self.user_create(payload)
+    puts 'payloadEEE'
+    puts payload
+    user = User.find_or_create_by(user_id: payload['user_id']) do |u|
+      u.access_token = payload['access_token']
+      u.refresh_token = payload['refresh_token']
+      u.user_device_id = payload[:deviceid]
+      u.access_token_expiration_time = Time.current + payload['expires_in']
+      u.user_state = payload['state']
+      u.username = payload['domain']
+      u.image_url = payload['photo_200']
     end
     if user.persisted?
-      user.update(access_token: response['access_token'], refresh_token: response['refresh_token'],
-                  access_token_expiration_time: Time.current + response['expires_in'],
-                  user_device_id: response['device_id'],
-                  user_state: response['state'])
+      user.update(access_token: payload['access_token'], refresh_token: payload['refresh_token'],
+                  access_token_expiration_time: Time.current + payload['expires_in'],
+                  user_device_id: payload[:deviceid],
+                  user_state: payload['state'],
+                  username: payload['domain'],
+                  image_url: payload['photo_200'])
     end
     user
   end
 
   def link_friends(friends_array)
     self.friends = friends_array
+  end
+
+  def valid_access_token
+    return access_token unless needs_refresh_token?
+
+    payload = Vk.refresh_usertokens(refresh_token, user_device_id, user_state)
+    update(access_token: payload['access_token'], refresh_token: payload['refresh_token'],
+           access_token_expiration_time: Time.current + payload['expires_in'],
+           user_device_id: payload['device_id'],
+           user_state: payload['state'])
+    payload['access_token']
   end
 end

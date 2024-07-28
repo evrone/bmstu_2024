@@ -10,11 +10,13 @@ class SessionsController < ApplicationController
     render :new
   end
 
-  def create # rubocop:disable Metrics/AbcSize
+  def create
     unless user_signed_in?
       response = Vk.exchange_code(params['code'], session[:code_verifier], params['device_id'], params['state'])
+      user_info = Vk.get_user_info(response['access_token'])
+      payload = response.merge(user_info).merge({ deviceid: params['device_id'] })
       # поиск пользователя или создание его
-      user = User.user_create(response.merge({ deviceid: params['device_id'], state: params['state'] }))
+      user = User.user_create(payload)
       user.link_friends(Vk.get_friends(user).map { |h| Friend.from_vk h })
       Vk.get_data(user).map { |h| Post.from_vk h, user }
       MetricsCalculator.call user
@@ -23,7 +25,7 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  def view # rubocop:disable Metrics/AbcSize
+  def view
     if user_signed_in?
       if User.needs_refresh_token?(current_user)
         response_from_refresh = Vk.refresh_usertokens(current_user.refresh_token, current_user.user_device_id,
@@ -60,7 +62,5 @@ class SessionsController < ApplicationController
       active_friends_percentage: (user.active_friends.count.to_f / user.friends.count * 100).round(2),
       inactive_friends_percentage: (user.inactive_friends.count.to_f / user.friends.count * 100).round(2)
     }
-
-    # rubocop:enable Metrics/AbcSize
   end
 end
